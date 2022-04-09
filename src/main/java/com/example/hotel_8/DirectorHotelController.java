@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -90,6 +92,14 @@ public class DirectorHotelController {
 
     @FXML
     void initialize() {
+        titlename.setText(Data_work.name);
+
+        LocalDate last = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());
+        if(LocalDate.now().equals(last)){
+            Data_work.update_finances();
+        }else{
+            System.out.println("wait" + last +" " +  LocalDate.now());
+        }
 
         financesload.setVisible(false);
 
@@ -273,6 +283,26 @@ public class DirectorHotelController {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorClients.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
+        profile.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("directorProfile.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
