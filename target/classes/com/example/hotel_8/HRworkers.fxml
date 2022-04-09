@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #DAF7DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.HRWorkersController">
+    <children>
+        <AnchorPane prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #9EE493;">
+            <children>
+                <Button fx:id="Logout" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="55.0" layoutY="622.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Log out" textFill="#494947">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            <Text fx:id="titlename" layoutX="38.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="applications" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="51.0" layoutY="142.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Applications" textFill="#494947">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="Profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="51.0" layoutY="315.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Profile" textFill="#494947">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="Workers" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="51.0" layoutY="228.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Workers" textFill="#494947">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            </children>
+        </AnchorPane>
+        <TableView fx:id="list" layoutX="338.0" layoutY="194.0" prefHeight="484.0" prefWidth="902.0">
+            <columns>
+                <TableColumn fx:id="name" prefWidth="231.0" text="Name" />
+                <TableColumn fx:id="passport" prefWidth="151.0" text="Passport" />
+                <TableColumn fx:id="salary" prefWidth="121.0" text="Salary" />
+                <TableColumn fx:id="post" prefWidth="211.0" text="Post" />
+                <TableColumn fx:id="email" minWidth="0.0" prefWidth="187.0" text="Email" />
+            </columns>
+        </TableView>
+        <TextField fx:id="searchText" layoutX="338.0" layoutY="100.0" prefHeight="42.0" prefWidth="314.0" />
+        <Text layoutX="351.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Button fx:id="search" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="664.0" layoutY="100.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="56.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="l" textFill="#494947">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+    </children>
+</AnchorPane>

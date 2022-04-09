@@ -1,0 +1,41 @@
+#SignInBut {
+    transition-duration: 0.4s;
+}
+
+#SignInBut:hover {
+    -fx-background-color:  #B76D68; /* Green */
+    -fx-text-fill: white;
+}
+#idAdminHome:hover {
+    -fx-background-color:  #B76D68; /* Green */
+    -fx-text-fill: white;
+}
+
+.root { -fx-focus-color: transparent; }
+
+
+#idHotels {
+    -fx-font-size: 24px;
+}
+
+#idHotels .list-cell
+{
+    -fx-background: #ffffff;
+    -fx-background-radius: 10px;
+}
+
+#idHotels:hover
+{
+    -fx-background-color: #B76D68;
+    -fx-text-fill: white;
+}
+#idHotels .arrow{
+    -fx-background-color: #994f1f;
+}
+#idHotels .list-view{
+    -fx-background-radius: 10px;
+}
+
+
+
+
