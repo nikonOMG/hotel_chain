@@ -92,6 +92,7 @@ public class DirectorClientsController {
 
     @FXML
     void initialize() {
+        titlename.setText(Data_work.name);
 
         try {
             Date date = Date.valueOf(LocalDate.now());
@@ -216,6 +217,26 @@ public class DirectorClientsController {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorWorkers.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
+        profile.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("directorProfile.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

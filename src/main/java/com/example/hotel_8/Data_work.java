@@ -985,7 +985,21 @@ public class Data_work extends SQLException {
         return 0;
     }
 
+    public static void update_finances(){
+            try {
+                Statement st = conn.createStatement();
+                String query = "UPDATE Hotels Set Finances = '" + getFinances() + "' WHERE HotelID = " + hotelID;
+                System.out.println(query);
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.executeUpdate();
 
+                query = "update Workers Set Loss = 0 where HotelID = " + hotelID;
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+    }
 
     public static boolean changePassword(String oldPas, String newPas, String conNewPas) throws SQLException, ClassNotFoundException{
         if(oldPas.equals(password) && newPas.equals(conNewPas) && !newPas.equals(oldPas)) {
