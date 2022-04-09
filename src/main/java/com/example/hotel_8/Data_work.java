@@ -8,6 +8,7 @@ import java.sql.*;
 import java.sql.Date;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class Data_work extends SQLException {
@@ -446,7 +447,8 @@ public class Data_work extends SQLException {
             // iterate through the java resultset
             System.out.println(query);
             while(rs.next()) {
-                finances = rs.getInt("Finances");
+                System.out.println("profit " + getProfit(String.valueOf(LocalDate.now().getMonth())));
+                finances = rs.getInt("Finances") - getLoss(String.valueOf(LocalDate.now().getMonth())) + getProfit(String.valueOf(LocalDate.now().getMonth()));
                 System.out.println(finances);
             }
             return finances;
@@ -566,6 +568,55 @@ public class Data_work extends SQLException {
         return 0;
     }
 
+    public static void setLoss(String month){
+        try {
+            Statement st = conn.createStatement();
+            String query = "UPDATE Loss Set "+ month +" = '" + getLossNow() + "' WHERE Loss.HotelID = " + hotelID;
+            System.out.println(query);
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static int getLossNow(){
+        int loss = 0;
+        try
+        {
+            String query = "SELECT Salary FROM Workers WHERE Workers.HotelID = " + hotelID;
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            System.out.println(query);
+            while(rs.next()) {
+                loss += rs.getInt("Salary");
+            }
+
+            query = "Select Loss from Workers where HotelID = " + hotelID + " or HotelID = 0";
+
+            rs = st.executeQuery(query);
+
+            System.out.println(query);
+            while(rs.next()) {
+                loss += rs.getInt("Loss");
+            }
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return loss;
+    }
+
+
     public static int getProfit(String month){
         try
         {
@@ -589,6 +640,57 @@ public class Data_work extends SQLException {
             System.err.println(e.getMessage());
         }
         return 0;
+    }
+
+    public static void setProfit(String month){
+        try {
+            Statement st = conn.createStatement();
+            String query = "UPDATE Profit Set "+ month +" = '" + getProfitNow() + "' WHERE Profit.HotelID = " + hotelID;
+            System.out.println(query);
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static int getProfitNow(){
+        int profit = 0;
+        try
+        {
+            String query = "select Amount from Clients where CheckInTime between '" + LocalDate.now().withDayOfMonth(1) + "' and '" + LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth()) + "'";
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            System.out.println(query);
+            while(rs.next()) {
+                profit += rs.getInt("Amount");
+                System.out.println("cc " + profit);
+            }
+
+            query = "Select Price from monetary_fine where HotelID = " + hotelID + " and monetary_fine.Date between '" + LocalDate.now().withDayOfMonth(1) + "' and '" + LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth()) + "'";
+
+            rs = st.executeQuery(query);
+
+            System.out.println(query);
+            while(rs.next()) {
+                profit += rs.getInt("Price");
+                System.out.println("cc " + profit);
+
+            }
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return profit;
     }
 
 
@@ -746,7 +848,7 @@ public class Data_work extends SQLException {
             Date date = Date.valueOf(LocalDate.now());
 //            String query = "UPDATE Rooms Set isAvailable = 1 WHERE '" + date + "' not between Clients.CheckInTime and Clients.CheckOutTime";
 
-            String query2 = "select Name from Clients where '" + date + "' not between Clients.CheckInTime and Clients.CheckOutTime";
+            String query2 = "select Name from Clients where '" + date + "' > Clients.CheckOutTime";
 
             ResultSet rs2 = st.executeQuery(query2);
 
@@ -975,8 +1077,8 @@ public class Data_work extends SQLException {
             List<String> list = new ArrayList<String>(Arrays.asList(room.split(" ")));
             System.out.println(list);
 
-            String query = " insert into Clients (HotelID, Name, Fullname, Passport, DateOfBirth, CheckInTime, CheckOutTime)"
-                    + " values (?, ?, ?, ?, ?, ?, ?)";
+            String query = " insert into Clients (HotelID, Name, Fullname, Passport, DateOfBirth, CheckInTime, CheckOutTime, Amount)"
+                    + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -987,6 +1089,8 @@ public class Data_work extends SQLException {
             preparedStmt.setDate(5, Date.valueOf(dob));
             preparedStmt.setDate(6, Date.valueOf(intime));
             preparedStmt.setDate(7, Date.valueOf(outtime));
+            System.out.println("cost " + list.get(0));
+            preparedStmt.setInt(8, ((int) ChronoUnit.DAYS.between(intime, outtime) )* Data_work.getCost(room));
 
             // execute the preparedstatement
             preparedStmt.execute();

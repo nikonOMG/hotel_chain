@@ -10,6 +10,7 @@ module com.example.hotel_8 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires json.simple;
+    requires itextpdf;
     requires java.mail;
 
 
