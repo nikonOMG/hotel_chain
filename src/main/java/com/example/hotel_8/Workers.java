@@ -1,13 +1,25 @@
 package com.example.hotel_8;
 
 public class Workers {
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    int id;
     String name;
     String passport;
     int salary;
     String post;
     String email;
 
-    public Workers(String name, String passport, int salary, String post, String email) {
+    public Workers(int id, String name, String passport, int salary, String post, String email) {
+        this.id = id;
         this.name = name;
         this.passport = passport;
         this.salary = salary;

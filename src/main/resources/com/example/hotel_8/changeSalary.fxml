@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.ChangeSalaryController">
+   <children>
+      <ComboBox fx:id="workers" layoutX="170.0" layoutY="77.0" prefHeight="33.0" prefWidth="261.0" />
+      <TextField fx:id="salary" layoutX="170.0" layoutY="227.0" prefHeight="33.0" prefWidth="261.0" />
+      <Text layoutX="23.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Salary" />
+      <Text layoutX="177.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Worker:" />
+      <Text layoutX="181.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary:" />
+      <Button fx:id="save" layoutX="236.0" layoutY="325.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="129.0" text="Save" />
+   </children>
+</AnchorPane>

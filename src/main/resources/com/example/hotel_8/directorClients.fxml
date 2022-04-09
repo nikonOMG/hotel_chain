@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="workerinfo" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="315.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Worker info" textFill="#494947">
+            <Button fx:id="Client_list" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="316.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Client list" textFill="#494947">
                <font>
                   <Font size="28.0" />
                </font>
@@ -50,15 +50,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="Client_list" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="403.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Client list" textFill="#494947">
-               <font>
-                  <Font size="28.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="491.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Profile" textFill="#494947">
+            <Button fx:id="profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="397.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Profile" textFill="#494947">
                <font>
                   <Font size="28.0" />
                </font>

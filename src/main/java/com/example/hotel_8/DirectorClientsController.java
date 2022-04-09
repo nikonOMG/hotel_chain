@@ -189,25 +189,25 @@ public class DirectorClientsController {
             }
         });
 
-        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
-                try {
-                    root = FXMLLoader.load(getClass().getResource("directorWorkerInfo.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                scene.getStylesheets().add("style.css");
-                stage.setScene(scene);
-                stage.show();
-
-
-            }
-        });
+//        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+//
+//            @Override
+//            public void handle(MouseEvent event) {
+////                                    SignInBut.getScene().getWindow().hide();
+//                try {
+//                    root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//                scene = new Scene(root);
+//                scene.getStylesheets().add("style.css");
+//                stage.setScene(scene);
+//                stage.show();
+//
+//
+//            }
+//        });
 
         workers.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
