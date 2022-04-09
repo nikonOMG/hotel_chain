@@ -159,6 +159,46 @@ public class Data_work extends SQLException {
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
 
+            query = "SELECT WorkerID, Fullname, Post FROM Workers Where Workers.HotelID = " + hotelID;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String idd = rs.getString("WorkerID");
+                String Name = rs.getString("Fullname");
+                String POST = rs.getString("Post");
+                name_hotels.add(idd + " " +  Name + " " + POST);
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return name_hotels;
+    }
+
+    public static ArrayList<String> getWorkerswithoutDirector() {
+        ArrayList<String> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
             query = "SELECT WorkerID, Fullname, Post FROM Workers Where Workers.HotelID = " + hotelID + " and Post != \"Director\" and Post != \"Admin\"";
 
             // create the java statement
@@ -185,6 +225,7 @@ public class Data_work extends SQLException {
         }
         return name_hotels;
     }
+
 
     public static ResultSet getWorkerInfo(String iddd) {
         ArrayList<String> name_hotels = new ArrayList<>();
@@ -229,6 +270,50 @@ public class Data_work extends SQLException {
         }
         return null;
     }
+
+    public static ResultSet getWorkerSalary(String iddd) {
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT Salary FROM Workers Where Workers.HotelID = " + hotelID + " and Workers.WorkerID = " + iddd;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+//            while (rs.next())
+//            {
+////                String Name = rs.getString("Fullname");
+////                String Passport = rs.getString("Passport");
+////                String Salary = rs.getString("Salary");
+////                String Login = rs.getString("Login");
+////                String Email = rs.getString("Email");
+////                String Password = rs.getString("Password");
+////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
+//
+//            }
+            return rs;
+
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
 
 
     public static boolean sign_in(String log, String pass, String hotel){
@@ -838,6 +923,23 @@ public class Data_work extends SQLException {
         }
 
     }
+
+    public static void changeWorkerSalary(int idd, int salary) throws SQLException, ClassNotFoundException{
+        try {
+            Statement st = conn.createStatement();
+            String query = "UPDATE Workers Set Salary = ? where WorkerID = ?";
+            System.out.println(query);
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt(1,salary);
+            preparedStmt.setInt(2, idd);
+
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public static void update_attendance(int idd, Date date, String radio) throws SQLException, ClassNotFoundException{
         try {

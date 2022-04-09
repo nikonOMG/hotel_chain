@@ -103,7 +103,7 @@ public class DirectorWorkersController {
     @FXML
     void initialize() {
         fuckoff.setDisable(true);
-        changesalary.setDisable(true);
+//        changesalary.setDisable(true);
 
 
 
@@ -193,7 +193,7 @@ public class DirectorWorkersController {
             if (newSelection != null) {
                 System.out.println("bb");
                 fuckoff.setDisable(false);
-                changesalary.setDisable(false);
+//                changesalary.setDisable(false);
 //                list.getSelectionModel().clearSelection();
             }else{
                 System.out.println("ff");
@@ -205,7 +205,7 @@ public class DirectorWorkersController {
         public void handle(MouseEvent e) {
             list.getSelectionModel().clearSelection();
             fuckoff.setDisable(true);
-            changesalary.setDisable(true);
+//            changesalary.setDisable(true);
         }
         });
 
@@ -410,6 +410,70 @@ public class DirectorWorkersController {
             }
         });
 
+        changesalary.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeSalary.fxml"));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("ABC");
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+
+                    stage.setOnHiding(new EventHandler<WindowEvent>() {
+
+                        @Override
+                        public void handle(WindowEvent event) {
+                            Platform.runLater(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    list.getItems().clear();
+
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                if(searchText.getText().equals(""))
+                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
+                                                else
+                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                                                while (rs.next()){
+                                                    oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
+                                                }
+                                            } catch (SQLException e) {
+                                                e.printStackTrace();
+                                            }
+
+                                            name.setCellValueFactory(new PropertyValueFactory<>("name"));
+                                            passport.setCellValueFactory(new PropertyValueFactory<>("passport"));
+                                            salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+                                            post.setCellValueFactory(new PropertyValueFactory<>("post"));
+                                            email.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+                                            list.setItems(oblist);
+                                        }
+                                    }).start();
+                                }
+                            });
+                        }
+                    });
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
     }
 
-}
+    }
+
+
+
+
