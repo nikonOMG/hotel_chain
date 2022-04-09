@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #DAF7DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.DirectorWorkersController">
+<AnchorPane fx:id="back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #DAF7DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.DirectorWorkersController">
     <children>
         <AnchorPane prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #9EE493;">
             <children>
@@ -91,6 +91,11 @@
          </cursor>
       </Button>
       <Button fx:id="changesalary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="889.0" layoutY="131.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Change salary" textFill="#494947">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="attendance" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="889.0" layoutY="53.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Attendance" textFill="#494947">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
