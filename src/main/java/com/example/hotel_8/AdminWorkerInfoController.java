@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -20,9 +18,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
-public class DirectorWorkerInfoController {
+public class AdminWorkerInfoController {
     private Stage stage;
     private Scene scene;
     private Parent root;
