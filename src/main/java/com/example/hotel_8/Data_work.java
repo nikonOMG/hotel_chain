@@ -227,6 +227,123 @@ public class Data_work extends SQLException {
         return name_hotels;
     }
 
+    public static ArrayList<String> getView() {
+        ArrayList<String> view = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "select Name from Сlassification_of_rooms Where Type = 'View'";
+            System.out.println(query);
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String idd = rs.getString("Name");
+                view.add(idd);
+
+            }
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return view;
+    }
+
+    public static ArrayList<String> getSize() {
+        ArrayList<String> view = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "select Name from Сlassification_of_rooms Where Type = 'Basic'";
+            System.out.println(query);
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String idd = rs.getString("Name");
+                view.add(idd);
+
+            }
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return view;
+    }
+
+    public static ArrayList<String> getType() {
+        ArrayList<String> view = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "select Name from Сlassification_of_rooms Where Type = 'Comfort'";
+            System.out.println(query);
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String idd = rs.getString("Name");
+                view.add(idd);
+
+            }
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return view;
+    }
+
+
+
+
 
     public static ResultSet getWorkerInfo(String iddd) {
         ArrayList<String> name_hotels = new ArrayList<>();
@@ -285,6 +402,49 @@ public class Data_work extends SQLException {
             // if you only need a few columns, specify them by name instead of using "*"
 
             query = "SELECT Salary FROM Workers Where Workers.HotelID = " + hotelID + " and Workers.WorkerID = " + iddd;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+//            while (rs.next())
+//            {
+////                String Name = rs.getString("Fullname");
+////                String Passport = rs.getString("Passport");
+////                String Salary = rs.getString("Salary");
+////                String Login = rs.getString("Login");
+////                String Email = rs.getString("Email");
+////                String Password = rs.getString("Password");
+////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
+//
+//            }
+            return rs;
+
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public static ResultSet getHotelinfo() {
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT * FROM Hotels Where HotelID = " + hotelID;
 
             // create the java statement
             Statement st = conn.createStatement();
@@ -953,6 +1113,51 @@ public class Data_work extends SQLException {
 
     }
 
+    public static boolean addNewRoom(int number, int price ,String size, String view, String type, boolean extrabed, boolean child){
+
+        try {
+
+
+
+            String query = " insert into Rooms (HotelID, Price, Size, Extra_bed, Child, Type, View, Name)"
+                    + " values (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            // create the mysql insert preparedstatement
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt(1, hotelID);
+            preparedStmt.setInt(2, price);
+            preparedStmt.setString(3, size);
+            if(extrabed)
+                preparedStmt.setInt(4, 1);
+            else
+                preparedStmt.setInt(4, 0);
+            if(child)
+                preparedStmt.setInt(5, 1);
+            else
+                preparedStmt.setInt(5, 0);
+            preparedStmt.setString(6, type);
+            preparedStmt.setString(7, view);
+            preparedStmt.setInt(8, number);
+
+            // execute the preparedstatement
+            preparedStmt.execute();
+
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+//        fixID(conn, "Hotels");
+        // our SQL SELECT query.
+        // if you only need a few columns, specify them by name instead of using "*"
+        return false;
+
+    }
+
 
     public static int getWorkerId(String passport){
         try
@@ -1039,6 +1244,28 @@ public class Data_work extends SQLException {
         }
 
     }
+
+    public static void changeHotel(String name, String address, int stars, int finances) throws SQLException, ClassNotFoundException{
+        try {
+            Statement st = conn.createStatement();
+            String query = "UPDATE Hotels Set Name = ?, Address = ?, Stars = ?, Finances = ? where HotelID = ?";
+            System.out.println(query);
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1,name);
+            preparedStmt.setString(2, address);
+            preparedStmt.setInt(3, stars);
+            preparedStmt.setInt(4, finances);
+            preparedStmt.setInt(5, hotelID);
+
+
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
     public static void changeWorkerSalary(int idd, int salary) throws SQLException, ClassNotFoundException{
         try {
