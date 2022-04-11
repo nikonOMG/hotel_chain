@@ -11,6 +11,7 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -21,6 +22,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class AdminHotelController {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private ResourceBundle resources;
@@ -158,6 +162,26 @@ public class AdminHotelController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+
+            }
+        });
+
+        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
 
 
             }

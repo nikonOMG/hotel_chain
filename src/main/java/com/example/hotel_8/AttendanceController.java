@@ -78,7 +78,7 @@ public class AttendanceController {
 
 
         attendance.setValue(LocalDate.now());
-        workerlist.getSelectionModel().selectFirst();
+        workerlist.getSelectionModel().select(1);
         calendarPane.getChildren().add(new FullCalendarView(YearMonth.now(), Integer.parseInt(workerlist.getValue().split(" ")[0])).getView());
 
 
