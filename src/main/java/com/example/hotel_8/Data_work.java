@@ -32,7 +32,7 @@ public class Data_work extends SQLException {
         try {
             myDriver = "com.mysql.cj.jdbc.Driver";
             Class.forName(myDriver);
-            conn = DriverManager.getConnection("jdbc:mysql://bcalydbu3z2fxht2xnnd-mysql.services.clever-cloud.com:3306/bcalydbu3z2fxht2xnnd", "uy0pllhi16asmquc", "N2BCPexKg09xUxUEjP4f");
+            conn = DriverManager.getConnection("jdbc:mysql://bcalydbu3z2fxht2xnnd-mysql.services.clever-cloud.com:3306/bcalydbu3z2fxht2xnnd", "uy0pllhi16asmquc", "aiMfsx2EM5VcOUR1TFS3");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -186,6 +186,47 @@ public class Data_work extends SQLException {
         }
         return name_hotels;
     }
+
+    public static ArrayList<String> getClients() {
+        ArrayList<String> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT ClientID, Fullname, Name FROM Clients Where HotelID = " + hotelID  + " and '" + LocalDate.now() + "' between Clients.CheckInTime and Clients.CheckOutTime";
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String idd = rs.getString("ClientID");
+                String Name = rs.getString("Fullname");
+                String POST = rs.getString("Name");
+                name_hotels.add(idd + " " +  Name + " " + POST);
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return name_hotels;
+    }
+
 
     public static ArrayList<String> getWorkerswithoutDirector() {
         ArrayList<String> name_hotels = new ArrayList<>();
@@ -345,7 +386,7 @@ public class Data_work extends SQLException {
 
 
 
-    public static ResultSet getWorkerInfo(String iddd) {
+    public static ResultSet getClientInfo(String iddd) {
         ArrayList<String> name_hotels = new ArrayList<>();
         try
         {
@@ -358,7 +399,7 @@ public class Data_work extends SQLException {
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
 
-            query = "SELECT Fullname, Passport, Salary, Login, Email, Password FROM Workers Where Workers.HotelID = " + hotelID + " and Workers.WorkerID = " + iddd;
+            query = "SELECT Fullname, Passport, Name, DateOfBirth, CheckInTime, CheckOutTime FROM Clients Where HotelID = " + hotelID + " and ClientID = " + iddd;
 
             // create the java statement
             Statement st = conn.createStatement();
@@ -388,6 +429,51 @@ public class Data_work extends SQLException {
         }
         return null;
     }
+
+    public static ResultSet getWorkerInfo(String iddd) {
+        ArrayList<String> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT Fullname, Email, Passport, Password, Login, Salary FROM Workers Where HotelID = " + hotelID + " and WorkerID = " + iddd;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+//            while (rs.next())
+//            {
+////                String Name = rs.getString("Fullname");
+////                String Passport = rs.getString("Passport");
+////                String Salary = rs.getString("Salary");
+////                String Login = rs.getString("Login");
+////                String Email = rs.getString("Email");
+////                String Password = rs.getString("Password");
+////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
+//
+//            }
+            return rs;
+
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
 
     public static ResultSet getWorkerSalary(String iddd) {
         try
@@ -1008,12 +1094,25 @@ public class Data_work extends SQLException {
             Date date = Date.valueOf(LocalDate.now());
 //            String query = "UPDATE Rooms Set isAvailable = 1 WHERE '" + date + "' not between Clients.CheckInTime and Clients.CheckOutTime";
 
-            String query2 = "select Name from Clients where '" + date + "' > Clients.CheckOutTime";
+            String query2 = "select Name from Clients where '" + LocalDate.now() + "' > CheckOutTime";
+            System.out.println(query2);
 
             ResultSet rs2 = st.executeQuery(query2);
 
             while (rs2.next()){
                 String query3 = "update Rooms set isAvailable = 1 where Name = " + rs2.getInt("Name");
+                System.out.println("check " +query3);
+                PreparedStatement preparedStmt = conn.prepareStatement(query3);
+                preparedStmt.executeUpdate();
+            }
+
+            query2 = "select Name from Clients where '" + LocalDate.now() + "' between CheckInTime and CheckOutTime";
+
+            rs2 = st.executeQuery(query2);
+
+            while (rs2.next()){
+                String query3 = "update Rooms set isAvailable = 0 where Name = " + rs2.getInt("Name");
+                System.out.println(query3);
                 PreparedStatement preparedStmt = conn.prepareStatement(query3);
                 preparedStmt.executeUpdate();
             }
@@ -1244,6 +1343,29 @@ public class Data_work extends SQLException {
         }
 
     }
+
+    public static void changeClient(int idd, String name, String passport, int Name, LocalDate Checkin, LocalDate Checkout, LocalDate Dob) throws SQLException, ClassNotFoundException{
+        try {
+            Statement st = conn.createStatement();
+            String query = "UPDATE Clients Set Fullname = ?, Passport = ?, Name = ?, CheckInTime = ?, CheckOutTime = ?, DateOfBirth = ? where ClientID = ?";
+            System.out.println(query);
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1,name);
+            preparedStmt.setString(2, passport);
+            preparedStmt.setInt(3, Name);
+            preparedStmt.setDate(4, Date.valueOf(Checkin));
+            preparedStmt.setDate(5, Date.valueOf(Checkout));
+            preparedStmt.setDate(6, Date.valueOf(Dob));
+            preparedStmt.setInt(7, idd);
+
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
     public static void changeHotel(String name, String address, int stars, int finances) throws SQLException, ClassNotFoundException{
         try {

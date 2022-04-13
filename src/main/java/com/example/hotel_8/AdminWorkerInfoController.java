@@ -39,8 +39,6 @@ public class AdminWorkerInfoController {
     @FXML
     private TextField email;
 
-    @FXML
-    private Button fuckoff;
 
     @FXML
     private Button hotelinfo;
@@ -70,9 +68,6 @@ public class AdminWorkerInfoController {
     private Button workerinfo;
 
     @FXML
-    private Button attendance;
-
-    @FXML
     private ComboBox<String> workerlist;
 
     @FXML
@@ -83,6 +78,7 @@ public class AdminWorkerInfoController {
 
     @FXML
     void initialize() {
+        titlename.setText(Data_work.name);
 
         workerlist.setVisibleRowCount(5);
         workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
@@ -94,7 +90,7 @@ public class AdminWorkerInfoController {
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("directorWorkers.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("adminWorkers.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -114,7 +110,7 @@ public class AdminWorkerInfoController {
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("directorHotel.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("adminHotel.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -153,40 +149,6 @@ public class AdminWorkerInfoController {
 
 
 
-        fuckoff.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation Dialog");
-                alert.setHeaderText("Look, a Confirmation Dialog");
-                alert.setContentText("Are you ok with this?");
-
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK){
-                    // ... user chose OK
-                    name.clear();
-                    email.clear();
-                    passport.clear();
-                    password.clear();
-                    login.clear();
-                    salary.clear();
-
-                    Data_work.deleteWorker(workerlist.getValue().split(" ")[0]);
-                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
-                    workerlist.getSelectionModel().clearSelection();
-
-
-
-//                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
-                } else {
-                    // ... user chose CANCEL or closed the dialog
-                }
-
-
-            }
-        });
 
         save.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
@@ -217,33 +179,13 @@ public class AdminWorkerInfoController {
         });
 
 
-        attendance.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("attendance.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    Stage stage = new Stage();
-                    stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        });
-
         Client_list.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("directorClients.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("adminClientsInfo.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -283,7 +225,7 @@ public class AdminWorkerInfoController {
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("directorHotel.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("adminHotel.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -303,7 +245,29 @@ public class AdminWorkerInfoController {
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("directorWorkers.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("adminWorkers.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (NullPointerException e){
+                    System.out.println("baddd");
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
+        profile.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("adminProfile.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (NullPointerException e){
