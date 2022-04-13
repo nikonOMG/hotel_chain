@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,13 +17,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
-public class AdminHotelController {
+public class AdminClientsInfoController {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -33,34 +33,37 @@ public class AdminHotelController {
     private URL location;
 
     @FXML
+    private Button Client_list;
+
+    @FXML
     private Button Logout;
 
     @FXML
-    private Button addroom;
+    private DatePicker checkin;
 
     @FXML
-    private Spinner<Integer> finances;
+    private DatePicker checkout;
 
     @FXML
-    private TextField hoteladdress;
+    private DatePicker dateofbirth;
 
     @FXML
     private Button hotelinfo;
 
     @FXML
-    private TextField hotelname;
+    private TextField name;
+
+    @FXML
+    private TextField passport;
 
     @FXML
     private Button profile;
 
     @FXML
-    private Text roomtext;
+    private ComboBox<String> rooms;
 
     @FXML
     private Button save;
-
-    @FXML
-    private Spinner<Integer> stars;
 
     @FXML
     private Text titlename;
@@ -69,42 +72,40 @@ public class AdminHotelController {
     private Button workerinfo;
 
     @FXML
+    private ComboBox<String> workerlist;
+
+    @FXML
     private Button workers;
-
-    @FXML
-    private Text workerscount;
-
-    @FXML
-    private Button clientsinfo;
 
     @FXML
     void initialize() {
         titlename.setText(Data_work.name);
-        workerscount.setText(workerscount.getText() +" " + Data_work.getWorkers_count());
-        roomtext.setText(roomtext.getText() + " " + Data_work.getCountRooms());
+        workerlist.setVisibleRowCount(5);
+        workerlist.setItems(FXCollections.observableArrayList(Data_work.getClients()));
 
-        // Value factory.
-        SpinnerValueFactory<Integer> valueFactory = //
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 5);
+        workerlist.setOnAction(event -> {
 
-        SpinnerValueFactory<Integer> valueFactory2 = //
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 999999999);
+            try {
+                ResultSet RSinfo = Data_work.getClientInfo(workerlist.getValue().split(" ")[0]);
+                RSinfo.next();
+                name.setText(RSinfo.getString("Fullname"));
+                dateofbirth.setValue(LocalDate.parse(RSinfo.getString("DateOfBirth")));
+                passport.setText(RSinfo.getString("Passport"));
+                checkin.setValue(LocalDate.parse(RSinfo.getString("CheckInTime")));
+                checkout.setValue(LocalDate.parse(RSinfo.getString("CheckOutTime")));
+                rooms.getSelectionModel().clearSelection();
+                ObservableList room = FXCollections.observableArrayList(Data_work.get_rooms(false, false));
+                room.add(RSinfo.getString("Name"));
+                rooms.setItems(room);
+                rooms.getSelectionModel().selectLast();
 
-        try{
-            ResultSet rs = Data_work.getHotelinfo();
-            rs.next();
-            hotelname.setText(rs.getString("Name"));
-            hoteladdress.setText(rs.getString("Address"));
-            stars.setValueFactory(valueFactory);
-            stars.setEditable(true);
-            finances.setValueFactory(valueFactory2);
-            finances.setEditable(true);
-            stars.getValueFactory().setValue(rs.getInt("Stars"));
-            finances.getValueFactory().setValue(rs.getInt("Finances"));
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            } catch (SQLException e) {
+                System.out.println("bad");
+            } catch (NullPointerException e){
+                System.out.println("baad");
+            }
+        });
 
         save.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
@@ -120,7 +121,7 @@ public class AdminHotelController {
                 if (result.get() == ButtonType.OK){
                     // ... user chose OK
                     try {
-                        Data_work.changeHotel(hotelname.getText(), hoteladdress.getText(), stars.getValue(), finances.getValue());
+                        Data_work.changeClient(Integer.parseInt(workerlist.getValue().split(" ")[0]), name.getText(), passport.getText(), Integer.parseInt(rooms.getValue().split(" ")[0]), checkin.getValue(), checkout.getValue(), dateofbirth.getValue());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {
@@ -134,47 +135,33 @@ public class AdminHotelController {
             }
         });
 
-        addroom.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        Logout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addNewRoom.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    Stage stage = new Stage();
-                    stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
-                    stage.show();
-
-                    stage.setOnHiding(new EventHandler<WindowEvent>() {
-
-                        @Override
-                        public void handle(WindowEvent event) {
-                            Platform.runLater(new Runnable() {
-
-                                @Override
-                                public void run() {
-                                    roomtext.setText("Rooms: " + Data_work.getCountRooms());
-                                }
-                            });
-                        }
-                    });
+                    root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
 
 
             }
         });
 
-        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        hotelinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("adminHotel.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -210,13 +197,13 @@ public class AdminHotelController {
             }
         });
 
-        clientsinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("adminClientsInfo.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (NullPointerException e){
@@ -253,6 +240,8 @@ public class AdminHotelController {
 
             }
         });
+
+
 
     }
 
