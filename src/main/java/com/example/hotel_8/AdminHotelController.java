@@ -254,6 +254,26 @@ public class AdminHotelController {
             }
         });
 
+        Logout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
     }
 
 }

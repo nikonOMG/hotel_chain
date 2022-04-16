@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #DAF7DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.ReceptionistRegistrationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #DAF7DC;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.ReceptionistRegistrationController">
     <children>
         <AnchorPane prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #9EE493;">
             <children>
@@ -99,7 +99,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fx:id="setTextPrice" layoutX="412.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+      <Text fx:id="setTextPrice" layoutX="356.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
          <font>
             <Font size="26.0" />
          </font>
@@ -119,18 +119,32 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <CheckBox fx:id="ExtraBed" layoutX="640.0" layoutY="334.0" mnemonicParsing="false" text="Extra Bed">
+      <CheckBox fx:id="ExtraBed" layoutX="356.0" layoutY="311.0" mnemonicParsing="false" text="Extra Bed">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="Child" layoutX="788.0" layoutY="334.0" mnemonicParsing="false" text="Child">
+      <CheckBox fx:id="Child" layoutX="504.0" layoutY="311.0" mnemonicParsing="false" text="Child">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
       <TextFlow fx:id="description" layoutX="954.0" layoutY="404.0" prefHeight="200.0" prefWidth="300.0" />
       <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="692.0" layoutY="504.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Update Rooms" textFill="#494947">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ComboBox fx:id="from" layoutX="638.0" layoutY="326.0" prefHeight="46.0" prefWidth="300.0" />
+      <Text layoutX="649.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="addcounry" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="401.0" layoutY="504.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Add Counry" textFill="#494947">
          <font>
             <Font size="20.0" />
          </font>
