@@ -138,19 +138,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ComboBox fx:id="from" layoutX="638.0" layoutY="326.0" prefHeight="46.0" prefWidth="300.0" />
+      <ComboBox fx:id="country" editable="true" layoutX="638.0" layoutY="326.0" prefHeight="46.0" prefWidth="300.0" />
       <Text layoutX="649.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="addcounry" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="401.0" layoutY="504.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Add Counry" textFill="#494947">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
     </children>
 </AnchorPane>

@@ -147,6 +147,45 @@ public class Data_work extends SQLException {
         return name_hotels;
     }
 
+    public static ArrayList<String> get_Counry() {
+        ArrayList<String> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "select name, capital, continent from Countries";
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String Name = rs.getString("name");
+                String View = rs.getString("capital");
+                String Size = rs.getString("continent");
+                name_hotels.add(Name + " " + Size + " " + View);
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return name_hotels;
+    }
+
     public static ArrayList<String> getWorkers() {
         ArrayList<String> name_hotels = new ArrayList<>();
         try

@@ -37,7 +37,7 @@
         </dependency>
         <dependency>
             <groupId>com.dlsc.formsfx</groupId>
-            <artifactId>formsfx-core</artifactId>
+            <artifactId>formsfx-core</artifactId>r
             <version>11.5.0</version>
             <exclusions>
                 <exclusion>

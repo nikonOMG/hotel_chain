@@ -214,7 +214,6 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminClientsInfo.fxml"));
                 } catch (IOException e) {

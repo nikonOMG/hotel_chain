@@ -72,6 +72,9 @@ public class ReceptionistRegistrationController {
     private Button Registration;
 
     @FXML
+    private ComboBox<String> country;
+
+    @FXML
     private ComboBox<String> RoomList;
 
     @FXML
@@ -108,6 +111,11 @@ public class ReceptionistRegistrationController {
         title.setText(Data_work.name);
         RoomList.setVisibleRowCount(5);
         RoomList.setItems(FXCollections.observableArrayList(Data_work.get_rooms(ExtraBed.selectedProperty().get(), Child.selectedProperty().get())));
+
+
+        country.setVisibleRowCount(5);
+        country.setItems(FXCollections.observableArrayList(Data_work.get_Counry()));
+        new AutoCompleteBox ( country );
 
 
         ExtraBed.selectedProperty().addListener(new ChangeListener<Boolean>() {
