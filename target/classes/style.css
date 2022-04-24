@@ -1,41 +1,292 @@
-#SignInBut {
+
+/*#idAdminHome:hover {*/
+/*    -fx-background-color:  #B76D68; !* Green *!*/
+/*    -fx-text-fill: white;*/
+/*}*/
+
+/*.root { -fx-focus-color: transparent; }*/
+
+
+/*#idHotels {*/
+/*    -fx-font-size: 24px;*/
+/*}*/
+
+/*#idHotels .list-cell*/
+/*{*/
+/*    -fx-background: #ffffff;*/
+/*    -fx-background-radius: 10px;*/
+/*}*/
+
+/*#idHotels:hover*/
+/*{*/
+/*    -fx-background-color: #B76D68;*/
+/*    -fx-text-fill: white;*/
+/*}*/
+/*#idHotels .arrow{*/
+/*    -fx-background-color: #994f1f;*/
+/*}*/
+/*#idHotels .list-view{*/
+/*    -fx-background-radius: 10px;*/
+/*}*/
+
+.front {
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-top-left-radius: 10px;
+    -fx-border-top-right-radius: 10px;
+}
+
+.combo {
+    -fx-border-color: #3cc3bd;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #3cc3bd;
+    -fx-border-width: 2px;
+    transition-duration: 0.4s;
+    -fx-font-size: 20px;
+    -fx-background-color: #fafafa;
+
+}
+.combo .arrow{
+    -fx-background-color: #3cc3bd;
+}
+
+.combo:hover {
+    -fx-background-color: #3cc3bd;
+    -fx-text-fill: white;
+}
+.combo .list-view {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+.combo .list-cell{
+    -fx-background-radius: 10px;
+
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover{
+    -fx-background-color: #3cc3bd;
+    -fx-text-fill: white;
+}
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover{
+    -fx-background-color: #3cc3bd;
+    -fx-text-fill: white;
+}
+
+
+
+
+.input {
+    -fx-border-color: #3cc3bd;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #3cc3bd;
+    -fx-border-width: 2px;
+}
+
+#signin {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #3cc3bd;
+    -fx-border-width: 3px;
+    -fx-background-color: #fafafa;
+    -fx-text-fill: #3cc3bd;
     transition-duration: 0.4s;
 }
 
-#SignInBut:hover {
-    -fx-background-color:  #B76D68; /* Green */
-    -fx-text-fill: white;
-}
-#idAdminHome:hover {
-    -fx-background-color:  #B76D68; /* Green */
+#signin:hover {
+    -fx-background-color:  #3cc3bd; /* Green */
     -fx-text-fill: white;
 }
 
-.root { -fx-focus-color: transparent; }
-
-
-#idHotels {
-    -fx-font-size: 24px;
+.combo-box-base > .arrow-button {
+    -fx-background-color: transparent;
 }
 
-#idHotels .list-cell
-{
-    -fx-background: #ffffff;
+.date-picker .text-field {
+    -fx-background-radius: 10px;
+}
+.combo .text-field {
     -fx-background-radius: 10px;
 }
 
-#idHotels:hover
-{
-    -fx-background-color: #B76D68;
+.buttn_menu {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-background-color: #fafafa;
+    -fx-text-fill: #3cc3bd;
+    transition-duration: 0.4s;
+}
+.buttn_menu:hover {
+    -fx-background-color:  #3cc3bd; /* Green */
     -fx-text-fill: white;
 }
-#idHotels .arrow{
-    -fx-background-color: #994f1f;
+
+.table {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 15px;
 }
-#idHotels .list-view{
+.table-view {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom, #C7EEEC, #D5F2F1);
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-padding: 0 0 5px 0;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:hover {
+    -fx-background-color: #3cc3bd;
+    -fx-text-background-color: #3cc3bd;
+}
+.table-row-cell:odd{
+    -fx-background-color: #C7EEEC;
+
+}
+.table-row-cell:even{
+    -fx-background-color: #D5F2F1;
+
+}
+
+.column {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3cc3bd;
+}
+.table-row-cell:selected .text {
+    -fx-fill: white ;
+
+}
+
+.spinner .text-field {
     -fx-background-radius: 10px;
 }
 
 
+.check {
+    -fx-border-radius: 5px;
+    -fx-text-fill: #2eb1ab;
+    -fx-background-radius: 10px;
+}
+.check .box {
+    -fx-background-radius: 10px;
+    -fx-border-color: #2eb1ab;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px;
+    -fx-background-color: white;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-body-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    /* interpolate color between yellow and red based on first color brightness */
+    -fx-body-color: ladder(#444, #6eede6 0%, #3cc3bd 100%);
+}
+
+.spinner .increment-arrow-button:hover:pressed,
+.spinner .decrement-arrow-button:hover:pressed,
+.spinner .increment-arrow-button:pressed,
+.spinner .decrement-arrow-button:pressed {
+    /* interpolate color between yellow and red based on first color brightness */
+    -fx-body-color: ladder(#AAA, #6eede6 0%, #3cc3bd 100%);
+}
+
+.default-color0.chart-bar { -fx-bar-fill: #3cc3bd; }
+.default-color1.chart-bar { -fx-bar-fill: #C33C43; }
+
+.chart-line-symbol {
+    -fx-background-color: #3cc3bd, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+.chart-series-line {
+    -fx-stroke: #3cc3bd;
+    -fx-stroke-width: 4px;
+    -fx-effect: dropshadow( two-pass-box , rgba(0,0,0,0.3) , 8, 0.0 , 0 , 3 );
+}
 
 
+.default-color0.chart-line-symbol { -fx-background-color: #C33C43, white; }
+.default-color1.chart-line-symbol { -fx-background-color: #3cc3bd, white; }
+
+.default-color0.chart-series-line { -fx-stroke: #C33C43; }
+.default-color1.chart-series-line { -fx-stroke: #3cc3bd; }
+
+.radio-button .radio {
+    -fx-border-width: 2px;
+    -fx-border-color: #3cc3bd;
+    -fx-background-color: white;
+    -fx-border-radius: 15px;
+}
+
+
+.radio-button:selected .radio {
+    -fx-background-color: white;
+}
+.radio-button-radio:armed {
+    -fx-background-color: white;
+}
+.radio-button-radio:determinate {
+    -fx-background-color: white;
+}
+.radio-button-radio:indeterminate {
+    -fx-background-color: white;
+}
+.radio-button:selected .radio .dot {
+    -fx-background-color: #3cc3bd;
+
+}
+
+.load_bar  { -fx-accent: #3cc3bd;  }
+
+@font-face {
+    font-family: "vag";
+    src: url('VAG.ttf');
+}
+
+.font {
+    -fx-font-family: "vag";
+}

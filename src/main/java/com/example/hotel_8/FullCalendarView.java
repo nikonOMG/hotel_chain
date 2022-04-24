@@ -80,19 +80,24 @@ public class FullCalendarView {
             for (int j = 0; j < 7; j++) {
                 AnchorPaneNode ap = new AnchorPaneNode();
                 ap.setPrefSize(200,69);
+                ap.setStyle("-fx-border-color: transparent");
                 calendar.add(ap,j,i);
+                calendar.setStyle("-fx-border-color: transparent");
                 allCalendarDays.add(ap);
             }
         }
         // Days of the week labels
-        Text[] dayNames = new Text[]{ new Text("      Sun"), new Text("      Mon"), new Text("      Tue"),
-                new Text("      Wed"), new Text("      Thu"), new Text("      Fri"),
-                new Text("      Sat") };
+        Text[] dayNames = new Text[]{ new Text("     Sun"), new Text("     Mon"), new Text("     Tue"),
+                new Text("     Wed"), new Text("     Thu"), new Text("     Fri"),
+                new Text("     Sat") };
         GridPane dayLabels = new GridPane();
         dayLabels.setPrefWidth(450);
+        dayLabels.setStyle("-fx-border-color: transparent");
         Integer col = 0;
         for (Text txt : dayNames) {
+            txt.setStyle("-fx-font-size: 15; -fx-text-fill: #3cc3bd;");
             AnchorPane ap = new AnchorPane();
+            ap.setStyle("-fx-border-radius: 10px; -fx-border-color: transparent");
             ap.setPrefSize(200, 10);
             ap.setBottomAnchor(txt, 5.0);
             ap.getChildren().add(txt);
@@ -100,9 +105,12 @@ public class FullCalendarView {
         }
         // Create calendarTitle and buttons to change current month
         calendarTitle = new Text();
+        calendarTitle.setStyle("-fx-font-size: 18;");
         Button previousMonth = new Button("<<");
+        previousMonth.setStyle("-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3cc3bd; -fx-border-width: 3px; -fx-background-color: #fafafa; -fx-text-fill: #3cc3bd;");
         previousMonth.setOnAction(e -> previousMonth());
         Button nextMonth = new Button(">>");
+        nextMonth.setStyle("-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3cc3bd; -fx-border-width: 3px; -fx-background-color: #fafafa; -fx-text-fill: #3cc3bd;");
         nextMonth.setOnAction(e -> nextMonth());
         HBox titleBar = new HBox(previousMonth, calendarTitle, nextMonth);
         titleBar.setAlignment(Pos.BASELINE_CENTER);
@@ -110,6 +118,7 @@ public class FullCalendarView {
         populateCalendar(yearMonth, id);
         // Create the calendar view
         view = new VBox(titleBar, dayLabels, calendar);
+        view.setStyle("-fx-border-color: transparent");
     }
 
     public void populateCalendar(YearMonth yearMonth, int id) {
@@ -149,7 +158,7 @@ public class FullCalendarView {
 //                            char s = color.charAt(0);
 //                            if(s == 'w' && color.length() == 1) {
                             if(color.equals("here")){
-                                ap.setStyle("-fx-background-color: #ffffff");
+                                ap.setStyle("-fx-background-color: #F3CA40; -fx-border-color: transparent");
                                 txt.setStyle("-fx-font: 24 arial;");
                                 txt.setText("  " + txt.getText());
                                 ap.setDate(calendarDate);
@@ -160,7 +169,7 @@ public class FullCalendarView {
                             }
                             else if(color.equals("holiday")){
                                 System.out.println("holiday");
-                                ap.setStyle("-fx-background-color: #43cffa");
+                                ap.setStyle("-fx-background-color: #005377; -fx-border-color: transparent");
                                 txt.setStyle("-fx-font: 24 arial;");
                                 txt.setText("  " + txt.getText());
                                 ap.setDate(calendarDate);
@@ -171,7 +180,7 @@ public class FullCalendarView {
                             }
 //                            if(s == 'n') {
                             else if(color.equals("not here")){
-                                ap.setStyle("-fx-background-color: #fd1c4d");
+                                ap.setStyle("-fx-background-color: #FE5F55; -fx-border-color: transparent");
                                 txt.setStyle("-fx-font: 24 arial;");
                                 txt.setText("  " + txt.getText());
                                 ap.setDate(calendarDate);
@@ -182,7 +191,7 @@ public class FullCalendarView {
                             }
                             else if(color.equals("sick")){
                                 System.out.println("sick");
-                                ap.setStyle("-fx-background-color: #50ff0f");
+                                ap.setStyle("-fx-background-color:  #3F7D20; -fx-border-color: transparent");
                                 txt.setStyle("-fx-font: 24 arial;");
                                 txt.setText("  " + txt.getText());
                                 ap.setDate(calendarDate);
@@ -192,7 +201,7 @@ public class FullCalendarView {
                                 ap.getChildren().add(txt);
                             } else{
 //                            begin = false;
-                                ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0);");
+                                ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0); -fx-border-color: transparent");
 //                                ap.setBackground(Background.EMPTY);
                                 txt.setStyle("-fx-font: 24 arial;");
                                 txt.setText("  " + txt.getText());
@@ -207,7 +216,7 @@ public class FullCalendarView {
 //                            begin = false;
 //                        ap.setStyle("-fx-background-color: transpent");
 //                            ap.setBackground(Background.EMPTY);
-                            ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0);");
+                            ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0); -fx-border-color: transparent");
 
                             txt.setStyle("-fx-font: 24 arial;");
                             txt.setText("  " + txt.getText());
@@ -220,7 +229,7 @@ public class FullCalendarView {
                     }
                     else {
                             begin = false;
-                        ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0);");
+                        ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0); -fx-border-color: transparent");
 //                                ap.setBackground(Background.EMPTY);
                         txt.setStyle("-fx-font: 24 arial;");
                         txt.setText("  " + txt.getText());
@@ -232,7 +241,7 @@ public class FullCalendarView {
                     }
                 } else {
 //                            begin = false;
-                    ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0);");
+                    ap.setStyle("-fx-background-color: rgba(0, 100, 100, 0); -fx-border-color: transparent");
 //                                ap.setBackground(Background.EMPTY);
                     txt.setStyle("-fx-font: 24 arial;");
                     txt.setText("  " + txt.getText());

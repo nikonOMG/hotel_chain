@@ -8,25 +8,48 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.AddNewRoomController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d7f1f0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.AddNewRoomController">
    <children>
-      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new Room" />
-      <Spinner fx:id="price" layoutX="27.0" layoutY="88.0" />
-      <Text layoutX="37.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
-      <ComboBox fx:id="size" layoutX="342.0" layoutY="88.0" prefWidth="150.0" />
-      <Text layoutX="350.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size:" />
-      <CheckBox fx:id="extrabed" layoutX="29.0" layoutY="271.0" mnemonicParsing="false" text="Extra Bed" />
-      <CheckBox fx:id="child" layoutX="29.0" layoutY="319.0" mnemonicParsing="false" text="Child" />
-      <ComboBox fx:id="type" layoutX="342.0" layoutY="166.0" prefWidth="150.0" />
-      <Text layoutX="350.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:" />
-      <ComboBox fx:id="view" layoutX="27.0" layoutY="166.0" prefWidth="150.0" />
-      <Text layoutX="35.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View:" />
-      <Text fx:id="number" layoutX="298.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number:">
+      <Text fill="#55bcba" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new Room">
          <font>
             <Font size="20.0" />
+         </font></Text>
+      <Spinner fx:id="price" layoutX="27.0" layoutY="88.0" prefHeight="30.0" prefWidth="200.0" styleClass="combo" />
+      <Text fill="#55bcba" layoutX="37.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <ComboBox fx:id="size" layoutX="342.0" layoutY="88.0" prefHeight="30.0" prefWidth="200.0" styleClass="combo" />
+      <Text fill="#55bcba" layoutX="350.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <CheckBox fx:id="extrabed" layoutX="29.0" layoutY="271.0" mnemonicParsing="false" styleClass="check" text="Extra Bed">
+         <font>
+            <Font size="19.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="child" layoutX="29.0" layoutY="319.0" mnemonicParsing="false" styleClass="check" text="Child">
+         <font>
+            <Font size="19.0" />
+         </font></CheckBox>
+      <ComboBox fx:id="type" layoutX="342.0" layoutY="166.0" prefHeight="30.0" prefWidth="200.0" styleClass="combo" />
+      <Text fill="#55bcba" layoutX="350.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <ComboBox fx:id="view" layoutX="27.0" layoutY="166.0" prefHeight="30.0" prefWidth="200.0" styleClass="combo" />
+      <Text fill="#55bcba" layoutX="35.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View:">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Text fx:id="number" fill="#55bcba" layoutX="207.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number:">
+         <font>
+            <Font size="30.0" />
          </font>
       </Text>
-      <Button fx:id="save" layoutX="225.0" layoutY="328.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="150.0" text="Save" />
+      <Button id="signin" fx:id="save" layoutX="372.0" layoutY="328.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Save">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
    </children>
 </AnchorPane>

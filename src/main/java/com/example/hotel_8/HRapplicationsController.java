@@ -200,8 +200,10 @@ public class HRapplicationsController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeEmail.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
                     stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();

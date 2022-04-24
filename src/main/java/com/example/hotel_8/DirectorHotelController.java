@@ -74,8 +74,6 @@ public class DirectorHotelController {
     private Button update;
 
 
-    @FXML
-    private ProgressBar financesload;
 
     @FXML
     private Text workerscount;
@@ -101,13 +99,11 @@ public class DirectorHotelController {
             System.out.println("wait" + last +" " +  LocalDate.now());
         }
 
-        financesload.setVisible(false);
 
         update.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-                financesload.setVisible(true);
                 series1.setName("Loss");
                 series2.setName("Profit");
                 finances.setAnimated(false);
@@ -127,11 +123,9 @@ public class DirectorHotelController {
                             series2.getData().add(new XYChart.Data(monthss[i], Data_work.getProfit(monthss[i])));
                             series1.getData().add(new XYChart.Data(monthss[i], Data_work.getLoss(monthss[i])));
                             percent += point;
-                            financesload.setProgress(percent);
                         }
 
                         finances.getData().addAll(series1, series2);
-                        financesload.setVisible(false);
                     }
                 });
 

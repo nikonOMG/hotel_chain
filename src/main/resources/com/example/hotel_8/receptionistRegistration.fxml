@@ -6,92 +6,46 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #DAF7DC;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.ReceptionistRegistrationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #d7f1f0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.ReceptionistRegistrationController">
     <children>
-        <AnchorPane prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #9EE493;">
-            <children>
-                <Text fx:id="title" layoutX="37.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Text>
-                <Button fx:id="Progress" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="134.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Progress" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button fx:id="Registration" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="222.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Registration" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button fx:id="Profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="307.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Profile" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button fx:id="Client_list" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="395.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Client list" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button fx:id="Logout" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="55.0" layoutY="622.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Log out" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-            </children>
-        </AnchorPane>
-      <TextField fx:id="getName" layoutX="412.0" layoutY="122.0" prefHeight="46.0" prefWidth="337.0" />
-      <Text layoutX="421.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+      <TextField fx:id="getName" layoutX="300.0" layoutY="80.0" prefHeight="40.0" prefWidth="320.0" styleClass="input" />
+      <Text fill="#2eb1ab" layoutX="305.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="getPassport" layoutX="412.0" layoutY="230.0" prefHeight="46.0" prefWidth="337.0" />
-      <Text layoutX="421.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passport:">
+      <TextField fx:id="getPassport" layoutX="300.0" layoutY="180.0" prefHeight="40.0" prefWidth="320.0" styleClass="input" />
+      <Text fill="#2eb1ab" layoutX="305.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passport:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <DatePicker fx:id="getDateofBirth" layoutX="834.0" layoutY="122.0" prefHeight="46.0" prefWidth="300.0" />
-      <Text layoutX="845.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Bitrth">
+      <DatePicker fx:id="getDateofBirth" layoutX="300.0" layoutY="280.0" prefHeight="40.0" prefWidth="320.0" styleClass="combo" />
+      <Text fill="#2eb1ab" layoutX="305.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Bitrth">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <ComboBox fx:id="RoomList" layoutX="954.0" layoutY="326.0" prefHeight="46.0" prefWidth="300.0" />
-      <Text layoutX="800.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
+      <ComboBox fx:id="RoomList" layoutX="911.0" layoutY="280.0" prefHeight="40.0" prefWidth="300.0" styleClass="combo" />
+      <Text fill="#2eb1ab" layoutX="673.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time in:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="965.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room:">
+      <Text fill="#2eb1ab" layoutX="922.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="CheckBtn" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="688.0" layoutY="586.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Check" textFill="#494947">
+      <Button id="signin" fx:id="CheckBtn" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="657.0" layoutY="616.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" text="Check" textFill="#494947">
          <font>
             <Font size="28.0" />
          </font>
@@ -99,12 +53,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fx:id="setTextPrice" layoutX="356.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+      <Text fx:id="setTextPrice" fill="#2eb1ab" layoutX="316.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
          <font>
-            <Font size="26.0" />
+            <Font size="39.0" />
          </font>
       </Text>
-      <Button fx:id="SettleBtn" alignment="CENTER" contentDisplay="CENTER" disable="true" graphicTextGap="10.0" layoutX="401.0" layoutY="586.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Settle" textFill="#494947">
+      <Button id="signin" fx:id="SettleBtn" alignment="CENTER" contentDisplay="CENTER" disable="true" graphicTextGap="10.0" layoutX="305.0" layoutY="616.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="226.0" text="Settle" textFill="#494947">
          <font>
             <Font size="28.0" />
          </font>
@@ -112,25 +66,32 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <DatePicker fx:id="GetInTime" layoutX="792.0" layoutY="234.0" prefHeight="38.0" prefWidth="200.0" />
-      <DatePicker fx:id="GetOutTime" layoutX="1022.0" layoutY="235.0" prefHeight="38.0" prefWidth="200.0" />
-      <Text layoutX="1028.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
+      <DatePicker fx:id="GetInTime" layoutX="665.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
+      <DatePicker fx:id="GetOutTime" layoutX="976.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
+      <Text fill="#2eb1ab" layoutX="983.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time out:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <CheckBox fx:id="ExtraBed" layoutX="356.0" layoutY="311.0" mnemonicParsing="false" text="Extra Bed">
+      <CheckBox fx:id="ExtraBed" layoutX="1002.0" layoutY="192.0" mnemonicParsing="false" styleClass="check" text="Extra Bed">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="Child" layoutX="504.0" layoutY="311.0" mnemonicParsing="false" text="Child">
+      <CheckBox fx:id="Child" layoutX="1150.0" layoutY="192.0" mnemonicParsing="false" styleClass="check" text="Child">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <TextFlow fx:id="description" layoutX="954.0" layoutY="404.0" prefHeight="200.0" prefWidth="300.0" />
-      <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="692.0" layoutY="504.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Update Rooms" textFill="#494947">
+      <TextFlow fx:id="description" layoutX="936.0" layoutY="367.0" prefHeight="316.0" prefWidth="300.0" style="-fx-background-color: #2eb1ab; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.18039216101169586" green="0.6941176652908325" blue="0.6705882549285889" />
+               </color>
+            </DropShadow>
+         </effect></TextFlow>
+      <Button id="signin" fx:id="update" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="686.0" layoutY="279.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="194.0" text="Update Rooms" textFill="#494947">
          <font>
             <Font size="20.0" />
          </font>
@@ -138,11 +99,96 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ComboBox fx:id="country" editable="true" layoutX="638.0" layoutY="326.0" prefHeight="46.0" prefWidth="300.0" />
-      <Text layoutX="649.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+      <ComboBox id="ecombo" fx:id="country" editable="true" layoutX="665.0" layoutY="180.0" prefHeight="40.0" prefWidth="300.0" styleClass="combo" />
+      <Text fill="#2eb1ab" layoutX="676.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
+      <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd;">
+         <children>
+            <Pane layoutX="12.0" layoutY="270.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Text fx:id="title" fill="#99ebea" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="Profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Profile" textFill="#494947">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="Progress" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Progress" textFill="#494947">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="Registration" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="280.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Registration" textFill="#494947">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="Client_list" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="360.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Client list" textFill="#494947">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="Logout" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="650.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Log out" textFill="#494947">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

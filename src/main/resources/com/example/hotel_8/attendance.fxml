@@ -10,31 +10,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="665.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.AttendanceController">
+<AnchorPane prefHeight="665.0" prefWidth="1034.0" style="-fx-background-color: #d7f1f0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.AttendanceController">
    <children>
-      <Pane fx:id="calendarPane" layoutX="396.0" layoutY="109.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="600.0" />
-      <Button fx:id="saveatt" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="160.0" layoutY="541.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Save att" textFill="#494947">
+      <Pane fx:id="calendarPane" layoutX="404.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="600.0" />
+      <Button id="signin" fx:id="saveatt" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="107.0" layoutY="573.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="199.0" text="Save" textFill="#494947">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <DatePicker fx:id="attendance" layoutX="57.0" layoutY="230.0" prefHeight="35.0" prefWidth="226.0" promptText="date" />
-      <RadioButton fx:id="here" layoutX="249.0" layoutY="364.0" mnemonicParsing="false" text="here" />
-      <RadioButton fx:id="nothere" layoutX="112.0" layoutY="315.0" mnemonicParsing="false" text="not here" />
-      <RadioButton fx:id="sick" layoutX="251.0" layoutY="315.0" mnemonicParsing="false" text="sick" />
-      <Text fx:id="atttext" layoutX="32.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance">
+      <DatePicker fx:id="attendance" layoutX="33.0" layoutY="217.0" prefHeight="35.0" prefWidth="226.0" promptText="date" styleClass="combo" />
+      <RadioButton fx:id="here" layoutX="230.0" layoutY="390.0" mnemonicParsing="false" text="here" textFill="#f3ca40">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="nothere" layoutX="40.0" layoutY="320.0" mnemonicParsing="false" text="not here" textFill="#fe5f55">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="sick" layoutX="230.0" layoutY="320.0" mnemonicParsing="false" text="sick" textFill="#3f7d20">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></RadioButton>
+      <Text fx:id="atttext" fill="#3cc3bd" layoutX="32.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <ComboBox fx:id="workerlist" layoutX="32.0" layoutY="109.0" prefHeight="42.0" prefWidth="304.0" />
-      <Text layoutX="42.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select:">
+      <ComboBox fx:id="workerlist" layoutX="32.0" layoutY="109.0" prefHeight="42.0" prefWidth="304.0" styleClass="combo" />
+      <Text fill="#3cc3bd" layoutX="42.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select:">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <RadioButton fx:id="holiday" layoutX="115.0" layoutY="364.0" mnemonicParsing="false" text="holiday" />
-      <Button fx:id="prev" layoutX="305.0" layoutY="206.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" text="&lt;" />
-      <Button fx:id="next" layoutX="305.0" layoutY="253.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" text="&gt;" />
+      <RadioButton fx:id="holiday" layoutX="40.0" layoutY="390.0" mnemonicParsing="false" text="holiday" textFill="#005377">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></RadioButton>
+      <Button id="signin" fx:id="prev" layoutX="281.0" layoutY="193.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" text="&lt;" />
+      <Button id="signin" fx:id="next" layoutX="281.0" layoutY="240.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" text="&gt;" />
    </children>
 </AnchorPane>

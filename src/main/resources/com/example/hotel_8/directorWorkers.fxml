@@ -5,62 +5,59 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #DAF7DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.DirectorWorkersController">
+<AnchorPane fx:id="back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #d7f1f0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.DirectorWorkersController">
     <children>
-        <AnchorPane prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #9EE493;">
-            <children>
-                <Text fx:id="titlename" layoutX="37.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Text>
-                <Button fx:id="hotelinfo" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="134.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="hotel info" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button fx:id="workers" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="222.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Workers" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button fx:id="Client_list" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="50.0" layoutY="300.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Client list" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-                <Button fx:id="Logout" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="55.0" layoutY="622.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Log out" textFill="#494947">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
-            <Button fx:id="profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="55.0" layoutY="388.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Profile" textFill="#494947">
-               <font>
-                  <Font size="28.0" />
-               </font>
+      <Pane layoutX="822.0" layoutY="32.0" prefHeight="154.0" prefWidth="393.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 15;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.23529411852359772" green="0.7647058963775635" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Button fx:id="attendance" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="36.0" layoutY="25.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="Attendance" textFill="#494947">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
-            </children>
-        </AnchorPane>
-      <TableView fx:id="list" layoutX="348.0" layoutY="204.0" prefHeight="484.0" prefWidth="902.0">
+            <Button fx:id="changesalary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="36.0" layoutY="91.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="Salary" textFill="#494947">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="fuckoff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="213.0" layoutY="91.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="Dismiss" textFill="#494947">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="AddnewWorker" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="213.0" layoutY="25.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="New worker" textFill="#494947">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TableView fx:id="list" layoutX="310.0" layoutY="205.0" prefHeight="480.0" prefWidth="905.0">
          <columns>
             <TableColumn fx:id="name" prefWidth="231.0" text="Name" />
             <TableColumn fx:id="passport" prefWidth="151.0" text="Passport" />
@@ -68,34 +65,106 @@
             <TableColumn fx:id="post" prefWidth="211.0" text="Post" />
             <TableColumn fx:id="email" minWidth="0.0" prefWidth="187.0" text="Email" />
          </columns>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.23529411852359772" green="0.7647058963775635" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
       </TableView>
-      <TextField fx:id="searchText" layoutX="348.0" layoutY="110.0" prefHeight="42.0" prefWidth="314.0" />
-      <Text layoutX="361.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
+      <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd;">
+         <children>
+            <Pane layoutX="12.0" layoutY="193.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Text fx:id="titlename" fill="#99ebea" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="hotelinfo" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="hotel" textFill="#494947">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="workers" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Workers" textFill="#494947">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="Client_list" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="280.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Client list" textFill="#494947">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="Logout" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="650.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Log out" textFill="#494947">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="360.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Profile" textFill="#494947">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="searchText" layoutX="348.0" layoutY="110.0" prefHeight="42.0" prefWidth="314.0" styleClass="input" />
+      <Text fill="#3cc3bd" layoutX="361.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="search" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="674.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="56.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="l" textFill="#494947">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="AddnewWorker" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="1056.0" layoutY="53.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Add new worker" textFill="#494947">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="fuckoff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="1056.0" layoutY="131.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="fuck off" textFill="#494947">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="changesalary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="889.0" layoutY="131.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Change salary" textFill="#494947">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="attendance" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="889.0" layoutY="53.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" style="-fx-border-color: #B76D68; -fx-border-radius: 10; -fx-border-width: 3; -fx-background-radius: 10;" text="Attendance" textFill="#494947">
+      <Button id="signin" fx:id="search" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="674.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="56.0" text="l" textFill="#494947">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -41,7 +41,7 @@ public class AdminWorkersController {
     private Button AddnewWorker;
 
     @FXML
-    private Button Client_list;
+    private Button clientsinfo;
 
     @FXML
     private Button Logout;
@@ -168,8 +168,10 @@ public class AdminWorkersController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addnewWorker.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
                     stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
                     stage.show();
 
                     stage.setOnHiding(new EventHandler<WindowEvent>() {
@@ -281,7 +283,7 @@ public class AdminWorkersController {
             }
         });
 
-        Client_list.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        clientsinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {

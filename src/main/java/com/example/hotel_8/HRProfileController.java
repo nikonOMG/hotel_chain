@@ -2,6 +2,7 @@ package com.example.hotel_8;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.YearMonth;
 import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -46,6 +48,9 @@ public class HRProfileController {
     private Text post;
 
     @FXML
+    private Pane calendarPane;
+
+    @FXML
     private Text salary;
 
     @FXML
@@ -57,6 +62,8 @@ public class HRProfileController {
         titlename.setText(Data_work.name);
         post.setText(post.getText() + Data_work.post);
         salary.setText(salary.getText() + Data_work.salary);
+        calendarPane.getChildren().add(new FullCalendarView(YearMonth.now(), Data_work.id).getView());
+
 
         changePass.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
@@ -67,8 +74,10 @@ public class HRProfileController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changePassword.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
                     stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();

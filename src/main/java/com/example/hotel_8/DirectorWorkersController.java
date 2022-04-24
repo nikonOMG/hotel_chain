@@ -177,8 +177,10 @@ public class DirectorWorkersController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("attendance.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
                     stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -222,6 +224,7 @@ public class DirectorWorkersController {
                 alert.setContentText("Are you ok with this?");
 
                 Optional<ButtonType> result = alert.showAndWait();
+
                 if (result.get() == ButtonType.OK){
                     Workers worker = list.getSelectionModel().getSelectedItem();
                     Data_work.deleteWorker(String.valueOf(worker.getId()));
@@ -360,8 +363,10 @@ public class DirectorWorkersController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addnewWorker.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
                     stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
                     stage.show();
 
                     stage.setOnHiding(new EventHandler<WindowEvent>() {
@@ -420,8 +425,10 @@ public class DirectorWorkersController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeSalary.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
                     stage.setTitle("ABC");
-                    stage.setScene(new Scene(root1));
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
                     stage.show();
 
                     stage.setOnHiding(new EventHandler<WindowEvent>() {

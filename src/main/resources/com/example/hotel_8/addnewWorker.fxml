@@ -8,52 +8,70 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane style="-fx-background-color:linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #8139b5ff 0.0%, #fd1e1cff 50.0%, #fbaf46ff 100.0%)" prefHeight="465.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.AddNewWorkerController">
+<AnchorPane prefHeight="465.0" prefWidth="694.0" style="-fx-background-color: #d7f1f0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.AddNewWorkerController">
     <children>
-        <TextField fx:id="email" layoutX="380.0" layoutY="95.0" prefHeight="42.0" prefWidth="260.0" />
-        <Button fx:id="save" layoutX="505.0" layoutY="393.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="135.0" text="Save" />
-        <TextField fx:id="password" layoutX="52.0" layoutY="267.0" prefHeight="42.0" prefWidth="260.0" />
-        <Text layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new worker">
+        <TextField fx:id="email" layoutX="380.0" layoutY="95.0" prefHeight="42.0" prefWidth="260.0" styleClass="input">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+        <Button id="signin" fx:id="save" layoutX="505.0" layoutY="393.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="135.0" text="Save">
+         <font>
+            <Font size="19.0" />
+         </font></Button>
+        <TextField fx:id="password" layoutX="52.0" layoutY="267.0" prefHeight="42.0" prefWidth="260.0" styleClass="input" text="12345">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+        <Text fill="#4baead" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new worker">
             <font>
                 <Font size="18.0" />
             </font>
         </Text>
-        <Text layoutX="386.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+        <Text fill="#4baead" layoutX="386.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
             <font>
                 <Font size="15.0" />
             </font>
         </Text>
-        <Text layoutX="58.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+        <Text fill="#4baead" layoutX="58.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
             <font>
                 <Font size="15.0" />
             </font>
         </Text>
-      <TextField fx:id="name" layoutX="52.0" layoutY="95.0" prefHeight="42.0" prefWidth="260.0" />
-      <Text layoutX="58.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+      <TextField fx:id="name" layoutX="52.0" layoutY="95.0" prefHeight="42.0" prefWidth="260.0" styleClass="input">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Text fill="#4baead" layoutX="58.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TextField fx:id="passport" layoutX="380.0" layoutY="182.0" prefHeight="42.0" prefWidth="260.0" />
-      <Text layoutX="386.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passport:">
+      <TextField fx:id="passport" layoutX="380.0" layoutY="182.0" prefHeight="42.0" prefWidth="260.0" styleClass="input">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Text fill="#4baead" layoutX="386.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passport:">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TextField fx:id="login" layoutX="52.0" layoutY="182.0" prefHeight="42.0" prefWidth="260.0" />
-      <Text layoutX="58.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:">
+      <TextField fx:id="login" layoutX="52.0" layoutY="182.0" prefHeight="42.0" prefWidth="260.0" styleClass="input">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Text fill="#4baead" layoutX="58.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <ComboBox fx:id="post" layoutX="380.0" layoutY="267.0" prefHeight="42.0" prefWidth="260.0" />
-      <Text layoutX="386.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Post:">
+      <ComboBox fx:id="post" layoutX="380.0" layoutY="267.0" prefHeight="42.0" prefWidth="260.0" styleClass="combo" />
+      <Text fill="#4baead" layoutX="386.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Post:">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Spinner fx:id="salary" editable="true" layoutX="50.0" layoutY="351.0" min="0" prefHeight="42.0" prefWidth="260.0" />
-      <Text layoutX="58.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary:">
+      <Spinner fx:id="salary" editable="true" layoutX="50.0" layoutY="351.0" min="0" prefHeight="42.0" prefWidth="260.0" styleClass="combo" />
+      <Text fill="#4baead" layoutX="58.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary:">
          <font>
             <Font size="15.0" />
          </font>

@@ -31,7 +31,7 @@ public class AdminWorkerInfoController {
     private URL location;
 
     @FXML
-    private Button Client_list;
+    private Button clientsinfo;
 
     @FXML
     private Button Logout;
@@ -179,7 +179,7 @@ public class AdminWorkerInfoController {
         });
 
 
-        Client_list.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        clientsinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
