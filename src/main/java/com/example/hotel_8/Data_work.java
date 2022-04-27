@@ -1,5 +1,7 @@
 package com.example.hotel_8;
 
+import javafx.scene.control.cell.PropertyValueFactory;
+
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
@@ -99,6 +101,49 @@ public class Data_work extends SQLException {
         }
         return name_hotels;
     }
+
+    public static Map<String, Integer> getCountry() {
+        HashMap<String, Integer> con = new HashMap<String, Integer>();
+        try
+        {
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+            String query = "select *\n" +
+                    "from Countries where clients != 0\n" +
+                    "order by clients desc\n" +
+                    "limit 5";
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String Name = rs.getString("Name");
+                int clients = rs.getInt("clients");
+                System.out.println("aaaaa" + Name + clients);
+                con.put(Name, clients);
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+
+        return con;
+    }
+
 
     public static ArrayList<String> get_rooms(boolean EXB, boolean CHD) {
         ArrayList<String> name_hotels = new ArrayList<>();
@@ -612,17 +657,19 @@ public class Data_work extends SQLException {
 
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
-            String query = "SELECT * FROM Workers WHERE Workers.HotelID = \"";
-
             int idHotel = getIdHotel(hotel);
+            String query = "SELECT * FROM Workers WHERE HotelID = " + idHotel + " and Login = '" + log + "' and Password = '" + pass + "'";
+
+
             // create the java statement
             Statement st = conn.createStatement();
             // execute the query, and get a java resultset
-            ResultSet rs = st.executeQuery(query + idHotel + "\"");
+            ResultSet rs = st.executeQuery(query);
 
             // iterate through the java resultset
             while (rs.next())
             {
+                System.out.println("1" + rs.getString("Post"));
                 login = rs.getString("Login");
                 password = rs.getString("Password");
                 id = rs.getInt("WorkerID");
@@ -632,7 +679,8 @@ public class Data_work extends SQLException {
                 email = rs.getString("Email");
                 name = rs.getString("Fullname");
                 email_pas = rs.getString("Email_password");
-                finances = getFinances();
+                if(post.equals("Director"))
+                    finances = getFinances();
                 workers_count = getWorkers_count();
 
 
@@ -722,7 +770,6 @@ public class Data_work extends SQLException {
     public static int getFinances(){
         try
         {
-
             String query = "SELECT Finances FROM Hotels WHERE Hotels.HotelID = " + hotelID;
             // create the java statement
             Statement st = conn.createStatement();
@@ -1471,13 +1518,16 @@ public class Data_work extends SQLException {
 
 
 
-    public static boolean addClient(String name, String passport, LocalDate dob, LocalDate intime, LocalDate outtime, String room) throws SQLException, ClassNotFoundException {
+    public static boolean addClient(String name, String passport, LocalDate dob, LocalDate intime, LocalDate outtime, String room, String counry) throws SQLException, ClassNotFoundException {
 
 
         try {
 
             List<String> list = new ArrayList<String>(Arrays.asList(room.split(" ")));
             System.out.println(list);
+
+            List<String> con = new ArrayList<String>(Arrays.asList(counry.split(" ")));
+            System.out.println(con);
 
             String query = " insert into Clients (HotelID, Name, Fullname, Passport, DateOfBirth, CheckInTime, CheckOutTime, Amount)"
                     + " values (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -1497,8 +1547,13 @@ public class Data_work extends SQLException {
             // execute the preparedstatement
             preparedStmt.execute();
 
-            Statement st = conn.createStatement();
+
             query = "UPDATE Rooms Set isAvailable = 0 WHERE Rooms.HotelID = " + hotelID + " and Rooms.Name = " + list.get(0);
+            System.out.println(query);
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+
+            query = "UPDATE Countries Set clients = clients + 1 WHERE Countries.name = '" + con.get(0) + "'";
             System.out.println(query);
             preparedStmt = conn.prepareStatement(query);
             preparedStmt.executeUpdate();

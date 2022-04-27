@@ -11,6 +11,8 @@ import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -129,44 +131,35 @@ public class DirectorWorkersController {
                 post.setCellValueFactory(new PropertyValueFactory<>("post"));
                 email.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-                list.setItems(oblist);
+//                list.setItems(oblist);
             }
         }).start();
 
-        search.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        FilteredList<Workers> Filtered = new FilteredList<>(oblist, b -> true);
+        searchText.textProperty().addListener((observable, oldValue,newValue)->{
+            Filtered.setPredicate(workers -> {
+                if(newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if(workers.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                }else if(workers.getPassport().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(workers.getEmail()).indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(workers.getPost()).indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(workers.getSalary()).indexOf(lowerCaseFilter) != -1)
+                    return true;
+                else
+                    return false;
 
-            @Override
-            public void handle(MouseEvent event) {
-                list.getItems().clear();
-//                                    SignInBut.getScene().getWindow().hide();
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if(searchText.getText().equals(""))
-                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                            else
-                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
-                            while(rs.next()){
-                                oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
-                            }
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-
-                        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-                        passport.setCellValueFactory(new PropertyValueFactory<>("passport"));
-                        salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-                        post.setCellValueFactory(new PropertyValueFactory<>("post"));
-                        email.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-                        list.setItems(oblist);
-                    }
-                }).start();
-
-
-            }
+            });
         });
+        SortedList<Workers> sortedList = new SortedList<>(Filtered);
+        sortedList.comparatorProperty().bind(list.comparatorProperty());
+        list.setItems(sortedList);
 
         attendance.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 

@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -114,39 +116,35 @@ public class DirectorClientsController {
         checkin.setCellValueFactory(new PropertyValueFactory<>("checkin"));
         checkout.setCellValueFactory(new PropertyValueFactory<>("checkout"));
 
-        list.setItems(oblist);
+//        list.setItems(oblist);
 
-        search.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                list.getItems().clear();
-//                                    SignInBut.getScene().getWindow().hide();
-                try {
-                    Date date = Date.valueOf(LocalDate.now());
-                    if(searchText.getText().equals("")) {
-                        rs = Data_work.conn.createStatement().executeQuery("select * from Clients where '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime");
-                    }else
-                        rs = Data_work.conn.createStatement().executeQuery("select * from Clients where Clients.Fullname = '" + searchText.getText() + "' and '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime");
-                    while (rs.next()){
-                        oblist.add(new Clients(rs.getInt("Name"), rs.getString("Fullname"), rs.getDate("DateOfBirth"), rs.getDate("CheckInTime"), rs.getDate("CheckOutTime"), rs.getString("Passport") ));
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
+        FilteredList<Clients> Filtered = new FilteredList<>(oblist, b -> true);
+        searchText.textProperty().addListener((observable, oldValue,newValue)->{
+            Filtered.setPredicate(clients -> {
+                if(newValue == null || newValue.isEmpty()){
+                    return true;
                 }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if(String.valueOf(clients.getRoom()).indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(clients.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                }else if(clients.getPassport().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(clients.getBirth()).indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(clients.getCheckin()).indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(clients.getCheckout()).indexOf(lowerCaseFilter) != -1)
+                    return true;
+                else
+                    return false;
 
-                room.setCellValueFactory(new PropertyValueFactory<>("room"));
-                name.setCellValueFactory(new PropertyValueFactory<>("name"));
-                passport.setCellValueFactory(new PropertyValueFactory<>("passport"));
-                dateofB.setCellValueFactory(new PropertyValueFactory<>("birth"));
-                checkin.setCellValueFactory(new PropertyValueFactory<>("checkin"));
-                checkout.setCellValueFactory(new PropertyValueFactory<>("checkout"));
-
-                list.setItems(oblist);
-
-
-            }
+            });
         });
+        SortedList<Clients> sortedList = new SortedList<>(Filtered);
+        sortedList.comparatorProperty().bind(list.comparatorProperty());
+        list.setItems(sortedList);
 
 
 

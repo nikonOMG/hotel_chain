@@ -38,6 +38,8 @@ public class ReceptionistRegistrationController {
     LocalDate dateofb;
     int days;
 
+    String countr;
+
 
     @FXML
     private ResourceBundle resources;
@@ -156,6 +158,8 @@ public class ReceptionistRegistrationController {
                     name = getName.getText();
                     passport = getPassport.getText();
                     dateofb = getDateofBirth.getValue();
+                    countr = country.getValue();
+
 
                     days = (int) ChronoUnit.DAYS.between(intime, outtime);
                     System.out.println(days);
@@ -193,7 +197,7 @@ public class ReceptionistRegistrationController {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    Data_work.addClient(name, passport, dateofb, intime, outtime, RoomList.getValue());
+                    Data_work.addClient(name, passport, dateofb, intime, outtime, RoomList.getValue(), countr);
                     RoomList.setItems(FXCollections.observableArrayList(Data_work.get_rooms(ExtraBed.selectedProperty().get(), Child.selectedProperty().get())));
 
                 } catch (Exception e) {

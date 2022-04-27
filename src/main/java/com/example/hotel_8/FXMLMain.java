@@ -15,7 +15,7 @@ public class FXMLMain extends Application {
         primaryStage.setScene(new Scene(loader.load()));
         // Get the controller and add the calendar view to it
         Controller controller = loader.getController();
-        controller.calendarPane.getChildren().add(new FullCalendarView(YearMonth.now()).getView());
+//        controller.calendarPane.getChildren().add(new FullCalendarView(YearMonth.now()).getView());
         primaryStage.show();
     }
 

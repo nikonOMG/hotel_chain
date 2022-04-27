@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -49,18 +50,31 @@
                         <Font size="24.0" />
                     </font>
                 </Text>
-                <ComboBox fx:id="idHotels" layoutX="557.0" layoutY="201.0" prefHeight="50.0" prefWidth="338.0" styleClass="combo" stylesheets="@../style.css" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3cc3bd" height="600.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeWidth="0.0" style="-fx-arc-height: 15, 15, 0, 0; -fx-arc-width: 15, 0, 0, 0;" width="450.0" />
-              <Text fill="#99ebea" layoutX="44.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="Hotel chain" wrappingWidth="361.748046875">
-                  <font>
-                      <Font name="System Bold" size="55.0" />
-                  </font>
-              </Text>
-            <Text fill="#87dad9" layoutX="728.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="LOGIN" wrappingWidth="166.748046875">
+                <ComboBox fx:id="idHotels" editable="true" layoutX="557.0" layoutY="201.0" prefHeight="50.0" prefWidth="338.0" styleClass="combo" stylesheets="@../style.css" />
+            <Text fill="#87dad9" layoutX="728.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="LOGIN" wrappingWidth="166.748046875">
                <font>
                   <Font name="System Bold" size="46.0" />
                </font>
             </Text>
+            <Pane prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 10 0 0 10;">
+               <children>
+                    <Text fill="#99ebea" layoutX="44.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="Hotel chain" wrappingWidth="361.748046875">
+                        <font>
+                            <Font name="System Bold" size="55.0" />
+                        </font>
+                    </Text>
+                  <Text fill="#99ebea" layoutX="73.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="You are Welcome!" wrappingWidth="303.748046875">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#99ebea" layoutX="225.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="Niko | Bef | Keso" wrappingWidth="211.748046875">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
             </children>
          <effect>
             <DropShadow />

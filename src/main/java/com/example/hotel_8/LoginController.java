@@ -2,10 +2,14 @@ package com.example.hotel_8;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -47,13 +51,12 @@ public class LoginController {
     @FXML
     private PasswordField idPassword;
 
-    @FXML
-    private ProgressIndicator load;
 
     @FXML
     void initialize() {
         idHotels.setItems(FXCollections.observableArrayList(Data_work.get_hotels()));
         idHotels.setVisibleRowCount(5);
+        new AutoCompleteBox ( idHotels );
 
         
         SignInBut.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -72,29 +75,7 @@ public class LoginController {
                         System.out.println("okkkk");
                         String job = Data_work.getJob(login, hotel);
                         System.out.println(job);
-                        if(login.equals("admin")){
-                            System.out.println("gg");
-                            SignInBut.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-                                @Override
-                                public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
-                                    try {
-                                        root = FXMLLoader.load(getClass().getResource("adminHome.fxml"));
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                                    scene = new Scene(root);
-                                    scene.getStylesheets().add("style.css");
-                                    stage.setScene(scene);
-                                    stage.show();
-
-
-                                }
-                            });
-                        }
-                        else if(job.equals("Receptionist")){
+                        if(job.equals("Receptionist")){
                             try {
                                 root = FXMLLoader.load(getClass().getResource("receptionistProgress.fxml"));
                             } catch (IOException e) {
@@ -144,6 +125,19 @@ public class LoginController {
                             scene.getStylesheets().add("style.css");
                             stage.setScene(scene);
                             stage.show();
+
+                    } else if(job.equals("Marketing")){
+                        try {
+                            System.out.println("test");
+                            root = FXMLLoader.load(getClass().getResource("marketingClients.fxml"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        scene.getStylesheets().add("style.css");
+                        stage.setScene(scene);
+                        stage.show();
 
                     }
                     }
