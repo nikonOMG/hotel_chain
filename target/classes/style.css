@@ -292,25 +292,33 @@
 }
 
 .default-color0.chart-pie { -fx-pie-color: #C33C43; }
-.default-color1.chart-pie { -fx-pie-color: #ffa500; }
-.default-color2.chart-pie { -fx-pie-color: #860061; }
+.default-color1.chart-pie { -fx-pie-color: #47C23C; }
+.default-color2.chart-pie { -fx-pie-color: #3C43C3; }
 .default-color3.chart-pie { -fx-pie-color: #adff2f; }
-.default-color4.chart-pie { -fx-pie-color: #ff5700; }
+.default-color4.chart-pie { -fx-pie-color: #C3BC3C; }
+
 
 .chart-pie-label-line {
-    -fx-stroke: #8b4513;
-    -fx-fill: #8b4513;
+    -fx-stroke: #3cc3bd;
+    -fx-fill: #3cc3bd;
 }
 
 .chart-pie-label {
-    -fx-fill: #8b4513;
-    -fx-font-size: 1em;
+    -fx-fill: #3cc3bd;
+    -fx-font-size: 12px;
 }
 .chart-legend {
-    -fx-background-color:  transparent;
-    -fx-font-size: 10px;
+    -fx-background-color: transparent;
+    -fx-font-size: 25px;
+    -fx-pref-width: 300px;
+}
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, -40%);
+    -fx-border-width: 5px;
+    -fx-effect: dropshadow( two-pass-box , rgba(0,0,0,0.3) , 8, 0.0 , 0 , 3 );
+
 }
 
-.chart-legend .text-field {
-    -fx-background-color: #fafafa;
+.chart-legend-item {
+    -fx-text-fill: #fafafa;
 }

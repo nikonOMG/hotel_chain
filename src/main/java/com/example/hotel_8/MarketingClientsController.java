@@ -3,24 +3,32 @@ package com.example.hotel_8;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
+import javafx.animation.FadeTransition;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class MarketingClientsController {
+public class MarketingClientsController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -54,6 +62,9 @@ public class MarketingClientsController {
     private PieChart pie;
 
     @FXML
+    private TextField textField;
+
+    @FXML
     private Button profile;
 
     @FXML
@@ -68,8 +79,36 @@ public class MarketingClientsController {
     ResultSet rs;
 
 
+    private void resetTextField() {
+        FadeTransition ft = new FadeTransition(
+                Duration.millis(1000), textField);
+        ft.setToValue(0.0);
+        ft.playFromStart();
+        ft.setOnFinished(event -> {
+            textField.setTranslateX(0);
+            textField.setTranslateY(0);
+        });
+    }
+
+    private void setupAnimation() {
+        pieChartData.stream().forEach(pieData -> {
+            pieData.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+                    // Move the textfield to where the mouse click is
+                if(event.isPrimaryButtonDown()) {
+                    textField.setTranslateX(event.getSceneX() - textField.getLayoutX());
+                    textField.setTranslateY(event.getSceneY() - textField.getLayoutY());
+                    textField.setText(String.valueOf(pieData.getPieValue()));
+                    textField.setOpacity(1.0);
+                } else{
+                    resetTextField();
+                }
+
+            });
+        });
+    }
+
     @FXML
-    void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
         new Thread(new Runnable() {
@@ -118,22 +157,30 @@ public class MarketingClientsController {
 
         Map<String, Integer> con = Data_work.getCountry();
 
-
-        for (Map.Entry<String, Integer> entry : con.entrySet()) {
-            System.out.println(entry.getKey() + "/" + entry.getValue());
-            pieChartData.add(new PieChart.Data(entry.getKey(), entry.getValue()));
-        }
+        con.entrySet().stream()
+                .sorted((k1, k2) -> -k1.getValue().compareTo(k2.getValue()))
+                .forEach(k -> pieChartData.add(new PieChart.Data(k.getKey(), k.getValue())));
 
 
-        pieChartData.forEach(data ->
-                data.nameProperty().bind(
-                        Bindings.concat(
-                                data.getName(), " amount: ", data.pieValueProperty()
-                        )
-                )
-        );
+//        for (Map.Entry<String, Integer> entry : con.entrySet()) {
+//            System.out.println(entry.getKey() + "/" + entry.getValue());
+//            pieChartData.add(new PieChart.Data(entry.getKey(), entry.getValue()));
+//        }
 
-        pie.getData().addAll(pieChartData);
+
+//        pieChartData.forEach(data ->
+//                data.nameProperty().bind(
+//                        Bindings.concat(
+//                                data.getName(), " amount: ", data.pieValueProperty()
+//                        )
+//                )
+//        );
+//
+
+        pie.setData(pieChartData);
+        pie.setTitle("Clients");
+        textField.setEditable(false);
+        setupAnimation();
 
 
 
@@ -145,5 +192,6 @@ public class MarketingClientsController {
 
 
     }
+
 
 }
