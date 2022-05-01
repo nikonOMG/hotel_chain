@@ -129,7 +129,7 @@ public class LoginController {
                     } else if(job.equals("Marketing")){
                         try {
                             System.out.println("test");
-                            root = FXMLLoader.load(getClass().getResource("marketingClients.fxml"));
+                            root = FXMLLoader.load(getClass().getResource("marketingHotels.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

@@ -1,5 +1,6 @@
 package com.example.hotel_8;
 
+import com.sun.mail.imap.protocol.INTERNALDATE;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.mail.MessagingException;
@@ -144,6 +145,51 @@ public class Data_work extends SQLException {
         return con;
     }
 
+    public static Map<String, int[]> getHotels_chart() {
+        HashMap<String, int[]> con = new HashMap<String, int[]>();
+        try
+        {
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+            String query = "select *\n" +
+                    "from Hotels where HotelID != 0\n" +
+                    "order by Clients desc\n" +
+                    "limit 5";
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String Name = rs.getString("Name");
+                int clients = rs.getInt("Clients");
+                int worker = rs.getInt("Workers");
+                int room = rs.getInt("Rooms");
+                System.out.println("aaaaa" + Name + clients);
+                con.put(Name, new int[]{clients, worker, room});
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+
+        return con;
+    }
+
+
 
     public static ArrayList<String> get_rooms(boolean EXB, boolean CHD) {
         ArrayList<String> name_hotels = new ArrayList<>();
@@ -205,7 +251,7 @@ public class Data_work extends SQLException {
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
 
-            query = "select name, capital, continent from Countries";
+            query = "select id ,name, capital, continent from Countries";
             // create the java statement
             Statement st = conn.createStatement();
 
@@ -218,7 +264,8 @@ public class Data_work extends SQLException {
                 String Name = rs.getString("name");
                 String View = rs.getString("capital");
                 String Size = rs.getString("continent");
-                name_hotels.add(Name + " " + Size + " " + View);
+                int id = rs.getInt("id");
+                name_hotels.add(id +" " + Name + " " + Size + " " + View);
 
             }
             st.close();
@@ -1553,7 +1600,7 @@ public class Data_work extends SQLException {
             preparedStmt = conn.prepareStatement(query);
             preparedStmt.executeUpdate();
 
-            query = "UPDATE Countries Set clients = clients + 1 WHERE Countries.name = '" + con.get(0) + "'";
+            query = "UPDATE Countries Set clients = clients + 1 WHERE Countries.id = '" + con.get(0) + "'";
             System.out.println(query);
             preparedStmt = conn.prepareStatement(query);
             preparedStmt.executeUpdate();

@@ -87,7 +87,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Text fx:id="titlename1" fill="#99ebea" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
+            <Text fx:id="titlename" fill="#99ebea" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
                <font>
                   <Font size="24.0" />
                </font>

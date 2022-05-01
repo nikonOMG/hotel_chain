@@ -233,7 +233,7 @@
     -fx-body-color: ladder(#AAA, #6eede6 0%, #3cc3bd 100%);
 }
 
-.default-color0.chart-bar { -fx-bar-fill: #3cc3bd; }
+.default-color0.chart-bar { -fx-bar-fill: #3cc3bd;}
 .default-color1.chart-bar { -fx-bar-fill: #C33C43; }
 
 .chart-line-symbol {
