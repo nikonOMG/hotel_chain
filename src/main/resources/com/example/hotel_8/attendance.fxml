@@ -36,7 +36,7 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <ComboBox fx:id="workerlist" layoutX="32.0" layoutY="109.0" prefHeight="42.0" prefWidth="304.0" styleClass="combo" />
+      <ComboBox fx:id="workerlist" editable="true" layoutX="32.0" layoutY="109.0" prefHeight="42.0" prefWidth="304.0" styleClass="combo" />
       <Text fill="#3cc3bd" layoutX="42.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select:">
          <font>
             <Font size="19.0" />

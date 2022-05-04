@@ -1309,18 +1309,26 @@ public class Data_work extends SQLException {
 
             // execute the preparedstatement
             preparedStmt.execute();
+            if(!newPost.equals("Admin") || !newPost.equals("Marketing") || !newPost.equals("Director")) {
+                String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+                int iddd = getWorkerId(newPassport);
+                for (int i = 0; i < 12; i++) {
+                    query = "insert into " + months[i] + " (WorkerID) values (?)";
+                    System.out.println(query);
+                    preparedStmt = conn.prepareStatement(query);
 
-            String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-            int iddd = getWorkerId(newPassport);
-            for(int i = 0; i<12; i++){
-                query = "insert into " + months[i] + " (WorkerID) values (?)";
-                System.out.println(query);
-                preparedStmt = conn.prepareStatement(query);
+                    preparedStmt.setInt(1, iddd);
 
-                preparedStmt.setInt(1, iddd);
-
-                preparedStmt.execute();
+                    preparedStmt.execute();
+                }
             }
+
+            query = "UPDATE Hotels Set Workers = Workers + 1 WHERE HotelID = '" + hotelID + "'";
+            System.out.println(query);
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+
+
 //            query = "insert into " + months[LocalDate.now().getMonthValue() - 1] + " (WorkerID) values (?)";
 //            System.out.println(query);
 //            preparedStmt = conn.prepareStatement(query);
