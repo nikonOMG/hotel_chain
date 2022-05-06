@@ -164,10 +164,5 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button id="signin" fx:id="search" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="674.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="56.0" text="l" textFill="#494947">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
     </children>
 </AnchorPane>

@@ -121,7 +121,7 @@
             </Button>
             </children>
         </AnchorPane>
-      <BarChart fx:id="clients" categoryGap="2.0" layoutX="329.0" layoutY="299.0" prefHeight="400.0" prefWidth="219.0" title="Clients">
+      <BarChart fx:id="clients" categoryGap="2.0" layoutX="818.0" layoutY="14.0" prefHeight="288.0" prefWidth="0.0" title="Clients">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -129,7 +129,7 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <LineChart fx:id="finances" layoutX="610.0" layoutY="299.0" prefHeight="400.0" prefWidth="609.0" title="Finances">
+      <LineChart fx:id="finances" layoutX="268.0" layoutY="299.0" prefHeight="400.0" prefWidth="995.0" title="Finances">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -145,7 +145,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="signin" fx:id="generate" alignment="CENTER" contentDisplay="CENTER" disable="true" graphicTextGap="10.0" layoutX="1063.0" layoutY="45.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="183.0" text="Generate report" textFill="#494947">
+      <Button id="signin" fx:id="generate" alignment="CENTER" contentDisplay="CENTER" disable="true" graphicTextGap="10.0" layoutX="1057.0" layoutY="42.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="183.0" text="Generate report" textFill="#494947">
          <font>
             <Font size="14.0" />
          </font>

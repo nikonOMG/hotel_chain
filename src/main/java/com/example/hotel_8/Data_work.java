@@ -1382,6 +1382,11 @@ public class Data_work extends SQLException {
             // execute the preparedstatement
             preparedStmt.execute();
 
+            query = "UPDATE Hotels Set Rooms = Rooms + 1 WHERE HotelID = '" + hotelID + "'";
+            System.out.println(query);
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+
 
             return true;
 
@@ -1867,6 +1872,12 @@ public class Data_work extends SQLException {
 //                stmt = conn.createStatement();
 //                stmt.execute("SET FOREIGN_KEY_CHECKS=1");
 //                stmt.close();
+                PreparedStatement preparedStmt;
+                String query = "UPDATE Hotels Set Workers = Workers - 1 WHERE HotelID = '" + hotelID + "'";
+                System.out.println(query);
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.executeUpdate();
+
 
             } catch (Exception e) {
                 System.out.println(e);
