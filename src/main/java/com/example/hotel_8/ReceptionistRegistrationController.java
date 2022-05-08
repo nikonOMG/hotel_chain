@@ -121,6 +121,8 @@ public class ReceptionistRegistrationController {
         new AutoCompleteBox ( country );
 
 
+        GetInTime.setValue(LocalDate.now());
+
         ExtraBed.selectedProperty().addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> ov,
                                 Boolean old_val, Boolean new_val) {
@@ -198,6 +200,12 @@ public class ReceptionistRegistrationController {
             public void handle(MouseEvent event) {
                 try {
                     Data_work.addClient(name, passport, dateofb, intime, outtime, RoomList.getValue(), countr);
+                    description.getChildren().clear();
+                    getName.clear();
+                    getPassport.clear();
+                    getDateofBirth.setValue(null);
+                    GetOutTime.setValue(null);
+                    country.setValue(null);
                     RoomList.setItems(FXCollections.observableArrayList(Data_work.get_rooms(ExtraBed.selectedProperty().get(), Child.selectedProperty().get())));
 
                 } catch (Exception e) {
@@ -211,16 +219,18 @@ public class ReceptionistRegistrationController {
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e)
                     {
+                        if(!(RoomList.getValue() == null)){
                         description.getChildren().clear();
                         Text d = new Text();
                         Text d1 = new Text();
-                        d.setStyle("-fx-font: 16 arial;");
-                        d1.setStyle("-fx-font: 16 arial;");
+                        d.setStyle("-fx-text-fill: white; -fx-font-size: 18px;");
+                        d1.setStyle("-fx-text-fill: white; -fx-font-size: 18px;");
+
                         d.setText(Data_work.getDescriptionS(RoomList.getValue()) + "\n");
                         d1.setText(Data_work.getDescriptionT(RoomList.getValue()));
                         description.getChildren().add(d);
                         description.getChildren().add(d1);
-                        description.setTextAlignment(TextAlignment.CENTER);
+                        description.setTextAlignment(TextAlignment.CENTER);}
                     }
                 };
 

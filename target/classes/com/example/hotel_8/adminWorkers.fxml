@@ -37,7 +37,7 @@
         </Button>
       <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd #3cc3bd;">
          <children>
-            <Pane layoutX="12.0" layoutY="190.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Pane layoutX="12.0" layoutY="193.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
             <Text fx:id="titlename" fill="#99ebea" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
                <font>
                   <Font size="24.0" />
@@ -141,10 +141,5 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button id="signin" fx:id="search" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="674.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="56.0" text="l" textFill="#494947">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
     </children>
 </AnchorPane>

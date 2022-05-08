@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #d7f1f0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.MarketingClientsController">
     <children>
-      <Pane layoutX="358.0" layoutY="473.0" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 15;">
+      <Pane layoutX="358.0" layoutY="484.0" prefHeight="222.0" prefWidth="350.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 15;">
          <effect>
             <DropShadow>
                <color>
@@ -26,7 +26,7 @@
       </Pane>
         <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd;">
             <children>
-            <Pane layoutX="12.0" layoutY="190.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Pane layoutX="12.0" layoutY="193.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
                 <Button fx:id="hotels" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Hotels" textFill="#494947">
                     <font>
                         <Font size="25.0" />
@@ -94,7 +94,7 @@
             </Text>
             </children>
         </AnchorPane>
-      <PieChart fx:id="pie" layoutX="265.0" layoutY="15.0" prefHeight="584.0" prefWidth="536.0" />
+      <PieChart fx:id="pie" layoutX="265.0" prefHeight="584.0" prefWidth="536.0" />
         <TextField fx:id="textField" maxWidth="75" opacity="0.0" styleClass="input" />
       <TableView fx:id="list" layoutX="826.0" layoutY="160.0" prefHeight="400.0" prefWidth="417.0">
         <columns>

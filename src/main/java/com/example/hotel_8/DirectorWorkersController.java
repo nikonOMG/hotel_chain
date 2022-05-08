@@ -68,8 +68,6 @@ public class DirectorWorkersController {
     @FXML
     private TableColumn<Workers, String> salary;
 
-    @FXML
-    private Button search;
 
     @FXML
     private Button changesalary;
@@ -432,21 +430,19 @@ public class DirectorWorkersController {
 
                                 @Override
                                 public void run() {
-                                    list.getItems().clear();
+
 
                                     new Thread(new Runnable() {
                                         @Override
                                         public void run() {
                                             try {
-                                                if(searchText.getText().equals(""))
-                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                                                else
-                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                                                list.getItems().clear();
+                                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
                                                 while (rs.next()){
                                                     oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
                                                 }
                                             } catch (SQLException e) {
-                                                e.printStackTrace();
+                                                System.out.println("ooo");
                                             }
 
                                             name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -464,7 +460,7 @@ public class DirectorWorkersController {
                     });
 
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("gggg");
                 }
 
 

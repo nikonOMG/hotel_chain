@@ -65,7 +65,7 @@
       </Button>
       <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd;">
          <children>
-            <Pane layoutX="12.0" layoutY="110.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Pane layoutX="12.0" layoutY="113.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
             <Button fx:id="Profile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="Profile" textFill="#494947">
                <font>
                   <Font size="25.0" />

@@ -14,7 +14,7 @@
     <children>
       <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd #3cc3bd;">
          <children>
-            <Pane layoutX="12.0" layoutY="270.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Pane layoutX="12.0" layoutY="273.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
             <Button fx:id="hotelinfo" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="25.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" styleClass="buttn_menu" text="hotel" textFill="#494947">
                <font>
                   <Font size="25.0" />
@@ -107,7 +107,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Pane layoutX="347.0" layoutY="53.0" prefHeight="332.0" prefWidth="443.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 15;">
+      <Pane layoutX="347.0" layoutY="53.0" prefHeight="316.0" prefWidth="443.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 15;">
          <children>
             <Text fx:id="post" fill="WHITE" layoutX="37.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Post: " wrappingWidth="226.09336853027344">
                <font>

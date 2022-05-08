@@ -6,6 +6,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
@@ -58,21 +60,21 @@
             </Text>
             <Pane prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 10 0 0 10;">
                <children>
-                    <Text fill="#99ebea" layoutX="44.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="Hotel chain" wrappingWidth="361.748046875">
+                    <Text fill="#99ebea" layoutX="77.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="Hotel chain" wrappingWidth="295.748046875">
                         <font>
                             <Font name="System Bold" size="55.0" />
                         </font>
                     </Text>
-                  <Text fill="#99ebea" layoutX="73.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="You are Welcome!" wrappingWidth="303.748046875">
-                     <font>
-                        <Font size="33.0" />
-                     </font>
-                  </Text>
                   <Text fill="#99ebea" layoutX="225.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="Niko | Bef | Keso" wrappingWidth="211.748046875">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
+                  <ImageView fitHeight="254.0" fitWidth="266.0" layoutX="98.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../McXWgS0.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             </children>

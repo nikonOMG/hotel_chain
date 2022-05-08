@@ -23,6 +23,13 @@
             <TableColumn fx:id="checkin" prefWidth="150.0" text="CheckInTime" />
             <TableColumn fx:id="checkout" minWidth="0.0" prefWidth="150.0" text="CheckOutTime" />
             </columns>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.23529411852359772" green="0.7647058963775635" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
         </TableView>
       <TextField fx:id="searchText" layoutX="338.0" layoutY="100.0" prefHeight="42.0" prefWidth="314.0" styleClass="input" />
       <Text fill="#3cc3bd" layoutX="351.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
@@ -32,7 +39,7 @@
       </Text>
       <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd;">
          <children>
-            <Pane layoutX="12.0" layoutY="350.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Pane layoutX="12.0" layoutY="353.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
             <Text fx:id="title" fill="#99ebea" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
                <font>
                   <Font size="24.0" />

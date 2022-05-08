@@ -152,9 +152,10 @@ public class MarketingHotelsController {
 
 
 
-        xAxis.setLabel("Clients");
+        xAxis.setLabel("Client");
         xAxis.setTickLabelRotation(90);
         yAxis.setLabel("Hotel");
+
         XYChart.Series<Number, String> dataSeries1 = new XYChart.Series<Number, String>();
         dataSeries1.setName("Rooms");
 
@@ -163,10 +164,10 @@ public class MarketingHotelsController {
         dataSeries2.setName("Clients");
 
         XYChart.Series<Number, String> dataSeries3 = new XYChart.Series<Number, String>();
-        dataSeries2.setName("Workers");
+        dataSeries3.setName("Workers");
 
         con.entrySet().stream()
-                .sorted((k1, k2) -> -k1.getKey().compareTo(k2.getKey()))
+                .sorted((k1, k2) -> -k2.getKey().compareTo(k1.getKey()))
                 .forEach(k -> {
                     dataSeries1.getData().add(new XYChart.Data<Number, String>(k.getValue()[0], k.getKey()));
                     dataSeries2.getData().add(new XYChart.Data<Number, String>(k.getValue()[1], k.getKey()));

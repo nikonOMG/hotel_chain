@@ -49,8 +49,6 @@ public class DirectorHotelController {
     @FXML
     private Button Logout;
 
-    @FXML
-    private BarChart<String, Number> clients;
 
     @FXML
     private LineChart<String, Number> finances;
@@ -59,13 +57,17 @@ public class DirectorHotelController {
     private Text financescount;
 
     @FXML
+    private Text clientscount;
+
+    @FXML
+    private Text roomcount;
+
+    @FXML
     private Button hotelinfo;
 
     @FXML
     private Text titlename;
 
-    @FXML
-    private Button workerinfo;
 
     @FXML
     private Button workers;
@@ -142,6 +144,8 @@ public class DirectorHotelController {
 
         financescount.setText(financescount.getText() + Data_work.getFinances());
         workerscount.setText(workerscount.getText() + Data_work.workers_count);
+        roomcount.setText(roomcount.getText() + Data_work.getCountRooms());
+        clientscount.setText(clientscount.getText() + Data_work.getCountClients());
 
         System.out.println("date");
 
@@ -150,22 +154,6 @@ public class DirectorHotelController {
 
 
 
-
-
-        XYChart.Series<String, Number> dataSeries1 = new XYChart.Series<String, Number>();
-        dataSeries1.setName("Rooms");
-
-        XYChart.Series<String, Number> dataSeries2 = new XYChart.Series<String, Number>();
-        dataSeries2.setName("Clients");
-
-
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("", Data_work.getCountRooms()));
-        // Series 2 - Data of 2015
-        dataSeries2.getData().add(new XYChart.Data<String, Number>("", Data_work.getCountClients()));
-
-
-        clients.getData().add(dataSeries1);
-        clients.getData().add(dataSeries2);
 
 
 
@@ -250,25 +238,6 @@ public class DirectorHotelController {
             }
         });
 
-//        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//
-//            @Override
-//            public void handle(MouseEvent event) {
-////                                    SignInBut.getScene().getWindow().hide();
-//                try {
-//                    root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                scene.getStylesheets().add("style.css");
-//                stage.setScene(scene);
-//                stage.show();
-//
-//
-//            }
-//        });
 
         Client_list.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 

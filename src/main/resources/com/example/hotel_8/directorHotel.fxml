@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -15,14 +14,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #d7f1f0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_8.DirectorHotelController">
     <children>
-      <Pane layoutX="313.0" layoutY="33.0" prefHeight="189.0" prefWidth="386.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 15;">
+      <Pane layoutX="313.0" layoutY="33.0" prefHeight="189.0" prefWidth="561.0" style="-fx-background-color: #3cc3bd; -fx-background-radius: 15;">
          <children>
             <Text fx:id="workerscount" fill="WHITE" layoutX="37.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Workers:">
                <font>
                   <Font size="26.0" />
                </font>
             </Text>
-            <Text fx:id="financescount" fill="WHITE" layoutX="37.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finances:">
+            <Text fx:id="financescount" fill="WHITE" layoutX="246.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finances:">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="roomcount" fill="WHITE" layoutX="246.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms: ">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="clientscount" fill="WHITE" layoutX="37.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients: ">
                <font>
                   <Font size="26.0" />
                </font>
@@ -38,7 +47,7 @@
       </Pane>
         <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd;">
             <children>
-            <Pane layoutX="12.0" layoutY="113.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
+            <Pane layoutX="12.0" layoutY="116.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
                 <Text fx:id="titlename" fill="#99ebea" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="226.09336853027344">
                     <font>
                         <Font size="24.0" />
@@ -121,14 +130,6 @@
             </Button>
             </children>
         </AnchorPane>
-      <BarChart fx:id="clients" categoryGap="2.0" layoutX="818.0" layoutY="14.0" prefHeight="288.0" prefWidth="0.0" title="Clients">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
       <LineChart fx:id="finances" layoutX="268.0" layoutY="299.0" prefHeight="400.0" prefWidth="995.0" title="Finances">
         <xAxis>
           <CategoryAxis side="BOTTOM" />

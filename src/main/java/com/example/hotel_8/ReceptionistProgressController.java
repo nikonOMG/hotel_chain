@@ -9,11 +9,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -21,6 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ResourceBundle;
 
@@ -75,7 +78,7 @@ public class ReceptionistProgressController {
 
 
         try {
-            rs = Data_work.conn.createStatement().executeQuery("select * from monetary_fine where monetary_fine.WorkerID = " + Data_work.id);
+            rs = Data_work.conn.createStatement().executeQuery("select * from monetary_fine where month(Date)=  '" + LocalDate.now().getMonth() +"'   and monetary_fine.WorkerID = " + Data_work.id);
             while (rs.next()) {
                 oblist.add(new Monetary(rs.getDate("Date"), rs.getString("Description"), rs.getInt("Price")));
             }
@@ -89,6 +92,9 @@ public class ReceptionistProgressController {
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         monetaryFine.setItems(oblist);
+        Label empty = new Label("You are the best employee!\n :)");
+        empty.setFont(new Font("VAG.ttf", 30));
+        monetaryFine.setPlaceholder(empty);
 
 
 
