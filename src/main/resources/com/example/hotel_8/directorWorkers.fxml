@@ -158,8 +158,8 @@
             </Button>
          </children>
       </AnchorPane>
-      <TextField fx:id="searchText" layoutX="348.0" layoutY="110.0" prefHeight="42.0" prefWidth="314.0" styleClass="input" />
-      <Text fill="#3cc3bd" layoutX="361.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
+      <TextField fx:id="searchText" layoutX="367.0" layoutY="104.0" prefHeight="42.0" prefWidth="314.0" styleClass="input" />
+      <Text fill="#3cc3bd" layoutX="380.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
          <font>
             <Font size="24.0" />
          </font>

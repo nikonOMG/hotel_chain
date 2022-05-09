@@ -35,7 +35,7 @@
          </font>
       </Text>
       <ComboBox fx:id="RoomList" layoutX="911.0" layoutY="280.0" prefHeight="40.0" prefWidth="300.0" styleClass="combo" />
-      <Text fill="#2eb1ab" layoutX="673.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time in:">
+      <Text fill="#2eb1ab" layoutX="673.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date in:">
          <font>
             <Font size="20.0" />
          </font>
@@ -53,7 +53,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fx:id="setTextPrice" fill="#2eb1ab" layoutX="316.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+      <Text fx:id="setTextPrice" fill="#2eb1ab" layoutX="305.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
          <font>
             <Font size="39.0" />
          </font>
@@ -68,7 +68,7 @@
       </Button>
       <DatePicker fx:id="GetInTime" layoutX="665.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
       <DatePicker fx:id="GetOutTime" layoutX="976.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
-      <Text fill="#2eb1ab" layoutX="983.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time out:">
+      <Text fill="#2eb1ab" layoutX="983.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date out:">
          <font>
             <Font size="20.0" />
          </font>

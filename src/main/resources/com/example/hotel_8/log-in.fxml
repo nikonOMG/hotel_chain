@@ -19,22 +19,22 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3cc3bd" height="720.0" stroke="#ffffff00" strokeType="INSIDE" width="590.0" />
         <AnchorPane layoutX="140.0" layoutY="70.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-radius: 15; -fx-background-color: #fafafa;" stylesheets="@../style.css">
             <children>
-                <TextField id="input" fx:id="idLogin" layoutX="557.0" layoutY="300.0" prefHeight="0.0" prefWidth="338.0" styleClass="input" text="Dj">
+                <TextField id="input" fx:id="idLogin" layoutX="557.0" layoutY="288.0" prefHeight="0.0" prefWidth="338.0" styleClass="input" text="Di">
                     <font>
                         <Font size="25.0" />
                     </font>
                 </TextField>
-                <PasswordField id="input" fx:id="idPassword" layoutX="557.0" layoutY="399.0" prefHeight="15.0" prefWidth="338.0" styleClass="input" text="12345">
+                <PasswordField id="input" fx:id="idPassword" layoutX="557.0" layoutY="387.0" prefHeight="15.0" prefWidth="338.0" styleClass="input" text="12345">
                     <font>
                         <Font size="25.0" />
                     </font>
                 </PasswordField>
-                <Text fill="#3cc3bd" layoutX="564.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:">
+                <Text fill="#3cc3bd" layoutX="564.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Text>
-                <Text fill="#3cc3bd" layoutX="565.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+                <Text fill="#3cc3bd" layoutX="565.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -47,12 +47,12 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Text fill="#3cc3bd" layoutX="565.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel:">
+                <Text fill="#3cc3bd" layoutX="565.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel:">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Text>
-                <ComboBox fx:id="idHotels" editable="true" layoutX="557.0" layoutY="201.0" prefHeight="50.0" prefWidth="338.0" styleClass="combo" stylesheets="@../style.css" />
+                <ComboBox fx:id="idHotels" editable="true" layoutX="557.0" layoutY="189.0" prefHeight="50.0" prefWidth="338.0" styleClass="combo" stylesheets="@../style.css" />
             <Text fill="#87dad9" layoutX="728.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #272635;" text="LOGIN" wrappingWidth="166.748046875">
                <font>
                   <Font name="System Bold" size="46.0" />
@@ -77,6 +77,11 @@
                   </ImageView>
                </children>
             </Pane>
+            <Text fx:id="wait" fill="#c33c43" layoutX="611.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Incorrect login or password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
             </children>
          <effect>
             <DropShadow />

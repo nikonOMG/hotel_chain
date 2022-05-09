@@ -24,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -46,22 +47,31 @@ public class LoginController {
     private ComboBox<String> idHotels;
 
     @FXML
+    private Text wait;
+
+    @FXML
     private TextField idLogin;
 
     @FXML
     private PasswordField idPassword;
 
+    public static boolean ch;
+
 
     @FXML
     void initialize() {
+        wait.setVisible(false);
         idHotels.setItems(FXCollections.observableArrayList(Data_work.get_hotels()));
         idHotels.setVisibleRowCount(5);
         new AutoCompleteBox ( idHotels );
+
+
 
         
         SignInBut.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+
 
                 try{
 
@@ -71,9 +81,12 @@ public class LoginController {
                     String password = idPassword.getText();
                     String hotel = idHotels.getValue();
 
-                    if(Data_work.sign_in(login.trim(), password.trim(), hotel)){
+                    ch = Data_work.sign_in(login.trim(), password.trim(), hotel);
+
+                    if(ch){
                         System.out.println("okkkk");
-                        String job = Data_work.getJob(login, hotel);
+//                        String job = Data_work.getJob(login, hotel);
+                        String job = Data_work.post;
                         System.out.println(job);
                         if(job.equals("Receptionist")){
                             try {
@@ -140,12 +153,23 @@ public class LoginController {
                         stage.show();
 
                     }
+                    }else{
+                        idPassword.setText("");
+                        wait.setVisible(true);
                     }
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+        });
+
+        idLogin.textProperty().addListener((observable, oldValue, newValue) -> {
+            wait.setVisible(false);
+        });
+
+        idPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            wait.setVisible(false);
         });
 
     }

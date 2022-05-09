@@ -1,6 +1,7 @@
 package com.example.hotel_8;
 
 import com.sun.mail.imap.protocol.INTERNALDATE;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.mail.MessagingException;
@@ -20,6 +21,7 @@ public class Data_work extends SQLException {
     public static String login;
     public static String password;
     public static String name;
+    public static String Dpassport;
     public static int id;
     public static int hotelID;
     public static int finances;
@@ -697,26 +699,15 @@ public class Data_work extends SQLException {
     public static boolean sign_in(String log, String pass, String hotel){
         try
         {
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
-
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
             int idHotel = getIdHotel(hotel);
             String query = "SELECT * FROM Workers WHERE HotelID = " + idHotel + " and Login = '" + log + "' and Password = '" + pass + "'";
 
 
-            // create the java statement
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
             while (rs.next())
             {
-                System.out.println("1" + rs.getString("Post"));
                 login = rs.getString("Login");
                 password = rs.getString("Password");
                 id = rs.getInt("WorkerID");
@@ -728,6 +719,7 @@ public class Data_work extends SQLException {
                 email_pas = rs.getString("Email_password");
                 if(post.equals("Director"))
                     finances = getFinances();
+                    Dpassport = rs.getString("Passport");
                 workers_count = getWorkers_count();
 
 
@@ -977,13 +969,13 @@ public class Data_work extends SQLException {
                 loss += rs.getInt("Salary");
             }
 
-            query = "Select Loss from Workers where HotelID = " + hotelID + " or HotelID = 0";
+            query = "Select Sum from withdraw_money where HotelID = " + hotelID + " and withdraw_money.date between '" + LocalDate.now().withDayOfMonth(1) + "' and '" + LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth()) + "'";
 
             rs = st.executeQuery(query);
 
             System.out.println(query);
             while(rs.next()) {
-                loss += rs.getInt("Loss");
+                loss += rs.getInt("Sum");
             }
 
 
@@ -1020,6 +1012,75 @@ public class Data_work extends SQLException {
         }
         return 0;
     }
+
+
+
+    public static HashMap getProfit2(){
+        try
+        {
+            HashMap<String, Integer> profit = new HashMap<>();
+
+
+            String query = "SELECT * FROM Profit WHERE HotelID = " + hotelID;
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+            String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+            while (rs.next()){
+                for(int i = 0; i < 12; i++){
+                profit.put(monthss[i], rs.getInt(monthss[i]));
+                }
+
+            }
+
+            // iterate through the java resultset
+            return profit;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+
+    public static HashMap<String, Integer> getLoss2(){
+        try
+        {
+            HashMap<String, Integer> loss = new HashMap<>();
+
+
+            String query = "SELECT * FROM Loss WHERE Loss.HotelID = " + hotelID;
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+            while (rs.next()){
+                for(int i = 0; i < 12; i++){
+                    loss.put(monthss[i], rs.getInt(monthss[i]));
+                }
+
+            }
+
+            return loss;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
 
     public static void setProfit(String month){
         try {
@@ -1630,6 +1691,51 @@ public class Data_work extends SQLException {
         return false;
     }
 
+    public static boolean withdraw(String des, Date date, int sum) {
+
+
+        try {
+
+
+            String query = " insert into withdraw_money (HotelID, Workers_passport, Sum, Description, Date)"
+                    + " values (?, ?, ?, ?, ?)";
+
+            // create the mysql insert preparedstatement
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt(1, hotelID);
+            preparedStmt.setString(2, Dpassport);
+            preparedStmt.setInt(3, sum);
+            preparedStmt.setString(4, des);
+            preparedStmt.setDate(5, date);
+
+
+            // execute the preparedstatement
+            preparedStmt.execute();
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            String month = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
+
+            query = "UPDATE Loss Set " +month + " = " +month +" + " + sum + " WHERE HotelID = '" + hotelID + "'";
+            System.out.println(query);
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+
+
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+//        fixID(conn, "Hotels");
+        // our SQL SELECT query.
+        // if you only need a few columns, specify them by name instead of using "*"
+        return false;
+    }
 
 
 

@@ -1,13 +1,12 @@
 package com.example.hotel_8;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import com.itextpdf.text.*;
@@ -21,11 +20,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -73,6 +70,9 @@ public class DirectorHotelController {
     private Button workers;
 
     @FXML
+    private Button withdraw;
+
+    @FXML
     private Button update;
 
 
@@ -106,24 +106,28 @@ public class DirectorHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-                series1.setName("Loss");
-                series2.setName("Profit");
-                finances.setAnimated(false);
+                financescount.setText("Finances: " + Data_work.getFinances());
+                finances.getData().clear();
+//                finances.setAnimated(true);
+                series1.getData().clear();
+                series2.getData().clear();
 
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
                         String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+                        HashMap<String, Integer> profit = Data_work.getProfit2();
+                        System.out.println(profit);
+                        HashMap<String, Integer> loss = Data_work.getLoss2();
                         Date d = new Date();
-                        int[] test = {4, 5, 4, 3, 23, 5, 4, 6, 8, 3, 2, 4};
                         int now = d.getMonth() + 1;
                         double point = 1.0 / 13;
                         double percent = 0;
                         for (int i = now + 1; i != now; i++) {
                             if (i == 12)
                                 i = 0;
-                            series2.getData().add(new XYChart.Data(monthss[i], Data_work.getProfit(monthss[i])));
-                            series1.getData().add(new XYChart.Data(monthss[i], Data_work.getLoss(monthss[i])));
+                            series2.getData().add(new XYChart.Data(monthss[i], profit.get(monthss[i])));
+                            series1.getData().add(new XYChart.Data(monthss[i], loss.get(monthss[i])));
                             percent += point;
                         }
 
@@ -138,12 +142,40 @@ public class DirectorHotelController {
         });
 
 
+        series1.setName("Loss");
+        series2.setName("Profit");
+        finances.setAnimated(false);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+                HashMap<String, Integer> profit = Data_work.getProfit2();
+                System.out.println(profit);
+                HashMap<String, Integer> loss = Data_work.getLoss2();
+                Date d = new Date();
+                int now = d.getMonth() + 1;
+                double point = 1.0 / 13;
+                double percent = 0;
+                for (int i = now + 1; i != now; i++) {
+                    if (i == 12)
+                        i = 0;
+                    series2.getData().add(new XYChart.Data(monthss[i], profit.get(monthss[i])));
+                    series1.getData().add(new XYChart.Data(monthss[i], loss.get(monthss[i])));
+                    percent += point;
+                }
+
+                finances.getData().addAll(series1, series2);
+            }
+        });
+
+
 
         Data_work.setLoss(String.valueOf(LocalDate.now().getMonth()));
         Data_work.setProfit(String.valueOf(LocalDate.now().getMonth()));
 
         financescount.setText(financescount.getText() + Data_work.getFinances());
-        workerscount.setText(workerscount.getText() + Data_work.workers_count);
+        workerscount.setText(workerscount.getText() + " " + Data_work.workers_count);
         roomcount.setText(roomcount.getText() + Data_work.getCountRooms());
         clientscount.setText(clientscount.getText() + Data_work.getCountClients());
 
@@ -178,6 +210,7 @@ public class DirectorHotelController {
         });
 
 
+        // в будущем отчеты
         generate.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
@@ -278,6 +311,30 @@ public class DirectorHotelController {
 
             }
         });
+
+
+        withdraw.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("withdrawMoney.fxml"));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
+                    stage.setTitle("ABC");
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
 
         Logout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 

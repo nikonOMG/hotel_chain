@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -19,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -85,6 +88,8 @@ public class DirectorWorkersController {
     @FXML
     private Button workers;
 
+
+
     @FXML
     private Button attendance;
 
@@ -108,14 +113,11 @@ public class DirectorWorkersController {
 
 
 
-        new Thread(new Runnable() {
+         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if(searchText.getText().equals(""))
-                        rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                    else
-                        rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Post != 'Director' and Post != 'Owner' and  Workers.HotelID = " + Data_work.hotelID);
                     while (rs.next()){
                         oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
                     }
@@ -132,6 +134,9 @@ public class DirectorWorkersController {
 //                list.setItems(oblist);
             }
         }).start();
+
+
+
 
         FilteredList<Workers> Filtered = new FilteredList<>(oblist, b -> true);
         searchText.textProperty().addListener((observable, oldValue,newValue)->{
@@ -220,16 +225,16 @@ public class DirectorWorkersController {
                     Workers worker = list.getSelectionModel().getSelectedItem();
                     Data_work.deleteWorker(String.valueOf(worker.getId()));
 
-                    list.getItems().clear();
+                    list.getItems().removeAll();
+                    list.getSelectionModel().clearSelection();
+                    fuckoff.setDisable(true);
+                    oblist.clear();
 
-                    new Thread(new Runnable() {
+                    Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
                             try {
-                                if(searchText.getText().equals(""))
-                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                                else
-                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Post != 'Director' and Post != 'Owner' and  Workers.HotelID = " + Data_work.hotelID);
                                 while (rs.next()){
                                     oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
                                 }
@@ -245,7 +250,7 @@ public class DirectorWorkersController {
 
                             list.setItems(oblist);
                         }
-                    }).start();
+                    });
 
 
 //                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
@@ -368,16 +373,16 @@ public class DirectorWorkersController {
 
                                 @Override
                                 public void run() {
-                                    list.getItems().clear();
+                                    list.getItems().removeAll();
+                                    list.getSelectionModel().clearSelection();
+                                    fuckoff.setDisable(true);
+                                    oblist.clear();
 
                                     new Thread(new Runnable() {
                                         @Override
                                         public void run() {
                                             try {
-                                                if(searchText.getText().equals(""))
-                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                                                else
-                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Post != 'Director' and Post != 'Owner' and  Workers.HotelID = " + Data_work.hotelID);
                                                 while (rs.next()){
                                                     oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
                                                 }
@@ -430,19 +435,21 @@ public class DirectorWorkersController {
 
                                 @Override
                                 public void run() {
-
+                                    list.getItems().removeAll();
+                                    list.getSelectionModel().clearSelection();
+                                    fuckoff.setDisable(true);
+                                    oblist.clear();
 
                                     new Thread(new Runnable() {
                                         @Override
                                         public void run() {
                                             try {
-                                                list.getItems().clear();
-                                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Post != 'Director' and Post != 'Owner' and  Workers.HotelID = " + Data_work.hotelID);
                                                 while (rs.next()){
                                                     oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
                                                 }
                                             } catch (SQLException e) {
-                                                System.out.println("ooo");
+                                                e.printStackTrace();
                                             }
 
                                             name.setCellValueFactory(new PropertyValueFactory<>("name"));

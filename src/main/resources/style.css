@@ -322,3 +322,28 @@
 .chart-legend-item {
     -fx-text-fill: #fafafa;
 }
+
+.text-area .content {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 10;
+
+
+
+}
+
+.text-area {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
