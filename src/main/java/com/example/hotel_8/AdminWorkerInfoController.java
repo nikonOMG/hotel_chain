@@ -239,27 +239,7 @@ public class AdminWorkerInfoController {
             }
         });
 
-        workers.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
-            @Override
-            public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
-                try {
-                    root = FXMLLoader.load(getClass().getResource("adminWorkers.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (NullPointerException e){
-                    System.out.println("baddd");
-                }
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                scene.getStylesheets().add("style.css");
-                stage.setScene(scene);
-                stage.show();
-
-
-            }
-        });
 
         profile.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 

@@ -62,7 +62,7 @@ public class AddNewRoomController {
         price.setValueFactory(valueFactory);
         price.setEditable(true);
 
-        number.setText(number.getText() + " " + (Data_work.getCountRooms() + 1));
+        number.setText(number.getText() + " " + (Data_work.getMaxRoomNumber() + 1));
 
 
         save.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -73,7 +73,7 @@ public class AddNewRoomController {
                 if(!(size.getValue() == null) && !(view.getValue() == null) && !(type.getValue() == null)) {
                     try {
                         System.out.println(extrabed.isSelected());
-                        boolean add = Data_work.addNewRoom((Data_work.getCountRooms() + 1), price.getValue() ,size.getValue(), view.getValue(), type.getValue(), extrabed.isSelected(), child.isSelected());
+                        boolean add = Data_work.addNewRoom((Data_work.getMaxRoomNumber() + 1), price.getValue() ,size.getValue(), view.getValue(), type.getValue(), extrabed.isSelected(), child.isSelected());
 
                         if (add) {
                             Stage stage = (Stage) save.getScene().getWindow();

@@ -39,6 +39,9 @@ public class AdminHotelController {
     private Button addroom;
 
     @FXML
+    private Button changeroom;
+
+    @FXML
     private Spinner<Integer> finances;
 
     @FXML
@@ -55,6 +58,9 @@ public class AdminHotelController {
 
     @FXML
     private Text roomtext;
+
+    @FXML
+    private Text clientscount;
 
     @FXML
     private Button save;
@@ -82,6 +88,7 @@ public class AdminHotelController {
         titlename.setText(Data_work.name);
         workerscount.setText(workerscount.getText() +" " + Data_work.getWorkers_count());
         roomtext.setText(roomtext.getText() + " " + Data_work.getCountRooms());
+        clientscount.setText(clientscount.getText() + " " + Data_work.getCountClients());
 
         // Value factory.
         SpinnerValueFactory<Integer> valueFactory = //
@@ -141,6 +148,42 @@ public class AdminHotelController {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addNewRoom.fxml"));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
+                    stage.setTitle("ABC");
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
+                    stage.show();
+
+                    stage.setOnHiding(new EventHandler<WindowEvent>() {
+
+                        @Override
+                        public void handle(WindowEvent event) {
+                            Platform.runLater(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    roomtext.setText("Rooms: " + Data_work.getCountRooms());
+                                }
+                            });
+                        }
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+        changeroom.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeRoom.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
                     Scene scen = new Scene(root1);

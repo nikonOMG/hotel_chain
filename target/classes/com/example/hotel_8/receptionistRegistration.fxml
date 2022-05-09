@@ -66,8 +66,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <DatePicker fx:id="GetInTime" layoutX="665.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
-      <DatePicker fx:id="GetOutTime" layoutX="976.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
+      <DatePicker fx:id="GetInTime" editable="false" layoutX="665.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
+      <DatePicker fx:id="GetOutTime" editable="false" layoutX="976.0" layoutY="80.0" prefHeight="40.0" prefWidth="235.0" styleClass="combo" />
       <Text fill="#2eb1ab" layoutX="983.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date out:">
          <font>
             <Font size="20.0" />
@@ -190,5 +190,10 @@
             </Button>
          </children>
       </AnchorPane>
+      <Text fx:id="incorrect" fill="#c33c43" layoutX="683.0" layoutY="603.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Incorrect values!" wrappingWidth="174.92000579833984">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

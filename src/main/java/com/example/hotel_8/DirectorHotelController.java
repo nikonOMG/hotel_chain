@@ -14,16 +14,25 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.application.Platform;
+import javafx.beans.property.ObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -83,12 +92,18 @@ public class DirectorHotelController {
     @FXML
     private Button generate;
 
+
     @FXML
     private Button profile;
 
 
-    private static XYChart.Series series1 = new XYChart.Series();
-    private static XYChart.Series series2 = new XYChart.Series();
+
+    private static XYChart.Series<String, Number> series1 = new XYChart.Series();
+    private static XYChart.Series<String, Number> series2 = new XYChart.Series();
+
+
+
+
 
     @FXML
     void initialize() {
@@ -126,8 +141,12 @@ public class DirectorHotelController {
                         for (int i = now + 1; i != now; i++) {
                             if (i == 12)
                                 i = 0;
-                            series2.getData().add(new XYChart.Data(monthss[i], profit.get(monthss[i])));
-                            series1.getData().add(new XYChart.Data(monthss[i], loss.get(monthss[i])));
+                            var data1 = new XYChart.Data<String, Number>(monthss[i], profit.get(monthss[i]));
+                            data1.setNode(new HoveredThresholdNodea(monthss[i], profit.get(monthss[i])));
+                            var data2 = new XYChart.Data<String, Number>(monthss[i], loss.get(monthss[i]));
+                            data2.setNode(new HoveredThresholdNodea(monthss[i], loss.get(monthss[i])));
+                            series2.getData().add(data1);
+                            series1.getData().add(data2);
                             percent += point;
                         }
 
@@ -160,8 +179,12 @@ public class DirectorHotelController {
                 for (int i = now + 1; i != now; i++) {
                     if (i == 12)
                         i = 0;
-                    series2.getData().add(new XYChart.Data(monthss[i], profit.get(monthss[i])));
-                    series1.getData().add(new XYChart.Data(monthss[i], loss.get(monthss[i])));
+                    var data1 = new XYChart.Data<String, Number>(monthss[i], profit.get(monthss[i]));
+                    data1.setNode(new HoveredThresholdNodea(monthss[i], profit.get(monthss[i])));
+                    var data2 = new XYChart.Data<String, Number>(monthss[i], loss.get(monthss[i]));
+                    data2.setNode(new HoveredThresholdNodea(monthss[i], loss.get(monthss[i])));
+                    series2.getData().add(data1);
+                    series1.getData().add(data2);
                     percent += point;
                 }
 
@@ -183,6 +206,10 @@ public class DirectorHotelController {
 
         System.out.println(LocalDate.now().withDayOfMonth(1));
         System.out.println(LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth()));
+
+
+
+
 
 
 
@@ -357,6 +384,48 @@ public class DirectorHotelController {
         });
 
 
+    }
+
+}
+
+
+class HoveredThresholdNodea extends StackPane {
+
+    public HoveredThresholdNodea(String string, Object object) {
+        setPrefSize(15, 15);
+
+        final Label label = createDataThresholdLabel(string, object);
+
+        setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                getChildren().setAll(label);
+                setCursor(Cursor.NONE);
+                toFront();
+            }
+        });
+        setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                getChildren().clear();
+            }
+        });
+    }
+
+
+
+    private Label createDataThresholdLabel(String string, Object object) {
+        final Label label = new Label(object + "");
+        label.getStyleClass().addAll("default-color0", "chart-line-symbol", "chart-series-line");
+        label.setStyle("-fx-font-size: 20; -fx-font-weight: bold;");
+
+        System.out.println(string);
+        label.setTextFill(Color.BLACK);
+        label.setStyle("-fx-border-color: #C33C43; -fx-border-radius: 10px; -fx-background-color: white; -fx-background-radius: 10px");
+
+
+        label.setMinSize(Label.USE_PREF_SIZE, Label.USE_PREF_SIZE);
+        return label;
     }
 
 }

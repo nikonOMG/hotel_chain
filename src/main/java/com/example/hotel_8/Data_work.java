@@ -320,6 +320,86 @@ public class Data_work extends SQLException {
         return name_hotels;
     }
 
+    public static ArrayList<String> getRooms() {
+        ArrayList<String> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT * FROM Rooms Where HotelID = " + hotelID;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                int idd = rs.getInt("Name");
+                String Name = rs.getString("Size");
+                String POST = rs.getString("Type");
+                name_hotels.add(idd + " | " +  Name + " | " + POST);
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return name_hotels;
+    }
+
+    public static ArrayList<Integer> getRoomsNumber(int num) {
+        ArrayList<Integer> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT Name FROM Rooms Where HotelID = " + hotelID + " and Name != " + num;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                int idd = rs.getInt("Name");
+                name_hotels.add(idd);
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return name_hotels;
+    }
+
+
+
     public static ArrayList<String> getClients() {
         ArrayList<String> name_hotels = new ArrayList<>();
         try
@@ -607,6 +687,51 @@ public class Data_work extends SQLException {
         return null;
     }
 
+    public static ResultSet getRoomInfo(String iddd) {
+        ArrayList<String> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT * FROM Rooms Where HotelID = " + hotelID + " and Name = " + iddd;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+//            while (rs.next())
+//            {
+////                String Name = rs.getString("Fullname");
+////                String Passport = rs.getString("Passport");
+////                String Salary = rs.getString("Salary");
+////                String Login = rs.getString("Login");
+////                String Email = rs.getString("Email");
+////                String Password = rs.getString("Password");
+////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
+//
+//            }
+            return rs;
+
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+
 
     public static ResultSet getWorkerSalary(String iddd) {
         try
@@ -717,7 +842,7 @@ public class Data_work extends SQLException {
                 email = rs.getString("Email");
                 name = rs.getString("Fullname");
                 email_pas = rs.getString("Email_password");
-                if(post.equals("Director"))
+                if(post.equals("Director") || post.equals("Admin"))
                     finances = getFinances();
                     Dpassport = rs.getString("Passport");
                 workers_count = getWorkers_count();
@@ -1551,6 +1676,31 @@ public class Data_work extends SQLException {
 
     }
 
+    public static boolean changeRoom(int Fid  ,int idd, int price, String size, String view, String type, boolean ext, boolean child){
+        try {
+            Statement st = conn.createStatement();
+            String query = "UPDATE Rooms Set Name = ?, Price = ?, Size = ?, View = ?, Type = ?, Extra_bed = ?, Child = ? where Name = ?";
+            System.out.println(query);
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt(1,idd);
+            preparedStmt.setInt(2, price);
+            preparedStmt.setString(3, size);
+            preparedStmt.setString(4, view);
+            preparedStmt.setString(5, type);
+            preparedStmt.setBoolean(6, ext);
+            preparedStmt.setBoolean(7, child);
+            preparedStmt.setInt(8, Fid);
+
+            preparedStmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+
+    }
+
+
     public static void changeClient(int idd, String name, String passport, int Name, LocalDate Checkin, LocalDate Checkout, LocalDate Dob) throws SQLException, ClassNotFoundException{
         try {
             Statement st = conn.createStatement();
@@ -1989,6 +2139,91 @@ public class Data_work extends SQLException {
                 System.out.println(e);
             }
         }
+
+        public static boolean deleteRoom(int id) {
+        try {
+
+//                Statement stmt = conn.createStatement();
+//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
+//                stmt.close();
+
+            PreparedStatement st = conn.prepareStatement("DELETE FROM Rooms WHERE Name = ?");
+//                PreparedStatement st = conn.prepareStatement(query);
+            st.setInt(1, id);
+            st.executeUpdate();
+
+
+            PreparedStatement preparedStmt;
+            String query = "UPDATE Hotels Set Rooms = Rooms - 1 WHERE HotelID = '" + hotelID + "'";
+            System.out.println(query);
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+
+            return true;
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    public static boolean isAvailable(int id) {
+        try {
+
+//                Statement stmt = conn.createStatement();
+//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
+//                stmt.close();
+
+            String query =  "Select isAvailable FROM Rooms WHERE Name = " + id + " and HotelID = " + hotelID;
+//                PreparedStatement st = conn.prepareStatement(query);
+            Statement st = conn.createStatement();
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()){
+                if(rs.getBoolean("isAvailable")){
+                    return true;
+                }
+            }
+
+            return false;
+
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    public static int getMaxRoomNumber() {
+        try {
+
+//                Statement stmt = conn.createStatement();
+//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
+//                stmt.close();
+
+            String query =  "Select MAX(Name) FROM Rooms WHERE HotelID = " + hotelID;
+//                PreparedStatement st = conn.prepareStatement(query);
+            Statement st = conn.createStatement();
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()){
+                return rs.getInt("MAX(Name)");
+            }
+
+            return 0;
+
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+
+
 
 
 

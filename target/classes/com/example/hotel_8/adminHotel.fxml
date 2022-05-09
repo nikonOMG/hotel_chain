@@ -113,7 +113,7 @@
             </Button>
             </children>
         </AnchorPane>
-      <Button id="signin" fx:id="save" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="988.0" layoutY="594.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="171.0" text="Save" textFill="#494947">
+      <Button id="signin" fx:id="save" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="988.0" layoutY="454.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="171.0" text="Save" textFill="#494947">
          <font>
             <Font size="19.0" />
          </font>
@@ -147,7 +147,7 @@
             </DropShadow>
          </effect>
       </Pane>
-      <Pane layoutX="718.0" layoutY="41.0" prefHeight="422.0" prefWidth="441.0" style="-fx-background-color: #3cc3bd #3cc3bd; -fx-background-radius: 15;">
+      <Pane layoutX="718.0" layoutY="41.0" prefHeight="370.0" prefWidth="441.0" style="-fx-background-color: #3cc3bd #3cc3bd; -fx-background-radius: 15;">
          <effect>
             <DropShadow>
                <color>
@@ -176,8 +176,8 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Spinner fx:id="stars" layoutX="50.0" layoutY="250.0" prefHeight="31.0" prefWidth="98.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
-            <Text fill="WHITE" layoutX="57.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stars:">
+            <Spinner fx:id="stars" layoutX="43.0" layoutY="250.0" prefHeight="31.0" prefWidth="98.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+            <Text fill="WHITE" layoutX="50.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stars:">
                <font>
                   <Font size="16.0" />
                </font>
@@ -188,7 +188,26 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button fx:id="addroom" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="228.0" layoutY="340.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="171.0" styleClass="buttn_menu" text="Add room" textFill="#494947">
+         </children>
+      </Pane>
+      <Pane layoutX="301.0" layoutY="334.0" prefHeight="206.0" prefWidth="322.0" style="-fx-background-color: #3cc3bd #3cc3bd; -fx-background-radius: 15;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.23529411852359772" green="0.7647058963775635" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Button fx:id="addroom" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="61.0" layoutY="121.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="200.0" styleClass="buttn_menu" text="Add new room" textFill="#494947">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="changeroom" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="61.0" layoutY="40.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="200.0" styleClass="buttn_menu" text="Change room" textFill="#494947">
                <font>
                   <Font size="19.0" />
                </font>

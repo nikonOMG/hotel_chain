@@ -96,6 +96,9 @@ public class ReceptionistRegistrationController {
     private Text setTextPrice;
 
     @FXML
+    private Text incorrect;
+
+    @FXML
     private TextFlow description;
 
     @FXML
@@ -111,6 +114,7 @@ public class ReceptionistRegistrationController {
 
     @FXML
     void initialize() {
+        incorrect.setVisible(false);
         title.setText(Data_work.name);
         RoomList.setVisibleRowCount(5);
         RoomList.setItems(FXCollections.observableArrayList(Data_work.get_rooms(ExtraBed.selectedProperty().get(), Child.selectedProperty().get())));
@@ -169,10 +173,11 @@ public class ReceptionistRegistrationController {
                     System.out.println(Room_cost);
                     setTextPrice.setText("Price:");
                     setTextPrice.setText(setTextPrice.getText() + Room_cost * days);
+                    incorrect.setVisible(false);
                     SettleBtn.setDisable(false);
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    incorrect.setVisible(true);
                 }
 
             }

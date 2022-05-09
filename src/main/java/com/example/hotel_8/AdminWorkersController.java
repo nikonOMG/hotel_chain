@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,8 +75,6 @@ public class AdminWorkersController {
     @FXML
     private TableColumn<Workers, Integer> salary;
 
-    @FXML
-    private Button search;
 
     @FXML
     private TextField searchText;
@@ -103,10 +103,7 @@ public class AdminWorkersController {
             @Override
             public void run() {
                 try {
-                    if(searchText.getText().equals(""))
-                        rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                    else
-                        rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
                     while (rs.next()){
                         oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
                     }
@@ -120,44 +117,39 @@ public class AdminWorkersController {
                 post.setCellValueFactory(new PropertyValueFactory<>("post"));
                 email.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-                list.setItems(oblist);
             }
         }).start();
 
-        search.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
-            @Override
-            public void handle(MouseEvent event) {
-                list.getItems().clear();
-//                                    SignInBut.getScene().getWindow().hide();
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if(searchText.getText().equals(""))
-                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                            else
-                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
-                            while(rs.next()){
-                                oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
-                            }
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
+        FilteredList<Workers> Filtered = new FilteredList<>(oblist, b -> true);
+        searchText.textProperty().addListener((observable, oldValue,newValue)->{
+            Filtered.setPredicate(workers -> {
+                if(newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if(workers.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                }else if(workers.getPassport().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(workers.getEmail()).indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(workers.getPost()).indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if(String.valueOf(workers.getSalary()).indexOf(lowerCaseFilter) != -1)
+                    return true;
+                else
+                    return false;
 
-                        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-                        passport.setCellValueFactory(new PropertyValueFactory<>("passport"));
-                        salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-                        post.setCellValueFactory(new PropertyValueFactory<>("post"));
-                        email.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-                        list.setItems(oblist);
-                    }
-                }).start();
-
-
-            }
+            });
         });
+        SortedList<Workers> sortedList = new SortedList<>(Filtered);
+        sortedList.comparatorProperty().bind(list.comparatorProperty());
+        list.setItems(sortedList);
+
+
+
+
 
         AddnewWorker.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
@@ -182,16 +174,15 @@ public class AdminWorkersController {
 
                                 @Override
                                 public void run() {
-                                    list.getItems().clear();
+                                    list.getItems().removeAll();
+                                    list.getSelectionModel().clearSelection();
+                                    oblist.clear();
 
                                     new Thread(new Runnable() {
                                         @Override
                                         public void run() {
                                             try {
-                                                if(searchText.getText().equals(""))
-                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                                                else
-                                                    rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
+                                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Post != 'Director' and Post != 'Owner' and  Workers.HotelID = " + Data_work.hotelID);
                                                 while (rs.next()){
                                                     oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
                                                 }
