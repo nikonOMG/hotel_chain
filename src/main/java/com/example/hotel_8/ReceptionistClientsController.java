@@ -98,9 +98,9 @@ public class ReceptionistClientsController {
         try {
             Date date = Date.valueOf(LocalDate.now());
             if(searchText.getText().equals("")) {
-                rs = Data_work.conn.createStatement().executeQuery("select * from Clients where '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime");
+                rs = Data_work.conn.createStatement().executeQuery("select * from Clients where '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime  and HotelID = " + Data_work.hotelID);
             }else
-                rs = Data_work.conn.createStatement().executeQuery("select * from Clients where Clients.Fullname = '" + searchText.getText() + "' and '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime");
+                rs = Data_work.conn.createStatement().executeQuery("select * from Clients where Clients.Fullname = '" + searchText.getText() + "' and '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime  and HotelID = " + Data_work.hotelID);
             while (rs.next()){
                 oblist.add(new Clients(rs.getInt("Name"), rs.getString("Fullname"), rs.getDate("DateOfBirth"), rs.getDate("CheckInTime"), rs.getDate("CheckOutTime"), rs.getString("Passport") ));
             }

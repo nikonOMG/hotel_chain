@@ -189,6 +189,9 @@ public class ReceptionistRegistrationController {
             public void handle(MouseEvent event) {
                 try {
                     Data_work.update_rooms();
+                    RoomList.getItems().removeAll();
+                    RoomList.setItems(FXCollections.observableArrayList(Data_work.get_rooms(ExtraBed.selectedProperty().get(), Child.selectedProperty().get())));
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {

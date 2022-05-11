@@ -39,7 +39,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="fuckoff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="213.0" layoutY="91.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="Dismiss" textFill="#494947">
+            <Button fx:id="AddnewWorker" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="213.0" layoutY="25.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="New worker" textFill="#494947">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -47,7 +47,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="AddnewWorker" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="213.0" layoutY="25.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="New worker" textFill="#494947">
+            <Button fx:id="forfeit" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="213.0" layoutY="91.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="Forfeit" textFill="#494947">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -158,11 +158,26 @@
             </Button>
          </children>
       </AnchorPane>
-      <TextField fx:id="searchText" layoutX="367.0" layoutY="104.0" prefHeight="42.0" prefWidth="314.0" styleClass="input" />
-      <Text fill="#3cc3bd" layoutX="380.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
+      <TextField fx:id="searchText" layoutX="319.0" layoutY="104.0" prefHeight="42.0" prefWidth="314.0" styleClass="input" />
+      <Text fill="#3cc3bd" layoutX="332.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="226.09336853027344">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
+      <Button fx:id="fuckoff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="658.0" layoutY="104.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="141.0" styleClass="buttn_menu" text="Dismiss" textFill="#494947">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.23529411852359772" green="0.7647058963775635" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
     </children>
 </AnchorPane>

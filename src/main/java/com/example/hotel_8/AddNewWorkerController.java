@@ -46,7 +46,7 @@ public class AddNewWorkerController {
     @FXML
     void initialize() {
         post.setVisibleRowCount(5);
-        post.setItems(FXCollections.observableArrayList("Receptionist", "Cook", "HRmanager", "Director", "Cleaner"));
+        post.setItems(FXCollections.observableArrayList("Receptionist", "Cook", "HRmanager", "Director", "Cleaner", "Admin"));
 
         // Value factory.
         SpinnerValueFactory<Integer> valueFactory = //

@@ -1,5 +1,6 @@
 package com.example.hotel_8;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,9 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
@@ -182,6 +185,65 @@ public class MarketingClientsController implements Initializable {
         textField.setEditable(false);
         setupAnimation();
 
+        hotels.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("marketingHotels.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
+        profile.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("marketingProfile.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
+        Logout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
 
 
 

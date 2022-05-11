@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,6 +18,8 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -77,6 +81,8 @@ public class MarketingHotelsController {
     ObservableList<Hotels> oblist = FXCollections.observableArrayList();
     ResultSet rs;
 
+
+
     private void setMaxBarWidth(double maxBarWidth, double minCategoryGap){
         double barWidth=0;
         do{
@@ -108,7 +114,7 @@ public class MarketingHotelsController {
             @Override
             public void run() {
                 try {
-                    rs = Data_work.conn.createStatement().executeQuery("select * from Hotels where HotelID != 0");
+                    rs = Data_work.conn.createStatement().executeQuery("select * from Hotels where HotelID != 1");
                     while (rs.next()){
                         oblist.add(new Hotels(rs.getString("Name"), rs.getInt("Clients")));
                     }
@@ -197,6 +203,46 @@ public class MarketingHotelsController {
 //                                    SignInBut.getScene().getWindow().hide();
                 try {
                     root = FXMLLoader.load(getClass().getResource("marketingClients.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
+        Logout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
+                stage.setScene(scene);
+                stage.show();
+
+
+            }
+        });
+
+        profile.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("marketingProfile.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

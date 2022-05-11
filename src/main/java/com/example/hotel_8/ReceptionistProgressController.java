@@ -78,7 +78,9 @@ public class ReceptionistProgressController {
 
 
         try {
-            rs = Data_work.conn.createStatement().executeQuery("select * from monetary_fine where month(Date)=  '" + LocalDate.now().getMonth() +"'   and monetary_fine.WorkerID = " + Data_work.id);
+            String query = "select * from monetary_fine where month(Date) =  '" + LocalDate.now().getMonth().getValue() +"'   and monetary_fine.WorkerID = " + Data_work.id;
+            System.out.println(query);
+            rs = Data_work.conn.createStatement().executeQuery(query);
             while (rs.next()) {
                 oblist.add(new Monetary(rs.getDate("Date"), rs.getString("Description"), rs.getInt("Price")));
             }

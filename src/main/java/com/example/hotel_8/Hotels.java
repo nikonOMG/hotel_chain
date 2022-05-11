@@ -11,6 +11,47 @@ public class Hotels {
     int clients;
     int workers;
 
+    public int getStars() {
+        return stars;
+    }
+
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
+
+    public Hotels(String name, int clients, int workers, int stars, int rooms, String address, long finances) {
+        this.name = name;
+        this.clients = clients;
+        this.workers = workers;
+        this.stars = stars;
+        this.rooms = rooms;
+        Address = address;
+        this.finances = finances;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Hotels(String name, int clients, int workers, int id, int stars, long finances, String address, int rooms) {
+        this.name = name;
+        this.clients = clients;
+        this.workers = workers;
+        this.id = id;
+        this.stars = stars;
+        this.rooms = rooms;
+        Address = address;
+        this.finances = finances;
+    }
+
+    int id;
+
+    int stars;
+
     public String getName() {
         return name;
     }

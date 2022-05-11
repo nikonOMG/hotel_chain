@@ -88,6 +88,9 @@ public class DirectorWorkersController {
     @FXML
     private Button workers;
 
+    @FXML
+    private Button forfeit;
+
 
 
     @FXML
@@ -108,7 +111,8 @@ public class DirectorWorkersController {
     @FXML
     void initialize() {
         titlename.setText(Data_work.name);
-        fuckoff.setDisable(true);
+//        fuckoff.setDisable(true);
+        fuckoff.setVisible(false);
 //        changesalary.setDisable(true);
 
 
@@ -187,15 +191,40 @@ public class DirectorWorkersController {
         });
 
 
+        forfeit.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+//                                    SignInBut.getScene().getWindow().hide();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("forfeit.fxml"));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scen = new Scene(root1);
+                    stage.setTitle("ABC");
+                    scen.getStylesheets().add("style.css");
+                    stage.setScene(scen);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+
 
         list.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 System.out.println("bb");
-                fuckoff.setDisable(false);
+//                fuckoff.setDisable(false);
+                fuckoff.setVisible(true);
 //                changesalary.setDisable(false);
 //                list.getSelectionModel().clearSelection();
             }else{
                 System.out.println("ff");
+                fuckoff.setVisible(false);
             }
         });
 
@@ -203,7 +232,8 @@ public class DirectorWorkersController {
         @Override
         public void handle(MouseEvent e) {
             list.getSelectionModel().clearSelection();
-            fuckoff.setDisable(true);
+//            fuckoff.setDisable(true);
+            fuckoff.setVisible(false);
 //            changesalary.setDisable(true);
         }
         });

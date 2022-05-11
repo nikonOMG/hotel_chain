@@ -69,9 +69,6 @@ public class HRWorkersController {
     private TableColumn<Workers, Integer> salary;
 
     @FXML
-    private Button search;
-
-    @FXML
     private TextField searchText;
 
     @FXML
@@ -111,41 +108,6 @@ public class HRWorkersController {
                 list.setItems(oblist);
             }
         }).start();
-
-        search.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                list.getItems().clear();
-//                                    SignInBut.getScene().getWindow().hide();
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if(searchText.getText().equals(""))
-                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.HotelID = " + Data_work.hotelID);
-                            else
-                                rs = Data_work.conn.createStatement().executeQuery("select * from Workers where Workers.Fullname = '" + searchText.getText() + "' and Workers.HotelID = " + Data_work.hotelID);
-                            while(rs.next()){
-                                oblist.add(new Workers(rs.getInt("WorkerID"), rs.getString("Fullname"), rs.getString("Passport"), rs.getInt("Salary"), rs.getString("Post"), rs.getString("Email") ));
-                            }
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-
-                        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-                        passport.setCellValueFactory(new PropertyValueFactory<>("passport"));
-                        salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-                        post.setCellValueFactory(new PropertyValueFactory<>("post"));
-                        email.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-                        list.setItems(oblist);
-                    }
-                }).start();
-
-
-            }
-        });
 
 
         Logout.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
