@@ -17,6 +17,25 @@ public class Workers {
     int salary;
     String post;
     String email;
+    String Hotel;
+
+    public String getHotel() {
+        return Hotel;
+    }
+
+    public void setHotel(String hotel) {
+        Hotel = hotel;
+    }
+
+    public Workers(int id, String name, String passport, int salary, String post, String email, String hotel) {
+        this.id = id;
+        this.name = name;
+        this.passport = passport;
+        this.salary = salary;
+        this.post = post;
+        this.email = email;
+        Hotel = hotel;
+    }
 
     public Workers(int id, String name, String passport, int salary, String post, String email) {
         this.id = id;

@@ -164,7 +164,18 @@ public class LoginController {
                             scene.getStylesheets().add("style.css");
                             stage.setScene(scene);
                             stage.show();
-                        }
+                        }else if(job.equals("Owner")){
+                            try {
+                                System.out.println("test");
+                                root = FXMLLoader.load(getClass().getResource("ownerHotels.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            scene = new Scene(root);
+                            scene.getStylesheets().add("style.css");
+                            stage.setScene(scene);
+                            stage.show();}
                     }else{
                         idPassword.setText("");
                         wait.setVisible(true);

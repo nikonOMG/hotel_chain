@@ -206,13 +206,13 @@ public class Data_work extends SQLException {
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
             if(EXB && CHD) {
-                query = "SELECT Name, Size, Type, View FROM Rooms WHERE Rooms.Extra_bed = 1 and Rooms.Child = 1 and Rooms.isAvailable = 1" ;
+                query = "SELECT Name, Size, Type, View FROM Rooms WHERE Rooms.Extra_bed = 1 and Rooms.Child = 1 and Rooms.isAvailable = 1 and HotelID = " + hotelID;
             } else if(EXB){
-                query = "SELECT Name, Size, Type, View FROM Rooms WHERE Rooms.Extra_bed = 1 and Rooms.isAvailable = 1";
+                query = "SELECT Name, Size, Type, View FROM Rooms WHERE Rooms.Extra_bed = 1 and Rooms.isAvailable = 1 and HotelID = " + hotelID;
             } else if(CHD){
-                query = "SELECT Name, Size, Type, View FROM Rooms WHERE Rooms.Child = 1 and Rooms.isAvailable = 1";
+                query = "SELECT Name, Size, Type, View FROM Rooms WHERE Rooms.Child = 1 and Rooms.isAvailable = 1 and HotelID = " + hotelID;
             } else{
-                query = "SELECT Name, Size, Type, View FROM Rooms Where Rooms.isAvailable = 1";
+                query = "SELECT Name, Size, Type, View FROM Rooms Where Rooms.isAvailable = 1 and HotelID = " + hotelID;
             }
             // create the java statement
             Statement st = conn.createStatement();
@@ -415,6 +415,7 @@ public class Data_work extends SQLException {
             // if you only need a few columns, specify them by name instead of using "*"
 
             query = "SELECT * FROM Rooms Where HotelID = " + hotelID;
+            System.out.println(query);
 
             // create the java statement
             Statement st = conn.createStatement();
@@ -1182,6 +1183,60 @@ public class Data_work extends SQLException {
         return count;
     }
 
+    public static int getCountRoomsOwner(){
+        int count = 0;
+        try
+        {
+            String query = "SELECT * FROM Rooms";
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            System.out.println(query);
+            while(rs.next()) {
+                count++;
+            }
+            return count;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return count;
+    }
+
+
+    public static int getCountWorkers(){
+        int count = 0;
+        try
+        {
+            String query = "SELECT * FROM Rooms";
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            System.out.println(query);
+            while(rs.next()) {
+                count++;
+            }
+            return count;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return count;
+    }
+
+
     public static int getCountClients(){
         int count = 0;
         try
@@ -1210,6 +1265,36 @@ public class Data_work extends SQLException {
         }
         return count;
     }
+
+    public static int getCountClientsOwner(){
+        int count = 0;
+        try
+        {
+            Date date = Date.valueOf(LocalDate.now());
+            System.out.println(date);
+
+            String query = "SELECT * FROM Clients WHERE '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime";
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            System.out.println(query);
+            while(rs.next()) {
+                count++;
+            }
+            return count;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return count;
+    }
+
 
     public static int getLoss(String month){
         try
@@ -1379,6 +1464,73 @@ public class Data_work extends SQLException {
     }
 
 
+    public static HashMap<String, Integer> getProfitOwner(){
+        try
+        {
+            HashMap<String, Integer> profit = new HashMap<>();
+
+
+            String query = "select sum(January) as January, sum(February) as February, sum(March) as March, sum(April) as April, sum(May) as May, sum(June) as June, sum(July) as July, sum(August) as August, sum(September) as September, sum(October) as October, sum(November) as November, sum(December) as December from Profit;";
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+            String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+            while (rs.next()){
+                for(int i = 0; i < 12; i++){
+                    profit.put(monthss[i], rs.getInt(monthss[i]));
+                }
+
+            }
+
+            // iterate through the java resultset
+            return profit;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+
+    public static HashMap<String, Integer> getLossOwner(){
+        try
+        {
+            HashMap<String, Integer> loss = new HashMap<>();
+
+
+            String query = "select sum(January) as January, sum(February) as February, sum(March) as March, sum(April) as April, sum(May) as May, sum(June) as June, sum(July) as July, sum(August) as August, sum(September) as September, sum(October) as October, sum(November) as November, sum(December) as December from Loss;";
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+            while (rs.next()){
+                for(int i = 0; i < 12; i++){
+                    loss.put(monthss[i], rs.getInt(monthss[i]));
+                }
+
+            }
+
+            return loss;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+
     public static void setProfit(String month){
         try {
             Statement st = conn.createStatement();
@@ -1461,6 +1613,30 @@ public class Data_work extends SQLException {
             System.err.println(e.getMessage());
         }
         return null;
+    }
+
+
+    public static String getHotelName(int iddd){
+        try
+        {
+
+            String query = "Select Name From Hotels Where HotelID = " + iddd;
+            Statement st = conn.createStatement();
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            rs.next();
+            String post = rs.getString("Name");
+            System.out.println(post);
+            return post;
+
+
+        }
+        catch (Exception e) {
+            System.err.println("Got an exception!!!! ");
+            System.err.println(e.getMessage());
+        }
+        return " ";
     }
 
     public static String getDescriptionT(String room){

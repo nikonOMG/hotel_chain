@@ -11,6 +11,25 @@ public class Clients {
     Date checkout;
     String passport;
 
+    public Clients(String name, Date birth, Date checkin, Date checkout, String passport, String hotel) {
+        this.name = name;
+        this.birth = birth;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.passport = passport;
+        this.hotel = hotel;
+    }
+
+    String hotel;
+
+    public String getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(String hotel) {
+        this.hotel = hotel;
+    }
+
     public Clients(int room, String name, Date birth, Date checkin, Date checkout, String passport) {
         this.room = room;
         this.name = name;
