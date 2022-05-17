@@ -96,7 +96,7 @@ public class MarketingClientsController implements Initializable {
     private void setupAnimation() {
         pieChartData.stream().forEach(pieData -> {
             pieData.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
-                    // Move the textfield to where the mouse click is
+
                 if(event.isPrimaryButtonDown()) {
                     textField.setTranslateX(event.getSceneX() - textField.getLayoutX());
                     textField.setTranslateY(event.getSceneY() - textField.getLayoutY());
@@ -129,7 +129,7 @@ public class MarketingClientsController implements Initializable {
                 countryname.setCellValueFactory(new PropertyValueFactory<>("name"));
                 counryclients.setCellValueFactory(new PropertyValueFactory<>("clients"));
 
-//                list.setItems(oblist);
+
             }
         }).start();
 
@@ -165,20 +165,20 @@ public class MarketingClientsController implements Initializable {
                 .forEach(k -> pieChartData.add(new PieChart.Data(k.getKey(), k.getValue())));
 
 
-//        for (Map.Entry<String, Integer> entry : con.entrySet()) {
-//            System.out.println(entry.getKey() + "/" + entry.getValue());
-//            pieChartData.add(new PieChart.Data(entry.getKey(), entry.getValue()));
-//        }
 
 
-//        pieChartData.forEach(data ->
-//                data.nameProperty().bind(
-//                        Bindings.concat(
-//                                data.getName(), " amount: ", data.pieValueProperty()
-//                        )
-//                )
-//        );
-//
+
+
+
+
+
+
+
+
+
+
+
+
 
         pie.setData(pieChartData);
         pie.setTitle("Clients");
@@ -189,7 +189,7 @@ public class MarketingClientsController implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("marketingHotels.fxml"));
                 } catch (IOException e) {
@@ -209,7 +209,7 @@ public class MarketingClientsController implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("marketingProfile.fxml"));
                 } catch (IOException e) {
@@ -229,7 +229,7 @@ public class MarketingClientsController implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

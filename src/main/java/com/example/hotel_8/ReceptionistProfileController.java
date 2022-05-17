@@ -76,7 +76,7 @@ public class ReceptionistProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     Data_work.changeEmail(email.getText());
                     email.setText(Data_work.email);
@@ -93,7 +93,7 @@ public class ReceptionistProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("receptionistRegistration.fxml"));
                 } catch (IOException e) {
@@ -114,7 +114,7 @@ public class ReceptionistProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changePassword.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -136,7 +136,7 @@ public class ReceptionistProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("receptionistProgress.fxml"));
                 } catch (IOException e) {
@@ -156,7 +156,7 @@ public class ReceptionistProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -176,7 +176,7 @@ public class ReceptionistProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("receptionistClients.fxml"));
                 } catch (IOException e) {

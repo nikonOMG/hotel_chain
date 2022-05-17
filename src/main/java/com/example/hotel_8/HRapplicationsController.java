@@ -1,7 +1,7 @@
 package com.example.hotel_8;
 
 
-//import java.awt.*;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -88,12 +88,12 @@ public class HRapplicationsController {
     @FXML
     private TableColumn<Applications, String> titlea;
 
-//    static ObservableList<Applications> oblist = FXCollections.observableArrayList();
+
 
     private ObservableList<Applications> check(String host, String storeType, String user, String password) {
         try {
             ObservableList<Applications> oblist = FXCollections.observableArrayList();
-            // create properties
+
             Properties properties = new Properties();
 
             properties.put("mail.imap.host", host);
@@ -103,33 +103,33 @@ public class HRapplicationsController {
 
             Session emailSession = Session.getDefaultInstance(properties);
 
-            // create the imap store object and connect to the imap server
+
             Store store = emailSession.getStore("imaps");
 
             store.connect(host, user, password);
 
-            // create the inbox object and open it
+
             Folder inbox = store.getFolder("Inbox");
             inbox.open(Folder.READ_WRITE);
 
-            // retrieve the messages from the folder in an array and print it
+
             Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), true));
             System.out.println("messages.length---" + messages.length);
             double percent = 1.f/ messages.length;
             for (int i = 0, n = messages.length; i < n; i++) {
                 Message message = messages[i];
                 System.out.println(i);
-//                message.setFlag(Flag.SEEN, true);
-//                System.out.println("---------------------------------");
-//                System.out.println("Email Number " + (i + 1));
-//                System.out.println("Subject: " + message.getSubject());
-//                System.out.println("From: " + message.getFrom()[0]);
-//                MimeMultipart body = (MimeMultipart) message.getContent();
-//                BodyPart textPart = body.getBodyPart(0);
-//                String text = (String) textPart.getContent();
-//                System.out.println("Text: " + text);
-//                System.out.println(message.getSentDate());
-//                System.out.println(message.getMessageNumber());
+
+
+
+
+
+
+
+
+
+
+
 
                 oblist.add(new Applications((int) message.getMessageNumber(), message.getFrom()[0].toString(), message.getSubject(), message.getSentDate().toString()));
                 System.out.println((i + 1) * percent);
@@ -158,7 +158,7 @@ public class HRapplicationsController {
     void initialize() {
         titlename.setText(Data_work.name);
         load.setVisible(false);
-//        link.setOnAction(e -> Application.getHostServices.showDocument("https://mail.google.com/mail/u/0/#inbox"));
+
 
 
         loadTable.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -195,7 +195,7 @@ public class HRapplicationsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeEmail.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -217,7 +217,7 @@ public class HRapplicationsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("HRworkers.fxml"));
                 } catch (IOException e) {
@@ -239,7 +239,7 @@ public class HRapplicationsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -259,7 +259,7 @@ public class HRapplicationsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("HRprofile.fxml"));
                 } catch (IOException e) {

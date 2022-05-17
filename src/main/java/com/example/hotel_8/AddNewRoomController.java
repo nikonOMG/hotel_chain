@@ -56,7 +56,7 @@ public class AddNewRoomController {
         type.setVisibleRowCount(5);
         type.setItems(FXCollections.observableArrayList(Data_work.getType()));
 
-        SpinnerValueFactory<Integer> valueFactory = //
+        SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1000, 999999999);
 
         price.setValueFactory(valueFactory);
@@ -69,7 +69,7 @@ public class AddNewRoomController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 if(!(size.getValue() == null) && !(view.getValue() == null) && !(type.getValue() == null)) {
                     try {
                         System.out.println(extrabed.isSelected());
@@ -77,7 +77,7 @@ public class AddNewRoomController {
 
                         if (add) {
                             Stage stage = (Stage) save.getScene().getWindow();
-                            // do what you have to do
+
 
                             stage.close();
                         } else {

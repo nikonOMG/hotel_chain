@@ -80,12 +80,11 @@ public class LoginController {
                     String login = idLogin.getText();
                     String password = idPassword.getText();
                     String hotel = idHotels.getValue();
-
                     ch = Data_work.sign_in(login.trim(), password.trim(), hotel);
 
                     if(ch){
                         System.out.println("okkkk");
-//                        String job = Data_work.getJob(login, hotel);
+
                         String job = Data_work.post;
                         System.out.println(job);
                         if(job.equals("Receptionist")){

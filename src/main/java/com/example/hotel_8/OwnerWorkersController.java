@@ -104,9 +104,9 @@ public class OwnerWorkersController {
     void initialize() {
 
         titlename.setText(Data_work.name);
-//        fuckoff.setDisable(true);
+
         fuckoff.setVisible(false);
-//        changesalary.setDisable(true);
+
 
 
         new Thread(new Runnable() {
@@ -175,7 +175,7 @@ public class OwnerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("forfeit.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -197,10 +197,10 @@ public class OwnerWorkersController {
         list.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 System.out.println("bb");
-//                fuckoff.setDisable(false);
+
                 fuckoff.setVisible(true);
-//                changesalary.setDisable(false);
-//                list.getSelectionModel().clearSelection();
+
+
             }else{
                 System.out.println("ff");
                 fuckoff.setVisible(false);
@@ -211,9 +211,9 @@ public class OwnerWorkersController {
             @Override
             public void handle(MouseEvent e) {
                 list.getSelectionModel().clearSelection();
-//            fuckoff.setDisable(true);
+
                 fuckoff.setVisible(false);
-//            changesalary.setDisable(true);
+
             }
         });
 
@@ -222,7 +222,7 @@ public class OwnerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -302,9 +302,9 @@ public class OwnerWorkersController {
                     });
 
 
-//                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
+
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 
@@ -316,7 +316,7 @@ public class OwnerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -336,7 +336,7 @@ public class OwnerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("ownerClients.fxml"));
                 } catch (IOException e) {
@@ -357,7 +357,7 @@ public class OwnerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("ownerHotels.fxml"));
                 } catch (IOException e) {
@@ -383,7 +383,7 @@ public class OwnerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeSalary.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -487,7 +487,7 @@ public class OwnerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("ownerProfile.fxml"));
                 } catch (IOException e) {

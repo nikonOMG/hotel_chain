@@ -88,7 +88,7 @@ public class AdminWorkerInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminWorkers.fxml"));
                 } catch (IOException e) {
@@ -108,7 +108,7 @@ public class AdminWorkerInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminHotel.fxml"));
                 } catch (IOException e) {
@@ -154,7 +154,7 @@ public class AdminWorkerInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -162,7 +162,7 @@ public class AdminWorkerInfoController {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
-                    // ... user chose OK
+
                     try {
                         Data_work.changeWorker(Integer.parseInt(workerlist.getValue().split(" ")[0]), name.getText(), passport.getText(), email.getText(), login.getText(), password.getText(), Integer.parseInt(salary.getText()));
                     } catch (SQLException e) {
@@ -171,7 +171,7 @@ public class AdminWorkerInfoController {
                         e.printStackTrace();
                     }
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 
@@ -183,7 +183,7 @@ public class AdminWorkerInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminClientsInfo.fxml"));
                 } catch (IOException e) {
@@ -203,7 +203,7 @@ public class AdminWorkerInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -223,7 +223,7 @@ public class AdminWorkerInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminHotel.fxml"));
                 } catch (IOException e) {
@@ -245,7 +245,7 @@ public class AdminWorkerInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminProfile.fxml"));
                 } catch (IOException e) {

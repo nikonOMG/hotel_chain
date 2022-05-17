@@ -124,7 +124,7 @@ public class ReceptionistClientsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("receptionistRegistration.fxml"));
                 } catch (IOException e) {
@@ -145,7 +145,7 @@ public class ReceptionistClientsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("receptionistProfile.fxml"));
                 } catch (IOException e) {
@@ -165,7 +165,7 @@ public class ReceptionistClientsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -185,7 +185,7 @@ public class ReceptionistClientsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("receptionistProgress.fxml"));
                 } catch (IOException e) {

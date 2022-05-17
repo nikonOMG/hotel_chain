@@ -37,12 +37,12 @@ public class ChangePasswordController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try{
                     boolean change =  Data_work.changePassword(currentPas.getText(), newPas.getText(), ConNewPas.getText());
                     if(change){
                         Stage stage = (Stage) save.getScene().getWindow();
-                        // do what you have to do
+
                         stage.close();
                     }
                 } catch (SQLException e) {

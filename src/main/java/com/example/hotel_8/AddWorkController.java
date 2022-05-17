@@ -62,7 +62,7 @@ public class AddWorkController {
                 max.setStyle("-fx-fill: #C33C43");
             }
             max.setText(descpription.getText().length() + " / 100");
-            // TODO here
+
         });
 
         stars.setValue(LocalDate.now());
@@ -90,15 +90,15 @@ public class AddWorkController {
                         Data_work.addWorkMaid(Integer.parseInt(list.getValue().split(" ")[0]), descpription.getText(), Date.valueOf(stars.getValue()), Date.valueOf(end.getValue()));
 
                         Stage stage = (Stage) save.getScene().getWindow();
-                        // do what you have to do
+
 
                         stage.close();
 
 
 
-//                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
+
                     } else {
-                        // ... user chose CANCEL or closed the dialog
+
                     }
 
                 }

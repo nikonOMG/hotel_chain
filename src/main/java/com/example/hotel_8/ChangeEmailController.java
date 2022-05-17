@@ -42,12 +42,12 @@ public class ChangeEmailController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try{
                     boolean change =  Data_work.changeEmailHR(email.getText(), password.getText());
                     if(change){
                         Stage stage = (Stage) save.getScene().getWindow();
-                        // do what you have to do
+
                         stage.close();
                     }else{
                         incorrect.setVisible(true);

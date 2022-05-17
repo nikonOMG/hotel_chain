@@ -243,17 +243,7 @@ public class CookPostTable implements Initializable {
         con =Data_work.conn;
     }
 
-    /*public void Connect()
-    {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://bcalydbu3z2fxht2xnnd-mysql.services.clever-cloud.com:3306/bcalydbu3z2fxht2xnnd","uy0pllhi16asmquc","aiMfsx2EM5VcOUR1TFS3");
-        } catch (ClassNotFoundException ex) {
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }*/
+    
 
 
     @Override
@@ -275,7 +265,7 @@ public class CookPostTable implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("povar11.fxml"));
                 } catch (IOException e) {
@@ -295,7 +285,7 @@ public class CookPostTable implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("povar13.fxml"));
                 } catch (IOException e) {
@@ -315,7 +305,7 @@ public class CookPostTable implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

@@ -123,7 +123,7 @@ public class DirectorHotelController {
             public void handle(MouseEvent event) {
                 financescount.setText("Finances: " + Data_work.getFinances());
                 finances.getData().clear();
-//                finances.setAnimated(true);
+
                 series1.getData().clear();
                 series2.getData().clear();
 
@@ -220,7 +220,7 @@ public class DirectorHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorWorkers.fxml"));
                 } catch (IOException e) {
@@ -237,24 +237,24 @@ public class DirectorHotelController {
         });
 
 
-        // в будущем отчеты
+
         generate.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Document document = new Document();
                 try
                 {
                     PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(".\\Documents\\AddTableExample.pdf"));
                     document.open();
 
-                    PdfPTable table = new PdfPTable(3); // 3 columns.
-                    table.setWidthPercentage(100); //Width 100%
-                    table.setSpacingBefore(10f); //Space before table
-                    table.setSpacingAfter(10f); //Space after table
+                    PdfPTable table = new PdfPTable(3);
+                    table.setWidthPercentage(100);
+                    table.setSpacingBefore(10f);
+                    table.setSpacingAfter(10f);
 
-                    //Set Column widths
+
                     float[] columnWidths = {1f, 1f, 1f};
                     table.setWidths(columnWidths);
 
@@ -276,10 +276,10 @@ public class DirectorHotelController {
                     cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
                     cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
-                    //To avoid having the cell border and the content overlap, if you are having thick cell borders
-                    //cell1.setUserBorderPadding(true);
-                    //cell2.setUserBorderPadding(true);
-                    //cell3.setUserBorderPadding(true);
+
+
+
+
 
                     table.addCell(cell1);
                     table.addCell(cell2);
@@ -303,7 +303,7 @@ public class DirectorHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorClients.fxml"));
                 } catch (IOException e) {
@@ -323,7 +323,7 @@ public class DirectorHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorProfile.fxml"));
                 } catch (IOException e) {
@@ -344,7 +344,7 @@ public class DirectorHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("withdrawMoney.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -367,7 +367,7 @@ public class DirectorHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

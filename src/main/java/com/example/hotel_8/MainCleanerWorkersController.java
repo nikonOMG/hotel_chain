@@ -117,8 +117,8 @@ public class MainCleanerWorkersController {
             if (newSelection != null) {
                 System.out.println("bb");
                 fuckoff.setDisable(false);
-//                changesalary.setDisable(false);
-//                list.getSelectionModel().clearSelection();
+
+
             }else{
                 System.out.println("ff");
                 fuckoff.setDisable(true);
@@ -130,8 +130,8 @@ public class MainCleanerWorkersController {
             public void handle(MouseEvent e) {
                 list.getSelectionModel().clearSelection();
             fuckoff.setDisable(true);
-//                fuckoff.setVisible(false);
-//            changesalary.setDisable(true);
+
+
             }
         });
 
@@ -145,7 +145,7 @@ public class MainCleanerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainCleanerProfile.fxml"));
                 } catch (IOException e) {
@@ -165,7 +165,7 @@ public class MainCleanerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("attendance.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -189,7 +189,7 @@ public class MainCleanerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainCleanerProgress.fxml"));
                 } catch (IOException e) {
@@ -235,7 +235,7 @@ public class MainCleanerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("forfeit.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -258,7 +258,7 @@ public class MainCleanerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addWork.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -323,7 +323,7 @@ public class MainCleanerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -367,9 +367,9 @@ public class MainCleanerWorkersController {
                     });
 
 
-//                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
+
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 
@@ -385,7 +385,7 @@ public class MainCleanerWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

@@ -155,7 +155,7 @@ public class AdminWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addnewWorker.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -216,7 +216,7 @@ public class AdminWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -236,7 +236,7 @@ public class AdminWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminHotel.fxml"));
                 } catch (IOException e) {
@@ -256,7 +256,7 @@ public class AdminWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
                 } catch (IOException e) {
@@ -278,7 +278,7 @@ public class AdminWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminClientsInfo.fxml"));
                 } catch (IOException e) {
@@ -300,7 +300,7 @@ public class AdminWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminProfile.fxml"));
                 } catch (IOException e) {

@@ -49,19 +49,19 @@ public class Data_work extends SQLException {
     removeFirstandLast(String str)
     {
 
-        // Creating a StringBuilder object
+
         StringBuilder sb = new StringBuilder(str);
 
-        // Removing the last character
-        // of a string
+
+
         sb.deleteCharAt(str.length() - 1);
 
-        // Removing the first character
-        // of a string
+
+
         sb.deleteCharAt(0);
 
-        // Converting StringBuilder into a string
-        // and return the modified string
+
+
         return sb.toString();
     }
 
@@ -73,22 +73,22 @@ public class Data_work extends SQLException {
         ArrayList<String> name_hotels = new ArrayList<>();
         try
         {
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String query = "SELECT Name FROM Hotels";
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String Name = rs.getString("Name");
@@ -109,25 +109,25 @@ public class Data_work extends SQLException {
         HashMap<String, Integer> con = new HashMap<String, Integer>();
         try
         {
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String query = "select *\n" +
                     "from Countries where clients != 0\n" +
                     "order by clients desc\n" +
                     "limit 5";
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String Name = rs.getString("Name");
@@ -151,25 +151,25 @@ public class Data_work extends SQLException {
         HashMap<String, int[]> con = new HashMap<String, int[]>();
         try
         {
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String query = "select *\n" +
                     "from Hotels where HotelID != 1\n" +
                     "order by Clients desc\n" +
                     "limit 5";
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String Name = rs.getString("Name");
@@ -198,13 +198,13 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             if(EXB && CHD) {
                 query = "SELECT Name, Size, Type, View FROM Rooms WHERE Rooms.Extra_bed = 1 and Rooms.Child = 1 and Rooms.isAvailable = 1 and HotelID = " + hotelID;
             } else if(EXB){
@@ -214,13 +214,13 @@ public class Data_work extends SQLException {
             } else{
                 query = "SELECT Name, Size, Type, View FROM Rooms Where Rooms.isAvailable = 1 and HotelID = " + hotelID;
             }
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String Name = rs.getString("Name");
@@ -245,22 +245,22 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "select id ,name, capital, continent from Countries";
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String Name = rs.getString("name");
@@ -285,23 +285,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT WorkerID, Fullname, Post FROM Workers Where Workers.HotelID = " + hotelID;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("WorkerID");
@@ -325,23 +325,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT WorkerID, Fullname, Post FROM Workers Where Post = 'Maid' and Workers.HotelID = " + hotelID;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("WorkerID");
@@ -364,23 +364,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
+   
+   
+   
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
 
             query = "SELECT WorkerID, Fullname, Post FROM Workers Where Post = 'Cook' and Workers.HotelID = " + hotelID;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("WorkerID");
@@ -406,23 +406,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT WorkerID, Fullname, Post FROM Workers Where Workers.HotelID = " + iddd;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("WorkerID");
@@ -446,23 +446,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT HotelID, Name, Address, Stars FROM Hotels Where HotelID != 1";
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("HotelID");
@@ -487,24 +487,24 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT * FROM Rooms Where HotelID = " + hotelID;
             System.out.println(query);
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 int idd = rs.getInt("Name");
@@ -528,23 +528,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT Name FROM Rooms Where HotelID = " + hotelID + " and Name != " + num;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 int idd = rs.getInt("Name");
@@ -568,23 +568,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT ClientID, Fullname, Name FROM Clients Where HotelID = " + hotelID  + " and '" + LocalDate.now() + "' between Clients.CheckInTime and Clients.CheckOutTime";
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("ClientID");
@@ -609,23 +609,23 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT WorkerID, Fullname, Post FROM Workers Where Workers.HotelID = " + hotelID + " and Post != \"Director\" and Post != \"Admin\"";
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("WorkerID");
@@ -649,24 +649,24 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "select Name from Сlassification_of_rooms Where Type = 'View'";
             System.out.println(query);
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("Name");
@@ -687,24 +687,24 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "select Name from Сlassification_of_rooms Where Type = 'Basic'";
             System.out.println(query);
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("Name");
@@ -725,24 +725,24 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "select Name from Сlassification_of_rooms Where Type = 'Comfort'";
             System.out.println(query);
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 String idd = rs.getString("Name");
@@ -767,34 +767,34 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT Fullname, Passport, Name, DateOfBirth, CheckInTime, CheckOutTime FROM Clients Where HotelID = " + hotelID + " and ClientID = " + iddd;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
-//            while (rs.next())
-//            {
-////                String Name = rs.getString("Fullname");
-////                String Passport = rs.getString("Passport");
-////                String Salary = rs.getString("Salary");
-////                String Login = rs.getString("Login");
-////                String Email = rs.getString("Email");
-////                String Password = rs.getString("Password");
-////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
-//
-//            }
+
+
+
+
+
+
+
+
+
+
+
+
             return rs;
 
         }
@@ -811,35 +811,35 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT Fullname, Email, Passport, Password, Login, Salary FROM Workers Where HotelID = " + hotelID + " and WorkerID = " + iddd;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
             System.out.println(query);
 
-            // iterate through the java resultset
-//            while (rs.next())
-//            {
-////                String Name = rs.getString("Fullname");
-////                String Passport = rs.getString("Passport");
-////                String Salary = rs.getString("Salary");
-////                String Login = rs.getString("Login");
-////                String Email = rs.getString("Email");
-////                String Password = rs.getString("Password");
-////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
-//
-//            }
+
+
+
+
+
+
+
+
+
+
+
+
             return rs;
 
         }
@@ -856,35 +856,35 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT Fullname, Email, Passport, Password, Login, Salary FROM Workers Where HotelID = " + hid + " and WorkerID = " + iddd;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
             System.out.println(query);
 
-            // iterate through the java resultset
-//            while (rs.next())
-//            {
-////                String Name = rs.getString("Fullname");
-////                String Passport = rs.getString("Passport");
-////                String Salary = rs.getString("Salary");
-////                String Login = rs.getString("Login");
-////                String Email = rs.getString("Email");
-////                String Password = rs.getString("Password");
-////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
-//
-//            }
+
+
+
+
+
+
+
+
+
+
+
+
             return rs;
 
         }
@@ -902,34 +902,34 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT Name, Address, Clients, Finances, Workers, Rooms, Stars FROM Hotels Where HotelID = " + iddd;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
-//            while (rs.next())
-//            {
-////                String Name = rs.getString("Fullname");
-////                String Passport = rs.getString("Passport");
-////                String Salary = rs.getString("Salary");
-////                String Login = rs.getString("Login");
-////                String Email = rs.getString("Email");
-////                String Password = rs.getString("Password");
-////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
-//
-//            }
+
+
+
+
+
+
+
+
+
+
+
+
             return rs;
 
         }
@@ -946,34 +946,34 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT * FROM Rooms Where HotelID = " + hotelID + " and Name = " + iddd;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
-//            while (rs.next())
-//            {
-////                String Name = rs.getString("Fullname");
-////                String Passport = rs.getString("Passport");
-////                String Salary = rs.getString("Salary");
-////                String Login = rs.getString("Login");
-////                String Email = rs.getString("Email");
-////                String Password = rs.getString("Password");
-////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
-//
-//            }
+
+
+
+
+
+
+
+
+
+
+
+
             return rs;
 
         }
@@ -991,34 +991,34 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT Salary FROM Workers Where Workers.HotelID = " + hotelID + " and Workers.WorkerID = " + iddd;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
-//            while (rs.next())
-//            {
-////                String Name = rs.getString("Fullname");
-////                String Passport = rs.getString("Passport");
-////                String Salary = rs.getString("Salary");
-////                String Login = rs.getString("Login");
-////                String Email = rs.getString("Email");
-////                String Password = rs.getString("Password");
-////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
-//
-//            }
+
+
+
+
+
+
+
+
+
+
+
+
             return rs;
 
         }
@@ -1034,34 +1034,34 @@ public class Data_work extends SQLException {
         try
         {
             String query;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
 
             query = "SELECT * FROM Hotels Where HotelID = " + hotelID;
 
-            // create the java statement
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
-//            while (rs.next())
-//            {
-////                String Name = rs.getString("Fullname");
-////                String Passport = rs.getString("Passport");
-////                String Salary = rs.getString("Salary");
-////                String Login = rs.getString("Login");
-////                String Email = rs.getString("Email");
-////                String Password = rs.getString("Password");
-////                name_hotels.addAll(Name, Passport, Salary, Login, Email, Password);
-//
-//            }
+
+
+
+
+
+
+
+
+
+
+
+
             return rs;
 
         }
@@ -1120,22 +1120,22 @@ public class Data_work extends SQLException {
     public static int getCost(String room){
         try
         {
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
+
+
+
+
             List<String> list = new ArrayList<String>(Arrays.asList(room.split(" ")));
             System.out.println(list);
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
             String query = "SELECT Price FROM Rooms WHERE Rooms.Name = \"";
 
-            // create the java statement
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query + list.get(0) + "Rooms.Size = " + list.get(1) + "\"");
 
-            // iterate through the java resultset
+
             while (rs.next())
             {
                 int price = rs.getInt("Price");
@@ -1154,22 +1154,22 @@ public class Data_work extends SQLException {
     public static String getJob(String login, String hotel){
         try
         {
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String query = "SELECT Post FROM Workers WHERE Workers.HotelID = \"" ;
             int idHotel = getIdHotel(hotel);
-            // create the java statement
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             System.out.println(login);
             ResultSet rs = st.executeQuery(query + idHotel +"and Workers.Login = " + login + "\"");
 
-            // iterate through the java resultset
+
 
             while(rs.next()){
                 String post = rs.getString("Post");
@@ -1189,12 +1189,12 @@ public class Data_work extends SQLException {
         try
         {
             String query = "SELECT Finances FROM Hotels WHERE Hotels.HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 System.out.println("profit " + getProfit(String.valueOf(LocalDate.now().getMonth())));
@@ -1217,12 +1217,12 @@ public class Data_work extends SQLException {
         try
         {
             String query = "SELECT * FROM Workers WHERE Workers.HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 count++;
@@ -1243,12 +1243,12 @@ public class Data_work extends SQLException {
         try
         {
             String query = "SELECT * FROM Rooms WHERE Rooms.HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 count++;
@@ -1269,12 +1269,12 @@ public class Data_work extends SQLException {
         try
         {
             String query = "SELECT * FROM Rooms";
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 count++;
@@ -1296,12 +1296,12 @@ public class Data_work extends SQLException {
         try
         {
             String query = "SELECT * FROM Rooms";
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 count++;
@@ -1326,12 +1326,12 @@ public class Data_work extends SQLException {
             System.out.println(date);
 
             String query = "SELECT * FROM Clients WHERE Clients.HotelID = " + hotelID + " and '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime";
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 count++;
@@ -1355,12 +1355,12 @@ public class Data_work extends SQLException {
             System.out.println(date);
 
             String query = "SELECT * FROM Clients WHERE '" + date + "' between Clients.CheckInTime and Clients.CheckOutTime";
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 count++;
@@ -1382,12 +1382,12 @@ public class Data_work extends SQLException {
         {
 
             String query = "SELECT " + month +" FROM Loss WHERE Loss.HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 return rs.getInt(month);
@@ -1421,12 +1421,12 @@ public class Data_work extends SQLException {
         try
         {
             String query = "SELECT Salary FROM Workers WHERE Workers.HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 loss += rs.getInt("Salary");
@@ -1456,12 +1456,12 @@ public class Data_work extends SQLException {
         {
 
             String query = "SELECT " + month +" FROM Profit WHERE Profit.HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 return rs.getInt(month);
@@ -1485,7 +1485,7 @@ public class Data_work extends SQLException {
 
 
             String query = "SELECT * FROM Profit WHERE HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
@@ -1498,7 +1498,7 @@ public class Data_work extends SQLException {
 
             }
 
-            // iterate through the java resultset
+
             return profit;
 
 
@@ -1518,12 +1518,12 @@ public class Data_work extends SQLException {
 
 
             String query = "SELECT * FROM Loss WHERE Loss.HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
             while (rs.next()){
@@ -1552,7 +1552,7 @@ public class Data_work extends SQLException {
 
 
             String query = "select sum(January) as January, sum(February) as February, sum(March) as March, sum(April) as April, sum(May) as May, sum(June) as June, sum(July) as July, sum(August) as August, sum(September) as September, sum(October) as October, sum(November) as November, sum(December) as December from Profit;";
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
@@ -1565,7 +1565,7 @@ public class Data_work extends SQLException {
 
             }
 
-            // iterate through the java resultset
+
             return profit;
 
 
@@ -1585,12 +1585,12 @@ public class Data_work extends SQLException {
 
 
             String query = "select sum(January) as January, sum(February) as February, sum(March) as March, sum(April) as April, sum(May) as May, sum(June) as June, sum(July) as July, sum(August) as August, sum(September) as September, sum(October) as October, sum(November) as November, sum(December) as December from Loss;";
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             String[] monthss = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
             while (rs.next()){
@@ -1631,12 +1631,12 @@ public class Data_work extends SQLException {
         try
         {
             String query = "select Amount from Clients where CheckInTime between '" + LocalDate.now().withDayOfMonth(1) + "' and '" + LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth()) + "' and HotelID = " + hotelID;
-            // create the java statement
+
             Statement st = conn.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             System.out.println(query);
             while(rs.next()) {
                 profit += rs.getInt("Amount");
@@ -1669,20 +1669,20 @@ public class Data_work extends SQLException {
         {
             List<String> list = new ArrayList<String>(Arrays.asList(room.split(" ")));
             System.out.println(list);
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String query = "SELECT Description FROM Сlassification_of_rooms WHERE Сlassification_of_rooms.Name = \"";
-            // create the java statement
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query + list.get(1) + "\"");
 
-            // iterate through the java resultset
+
             rs.next();
             String post = rs.getString("Description");
             return post;
@@ -1703,7 +1703,7 @@ public class Data_work extends SQLException {
 
             String query = "Select Name From Hotels Where HotelID = " + iddd;
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
             rs.next();
@@ -1726,10 +1726,10 @@ public class Data_work extends SQLException {
             List<String> list = new ArrayList<String>(Arrays.asList(room.split(" ")));
             System.out.println(list);
             String n;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
+
+
+
+
 
             if(list.size() == 7){
                 n = list.get(5) + " " + list.get(6);
@@ -1739,15 +1739,15 @@ public class Data_work extends SQLException {
             } else{
                 n = list.get(4);
             }
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
             String query = "SELECT Description FROM Сlassification_of_rooms WHERE Сlassification_of_rooms.Name = \"";
-            // create the java statement
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query + n + "\"");
 
-            // iterate through the java resultset
+
             rs.next();
             String post = rs.getString("Description");
             return post;
@@ -1762,64 +1762,64 @@ public class Data_work extends SQLException {
     }
 
 
-//    public static Connection getConnection() throws SQLException {
-////        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
-//        Connection connection = DriverManager.getConnection("jdbc:mysql://bcalydbu3z2fxht2xnnd-mysql.services.clever-cloud.com:3306/bcalydbu3z2fxht2xnnd", "uy0pllhi16asmquc", "N2BCPexKg09xUxUEjP4f");
-//
-//        return connection;
-//    }
 
-//    public static boolean addHotel() throws SQLException, ClassNotFoundException {
-//        String myDriver = "com.mysql.cj.jdbc.Driver";
-//        Class.forName(myDriver);
-//        Connection conn = getConnection();
-//
-//        // our SQL SELECT query.
-//        // if you only need a few columns, specify them by name instead of using "*"
-//        Statement st = conn.createStatement();
-//
-//        String name = AdminAddHotelController.getHotelName();
-//        String address = AdminAddHotelController.getHotelAddress();
-//        String stars = AdminAddHotelController.getHotelStars();
-//        int workers = AdminAddHotelController.getHotelWorkers();
-//        int rooms = AdminAddHotelController.getHotelRooms();
-//        int clients = AdminAddHotelController.getHotelClients();
-//        int finances = AdminAddHotelController.getHotelFinances();
-//        System.out.println(name);
-//        System.out.println(address);
-//        System.out.println(stars);
-//        System.out.println(workers);
-//        System.out.println(rooms);
-//        System.out.println(clients);
-//        System.out.println(finances);
-//        // the mysql insert statement
-//        try {
-//            String query = " insert into Hotels (Name, Address, Stars, Workers, Clients, Finances, Rooms)"
-//                    + " values (?, ?, ?, ?, ?, ?, ?)";
-//
-//            // create the mysql insert preparedstatement
-//            PreparedStatement preparedStmt = conn.prepareStatement(query);
-//            preparedStmt.setString(1, name);
-//            preparedStmt.setString(2, address);
-//            preparedStmt.setInt(3, Integer.parseInt(stars));
-//            preparedStmt.setInt(4, workers);
-//            preparedStmt.setInt(5, clients);
-//            preparedStmt.setInt(6, finances);
-//            preparedStmt.setInt(7, rooms);
-//
-//            // execute the preparedstatement
-//            preparedStmt.execute();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } catch (NumberFormatException e) {
-//            e.printStackTrace();
-//        }
-////        fixID(conn, "Hotels");
-//        // our SQL SELECT query.
-//        // if you only need a few columns, specify them by name instead of using "*"
-//        return false;
-//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public static void changeEmail(String newEmail) throws SQLException, ClassNotFoundException{
@@ -1840,7 +1840,7 @@ public class Data_work extends SQLException {
         try{
             Statement st = conn.createStatement();
             Date date = Date.valueOf(LocalDate.now());
-//            String query = "UPDATE Rooms Set isAvailable = 1 WHERE '" + date + "' not between Clients.CheckInTime and Clients.CheckOutTime";
+
 
             String query2 = "select Name from Clients where '" + LocalDate.now() + "' > CheckOutTime";
             System.out.println(query2);
@@ -1884,7 +1884,7 @@ public class Data_work extends SQLException {
 
             Session emailSession = Session.getDefaultInstance(properties);
 
-            // create the imap store object and connect to the imap server
+
             Store store = emailSession.getStore("imaps");
 
             store.connect(host, emailtest, pass);
@@ -1911,7 +1911,7 @@ public class Data_work extends SQLException {
             String query = " insert into Workers (HotelID, Fullname, Passport, Salary, Post, Login, Password, Email)"
                     + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, hotelID);
             preparedStmt.setString(2, name);
@@ -1922,7 +1922,7 @@ public class Data_work extends SQLException {
             preparedStmt.setString(7, newPassword);
             preparedStmt.setString(8, newEmail);
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
             if(!newPost.equals("Admin") || !newPost.equals("Marketing") || !newPost.equals("Director")) {
                 String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -1944,13 +1944,13 @@ public class Data_work extends SQLException {
             preparedStmt.executeUpdate();
 
 
-//            query = "insert into " + months[LocalDate.now().getMonthValue() - 1] + " (WorkerID) values (?)";
-//            System.out.println(query);
-//            preparedStmt = conn.prepareStatement(query);
-//
-//            preparedStmt.setInt(1, getWorkerId(newPassport));
-//
-//            preparedStmt.execute();
+
+
+
+
+
+
+
 
 
             return true;
@@ -1961,9 +1961,9 @@ public class Data_work extends SQLException {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-//        fixID(conn, "Hotels");
-        // our SQL SELECT query.
-        // if you only need a few columns, specify them by name instead of using "*"
+
+
+
         return false;
 
     }
@@ -1977,7 +1977,7 @@ public class Data_work extends SQLException {
             String query = " insert into Hotels ( Name, Address, Finances, Stars)"
                     + " values (?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, name);
             preparedStmt.setString(2, address);
@@ -1992,7 +1992,7 @@ public class Data_work extends SQLException {
             String query1 = " insert into Workers (HotelID, Fullname, Passport, Salary, Post, Login, Email)"
                     + " values (?, ?, ?, ?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             preparedStmt = conn.prepareStatement(query1);
             preparedStmt.setInt(1, lastHotel);
             preparedStmt.setString(2, "director");
@@ -2002,7 +2002,7 @@ public class Data_work extends SQLException {
             preparedStmt.setString(6, "director");
             preparedStmt.setString(7, "director");
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
 
             preparedStmt = conn.prepareStatement(query1);
@@ -2014,13 +2014,13 @@ public class Data_work extends SQLException {
             preparedStmt.setString(6, "admin");
             preparedStmt.setString(7, "admin");
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
 
             String query2 = " insert into Profit (HotelID)"
                     + " values (?)";
 
-            // create the mysql insert preparedstatement
+
             preparedStmt = conn.prepareStatement(query2);
             preparedStmt.setInt(1, lastHotel);
 
@@ -2029,7 +2029,7 @@ public class Data_work extends SQLException {
             String query3 = " insert into Loss (HotelID)"
                     + " values (?)";
 
-            // create the mysql insert preparedstatement
+
             preparedStmt = conn.prepareStatement(query3);
             preparedStmt.setInt(1, lastHotel);
 
@@ -2049,9 +2049,9 @@ public class Data_work extends SQLException {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-//        fixID(conn, "Hotels");
-        // our SQL SELECT query.
-        // if you only need a few columns, specify them by name instead of using "*"
+
+
+
         return false;
 
     }
@@ -2068,7 +2068,7 @@ public class Data_work extends SQLException {
             String query = " insert into Rooms (HotelID, Price, Size, Extra_bed, Child, Type, View, Name)"
                     + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, hotelID);
             preparedStmt.setInt(2, price);
@@ -2085,7 +2085,7 @@ public class Data_work extends SQLException {
             preparedStmt.setString(7, view);
             preparedStmt.setInt(8, number);
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
 
             query = "UPDATE Hotels Set Rooms = Rooms + 1 WHERE HotelID = '" + hotelID + "'";
@@ -2102,9 +2102,9 @@ public class Data_work extends SQLException {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-//        fixID(conn, "Hotels");
-        // our SQL SELECT query.
-        // if you only need a few columns, specify them by name instead of using "*"
+
+
+
         return false;
 
     }
@@ -2114,20 +2114,20 @@ public class Data_work extends SQLException {
         try
         {
 
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String query = "SELECT WorkerID FROM Workers WHERE Passport = \'" + passport + "\'";
-            // create the java statement
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
 
-            // iterate through the java resultset
+
             rs.next();
             int post = rs.getInt("WorkerID");
             return post;
@@ -2313,12 +2313,12 @@ public class Data_work extends SQLException {
 
 
             Statement st = conn.createStatement();
-//            String query = "update " + months[date.getMonth()] + " set  " + date.getDate() + " = ' + radio + " where WorkerID = " + idd;
+
             String query = "update "+ months[date.getMonth()]+" set `"+ date.getDate() +"` = ? where WorkerID = ?";
             System.out.println(query);
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-//            preparedStmt.setString(1, months[date.getMonth()]);
-//            preparedStmt.setInt(1, date.getDate());
+
+
             preparedStmt.setString(1, radio);
             preparedStmt.setInt(2, idd);
 
@@ -2347,7 +2347,7 @@ public class Data_work extends SQLException {
             String query = " insert into Clients (HotelID, Name, Fullname, Passport, DateOfBirth, CheckInTime, CheckOutTime, Amount)"
                     + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, hotelID);
             preparedStmt.setInt(2, Integer.parseInt(list.get(0)));
@@ -2359,7 +2359,7 @@ public class Data_work extends SQLException {
             System.out.println("cost " + list.get(0));
             preparedStmt.setInt(8, ((int) ChronoUnit.DAYS.between(intime, outtime) )* Data_work.getCost(room));
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
 
 
@@ -2379,9 +2379,9 @@ public class Data_work extends SQLException {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-//        fixID(conn, "Hotels");
-        // our SQL SELECT query.
-        // if you only need a few columns, specify them by name instead of using "*"
+
+
+
         return false;
     }
 
@@ -2394,7 +2394,7 @@ public class Data_work extends SQLException {
             String query = " insert into withdraw_money (HotelID, Workers_passport, Sum, Description, Date)"
                     + " values (?, ?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, hotelID);
             preparedStmt.setString(2, Dpassport);
@@ -2403,7 +2403,7 @@ public class Data_work extends SQLException {
             preparedStmt.setDate(5, date);
 
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
 
             Calendar cal = Calendar.getInstance();
@@ -2425,9 +2425,9 @@ public class Data_work extends SQLException {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-//        fixID(conn, "Hotels");
-        // our SQL SELECT query.
-        // if you only need a few columns, specify them by name instead of using "*"
+
+
+
         return false;
     }
 
@@ -2440,7 +2440,7 @@ public class Data_work extends SQLException {
             String query = " insert into monetary_fine (HotelID, WorkerID, Price, Description, Date)"
                     + " values (?, ?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, hotelID);
             preparedStmt.setInt(2, idd);
@@ -2449,7 +2449,7 @@ public class Data_work extends SQLException {
             preparedStmt.setDate(5, date);
 
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
 
 
@@ -2471,7 +2471,7 @@ public class Data_work extends SQLException {
             String query = " insert into Cleaners (HotelID, WorkerID,  Description, Start, End)"
                     + " values (?, ?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
+
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, hotelID);
             preparedStmt.setInt(2, idd);
@@ -2480,7 +2480,7 @@ public class Data_work extends SQLException {
             preparedStmt.setDate(5, end);
 
 
-            // execute the preparedstatement
+
             preparedStmt.execute();
 
 
@@ -2498,12 +2498,12 @@ public class Data_work extends SQLException {
 
 
     public static int getId() throws ClassNotFoundException, SQLException {
-//        String myDriver = "com.mysql.cj.jdbc.Driver";
-//        Class.forName(myDriver);
-//        Connection conn = getConnection();
 
-        // our SQL SELECT query.
-        // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery("SELECT MAX(idHotels) AS id FROM Hotels");
         rs.next();
@@ -2511,12 +2511,12 @@ public class Data_work extends SQLException {
         return lastid;
     }
     public static int getIdHotel(String hotel) throws ClassNotFoundException, SQLException {
-//        String myDriver = "com.mysql.cj.jdbc.Driver";
-//        Class.forName(myDriver);
-//        Connection conn = getConnection();
 
-        // our SQL SELECT query.
-        // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
         Statement st = conn.createStatement();
         String query = "SELECT HotelID AS id FROM Hotels WHERE Hotels.Name = \"";
         ResultSet rs = st.executeQuery(query + hotel + "\"");
@@ -2528,48 +2528,48 @@ public class Data_work extends SQLException {
     public static Map<String, String> getMonths(String month){
         try
         {
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String dmonth = "$." + month.toLowerCase().substring(0, 1).toUpperCase() + month.toLowerCase().substring(1);
             String query = "SELECT JSON_EXTRACT(Month, \"" + dmonth + "\" ) AS Months FROM Workers WHERE Workers.Login = \"";
-            // create the java statement
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query + login +"\" and Workers.Password = \"" + password + "\"");
-            //Creating a JSONObject object
-            // iterate through the java resultset
+
+
             rs.next();
 
             String post = removeFirstandLast(rs.getString("Months"));
             System.out.println(post);
 
-            // New HashMap obj
+
             Map<String, String> hashMap
                     = new HashMap<String, String>();
 
-            // split the String by a comma
+
             String parts[] = post.split(",");
 
-            // iterate the parts and add them to a HashMap
+
             for (String part : parts) {
 
-                // split the student data by colon to get the
-                // name and roll number
+
+
                 String stuData[] = part.split(":");
 
                 String stuRollNo = stuData[0].trim();
                 String stuName = stuData[1].trim();
 
-                // Add to map
+
                 hashMap.put(stuRollNo, stuName);
             }
 
-            // Print hashMap
+
 
             return hashMap;
 
@@ -2589,13 +2589,13 @@ public class Data_work extends SQLException {
             String[] m30 = {"April", "June", "September", "November"};
             String query;
             int d;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String dmonth = month.toLowerCase().substring(0, 1).toUpperCase() + month.toLowerCase().substring(1);
             if(Arrays.stream(m31).anyMatch(dmonth::equals)) {
                 query = "SELECT `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `25`, `26`, `27`, `28`, `29`, `30`, `31` from " + dmonth + " WHERE " + dmonth + ".WorkerID = " + id;
@@ -2610,13 +2610,13 @@ public class Data_work extends SQLException {
                 d = 29;
             }
 
-            // create the java statement
+
             System.out.println(query);
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
-            //Creating a JSONObject object
-            // iterate through the java resultset
+
+
             Map<String, String> hashMap
                     = new HashMap<String, String>();
             rs.next();
@@ -2649,13 +2649,13 @@ public class Data_work extends SQLException {
             String[] m30 = {"April", "June", "September", "November"};
             String query;
             int d;
-            // create our mysql database connection
-//            String myDriver = "com.mysql.cj.jdbc.Driver";
-//            Class.forName(myDriver);
-//            Connection conn = getConnection();
 
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
+
+
+
+
+
+
             String dmonth = month.toLowerCase().substring(0, 1).toUpperCase() + month.toLowerCase().substring(1);
             if(Arrays.stream(m31).anyMatch(dmonth::equals)) {
                 query = "SELECT `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `25`, `26`, `27`, `28`, `29`, `30`, `31` from " + dmonth + " WHERE " + dmonth + ".WorkerID = " + id;
@@ -2670,13 +2670,13 @@ public class Data_work extends SQLException {
                 d = 29;
             }
 
-            // create the java statement
+
             System.out.println(query);
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
-            //Creating a JSONObject object
-            // iterate through the java resultset
+
+
             Map<String, String> hashMap
                     = new HashMap<String, String>();
             rs.next();
@@ -2704,38 +2704,38 @@ public class Data_work extends SQLException {
 
 
 
-//    public static void delete_hotel(String id){
-//        System.out.println(id);
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection connection = getConnection();
-//            PreparedStatement st = connection.prepareStatement("DELETE FROM Hotels WHERE HotelID = ?");
-//            st.setInt(1, Integer.parseInt(id));
-//            st.executeUpdate();
-//            Statement s = connection.createStatement();
-//            s.execute("ALTER TABLE Hotels AUTO_INCREMENT=1;");
-//
-//        } catch(Exception e) {
-//            System.out.println(e);
-//        }
-//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public static void deleteWorker(String id) {
             System.out.println(id);
             try {
 
-//                Statement stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//                stmt.close();
+
+
+
 
                 PreparedStatement st = conn.prepareStatement("DELETE FROM Workers WHERE WorkerID = ?");
-//                PreparedStatement st = conn.prepareStatement(query);
+
                 st.setInt(1, Integer.parseInt(id));
                 st.executeUpdate();
 
-//                stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=1");
-//                stmt.close();
+
+
+
                 PreparedStatement preparedStmt;
                 String query = "UPDATE Hotels Set Workers = Workers - 1 WHERE HotelID = '" + hotelID + "'";
                 System.out.println(query);
@@ -2752,12 +2752,12 @@ public class Data_work extends SQLException {
         System.out.println(id);
         try {
 
-//                Statement stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//                stmt.close();
+
+
+
 
             PreparedStatement st = conn.prepareStatement("DELETE FROM Cleaners WHERE id = ?");
-//                PreparedStatement st = conn.prepareStatement(query);
+
             st.setInt(1, Integer.parseInt(id));
             st.executeUpdate();
 
@@ -2774,12 +2774,12 @@ public class Data_work extends SQLException {
     public static boolean deleteRoom(int id) {
         try {
 
-//                Statement stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//                stmt.close();
+
+
+
 
             PreparedStatement st = conn.prepareStatement("DELETE FROM Rooms WHERE Name = ?");
-//                PreparedStatement st = conn.prepareStatement(query);
+
             st.setInt(1, id);
             st.executeUpdate();
 
@@ -2802,12 +2802,12 @@ public class Data_work extends SQLException {
     public static boolean deleteHotel(int id) {
         try {
 
-//                Statement stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//                stmt.close();
+
+
+
 
             PreparedStatement st = conn.prepareStatement("DELETE FROM Hotels WHERE HotelID = ?");
-//                PreparedStatement st = conn.prepareStatement(query);
+
             st.setInt(1, id);
             st.executeUpdate();
 
@@ -2824,14 +2824,14 @@ public class Data_work extends SQLException {
     public static boolean isAvailable(int id) {
         try {
 
-//                Statement stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//                stmt.close();
+
+
+
 
             String query =  "Select isAvailable FROM Rooms WHERE Name = " + id + " and HotelID = " + hotelID;
-//                PreparedStatement st = conn.prepareStatement(query);
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
                 if(rs.getBoolean("isAvailable")){
@@ -2852,14 +2852,14 @@ public class Data_work extends SQLException {
     public static int getMaxRoomNumber() {
         try {
 
-//                Statement stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//                stmt.close();
+
+
+
 
             String query =  "Select MAX(Name) FROM Rooms WHERE HotelID = " + hotelID;
-//                PreparedStatement st = conn.prepareStatement(query);
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
                 return rs.getInt("MAX(Name)");
@@ -2878,14 +2878,14 @@ public class Data_work extends SQLException {
     public static int getMaxHotelID() {
         try {
 
-//                Statement stmt = conn.createStatement();
-//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//                stmt.close();
+
+
+
 
             String query =  "Select MAX(HotelID) FROM Hotels";
-//                PreparedStatement st = conn.prepareStatement(query);
+
             Statement st = conn.createStatement();
-            // execute the query, and get a java resultset
+
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
                 return rs.getInt("MAX(HotelID)");

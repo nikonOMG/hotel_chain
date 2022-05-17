@@ -1,5 +1,5 @@
 package com.example.hotel_8;
-// it is working
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -46,10 +46,10 @@ public class AddNewWorkerController {
     @FXML
     void initialize() {
         post.setVisibleRowCount(5);
-        post.setItems(FXCollections.observableArrayList("Receptionist", "Cook", "HRmanager", "Director", "Maid", "Admin", "Main Maid"));
+        post.setItems(FXCollections.observableArrayList("Receptionist", "HRmanager", "Director", "Maid", "Admin", "Main Maid", "Chef Cook", "Cook"));
 
-        // Value factory.
-        SpinnerValueFactory<Integer> valueFactory = //
+
+        SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(100, Data_work.finances);
 
         salary.setValueFactory(valueFactory);
@@ -60,14 +60,14 @@ public class AddNewWorkerController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 if(!name.getText().equals("") && !email.getText().equals("") && !login.getText().equals("") && !password.getText().equals("") && !post.getValue().equals("") && !passport.getText().equals("")) {
                     try {
                         boolean add = Data_work.addNewWorker(name.getText(), passport.getText(), email.getText(), login.getText(), password.getText(), post.getValue(), salary.getValue());
 
                         if (add) {
                             Stage stage = (Stage) save.getScene().getWindow();
-                            // do what you have to do
+
 
                             stage.close();
                         } else {

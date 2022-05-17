@@ -75,7 +75,7 @@ public class MainCleanerProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     Data_work.changeEmail(email.getText());
                     email.setText(Data_work.email);
@@ -95,7 +95,7 @@ public class MainCleanerProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changePassword.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -117,7 +117,7 @@ public class MainCleanerProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainCleanerProgress.fxml"));
                 } catch (IOException e) {
@@ -136,7 +136,7 @@ public class MainCleanerProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainCleanerWorkers.fxml"));
                 } catch (IOException e) {
@@ -156,7 +156,7 @@ public class MainCleanerProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

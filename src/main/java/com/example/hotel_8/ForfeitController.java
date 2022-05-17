@@ -75,28 +75,28 @@ public class ForfeitController {
                 max.setStyle("-fx-fill: #C33C43");
             }
             max.setText(descpription.getText().length() + " / 100");
-            // TODO here
+
         });
 
         date.setValue(LocalDate.now());
         date.setEditable(false);
 
-//        SpinnerValueFactory<Integer> valueFactory = //
-//                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, Data_work.finances, 0 , 100);
-//
-//        sum.setValueFactory(valueFactory);
-//        sum.getValueFactory().setValue(Data_work.getFinances() - 1);
+
+
+
+
+
         sum.setEditable(true);
 
         NumberFormat format = NumberFormat.getIntegerInstance();
         UnaryOperator<TextFormatter.Change> filter = c -> {
             if (c.isContentChange()) {
                 ParsePosition parsePosition = new ParsePosition(0);
-                // NumberFormat evaluates the beginning of the text
+
                 format.parse(c.getControlNewText(), parsePosition);
                 if (parsePosition.getIndex() == 0 || parsePosition.getIndex() == 9 ||
                         parsePosition.getIndex() < c.getControlNewText().length()) {
-                    // reject parsing the complete text failed
+
                     return null;
                 }
             }
@@ -129,15 +129,15 @@ public class ForfeitController {
                         Data_work.ForfeitWorker(Integer.parseInt(list.getValue().split(" ")[0]), descpription.getText(), Date.valueOf(date.getValue()), sum.getValue());
 
                         Stage stage = (Stage) save.getScene().getWindow();
-                        // do what you have to do
+
 
                         stage.close();
 
 
 
-//                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
+
                     } else {
-                        // ... user chose CANCEL or closed the dialog
+
                     }
 
                 }

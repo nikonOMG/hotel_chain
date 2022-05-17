@@ -68,13 +68,12 @@ public class AsCookController {
     ResultSet rs;
 
 
-
     @FXML
     void initialize() {
         title.setText(Data_work.name);
 
         try {
-            String query = "select * from monetary_fine where month(Date) =  '" + LocalDate.now().getMonth().getValue() +"'   and monetary_fine.WorkerID = " + Data_work.id;
+            String query = "select * from monetary_fine where month(Date) =  '" + LocalDate.now().getMonth().getValue() + "'   and monetary_fine.WorkerID = " + Data_work.id;
             System.out.println(query);
             rs = Data_work.conn.createStatement().executeQuery(query);
             while (rs.next()) {
@@ -93,7 +92,6 @@ public class AsCookController {
         Label empty = new Label("You are the best employee!\n :)");
         empty.setFont(new Font("VAG.ttf", 30));
         monetaryFine.setPlaceholder(empty);
-
 
 
         calendarPane.getChildren().add(new FullCalendarView(YearMonth.now(), Data_work.id).getView());
@@ -128,7 +126,6 @@ public class AsCookController {
         });*/
 
 
-
         foodtable.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
@@ -139,7 +136,7 @@ public class AsCookController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 scene.getStylesheets().add("style.css");
                 stage.setScene(scene);
@@ -159,7 +156,7 @@ public class AsCookController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 scene.getStylesheets().add("style.css");
                 stage.setScene(scene);
@@ -180,7 +177,7 @@ public class AsCookController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 scene.getStylesheets().add("style.css");
                 stage.setScene(scene);
@@ -192,8 +189,6 @@ public class AsCookController {
 
 
     }
-
-
 
 
 }

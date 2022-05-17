@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Full Calendar Example");
-//        primaryStage.setScene(new Scene(new FullCalendarView(YearMonth.now()).getView()));
+
         primaryStage.show();
     }
 

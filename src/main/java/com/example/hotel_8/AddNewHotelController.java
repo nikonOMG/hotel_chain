@@ -46,7 +46,7 @@ public class AddNewHotelController {
     void initialize() {
         bank.setText(bank.getText() + " " + Data_work.getFinances());
 
-        SpinnerValueFactory<Integer> valueFactory = //
+        SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5);
 
         stars.setValueFactory(valueFactory);
@@ -57,11 +57,11 @@ public class AddNewHotelController {
         UnaryOperator<TextFormatter.Change> filter = c -> {
             if (c.isContentChange()) {
                 ParsePosition parsePosition = new ParsePosition(0);
-                // NumberFormat evaluates the beginning of the text
+
                 format.parse(c.getControlNewText(), parsePosition);
                 if (parsePosition.getIndex() == 0 || parsePosition.getIndex() == 9 ||
                         parsePosition.getIndex() < c.getControlNewText().length()) {
-                    // reject parsing the complete text failed
+
                     return null;
                 }
             }
@@ -99,7 +99,7 @@ public class AddNewHotelController {
                         boolean cash = Data_work.addNewHotel(name.getText(), address.getText(), stars.getValue(), finances.getValue());
                         if (cash) {
                             Stage stage = (Stage) add.getScene().getWindow();
-                            // do what you have to do
+
 
                             stage.close();
                         }

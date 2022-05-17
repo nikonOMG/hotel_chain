@@ -125,7 +125,7 @@ public class MarketingHotelsController {
                 hotelname.setCellValueFactory(new PropertyValueFactory<>("name"));
                 counryclients.setCellValueFactory(new PropertyValueFactory<>("clients"));
 
-//                list.setItems(oblist);
+
             }
         }).start();
 
@@ -200,7 +200,7 @@ public class MarketingHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("marketingClients.fxml"));
                 } catch (IOException e) {
@@ -220,7 +220,7 @@ public class MarketingHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -240,7 +240,7 @@ public class MarketingHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("marketingProfile.fxml"));
                 } catch (IOException e) {

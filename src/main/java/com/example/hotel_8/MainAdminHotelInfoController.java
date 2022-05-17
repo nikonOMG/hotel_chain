@@ -91,25 +91,25 @@ public class MainAdminHotelInfoController {
         hotellist.setItems(FXCollections.observableArrayList(Data_work.getHotels()));
 
 
-        SpinnerValueFactory<Integer> valueFactory = //
+        SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5);
 
         stars.setValueFactory(valueFactory);
         stars.setEditable(false);
 
-        SpinnerValueFactory<Integer> valueFactory1 = //
+        SpinnerValueFactory<Integer> valueFactory1 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(2, 50000);
 
         workers.setValueFactory(valueFactory1);
         workers.setEditable(false);
 
-        SpinnerValueFactory<Integer> valueFactory2 = //
+        SpinnerValueFactory<Integer> valueFactory2 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50000);
 
         clients.setValueFactory(valueFactory2);
         clients.setEditable(false);
 
-        SpinnerValueFactory<Integer> valueFactory3 = //
+        SpinnerValueFactory<Integer> valueFactory3 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50000);
 
         rooms.setValueFactory(valueFactory3);
@@ -149,7 +149,7 @@ public class MainAdminHotelInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainAdminHotels.fxml"));
                 } catch (IOException e) {
@@ -169,7 +169,7 @@ public class MainAdminHotelInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainAdminWorkers.fxml"));
                 } catch (IOException e) {
@@ -189,7 +189,7 @@ public class MainAdminHotelInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainAdminProfile.fxml"));
                 } catch (IOException e) {
@@ -209,7 +209,7 @@ public class MainAdminHotelInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -217,7 +217,7 @@ public class MainAdminHotelInfoController {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
-                    // ... user chose OK
+
                     try {
                         Data_work.changeHotelAdmin(Integer.parseInt(hotellist.getValue().split(" | ")[0]), name.getText(), address.getText(), Integer.parseInt(finances.getText()), rooms.getValue(), clients.getValue(), workers.getValue(), stars.getValue());
                     } catch (SQLException e) {
@@ -226,7 +226,7 @@ public class MainAdminHotelInfoController {
                         e.printStackTrace();
                     }
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 

@@ -113,7 +113,7 @@ public class DirectorClientsController {
         checkin.setCellValueFactory(new PropertyValueFactory<>("checkin"));
         checkout.setCellValueFactory(new PropertyValueFactory<>("checkout"));
 
-//        list.setItems(oblist);
+
 
         FilteredList<Clients> Filtered = new FilteredList<>(oblist, b -> true);
         searchText.textProperty().addListener((observable, oldValue,newValue)->{
@@ -149,7 +149,7 @@ public class DirectorClientsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -169,7 +169,7 @@ public class DirectorClientsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorHotel.fxml"));
                 } catch (IOException e) {
@@ -185,31 +185,31 @@ public class DirectorClientsController {
             }
         });
 
-//        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//
-//            @Override
-//            public void handle(MouseEvent event) {
-////                                    SignInBut.getScene().getWindow().hide();
-//                try {
-//                    root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                scene.getStylesheets().add("style.css");
-//                stage.setScene(scene);
-//                stage.show();
-//
-//
-//            }
-//        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         workers.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorWorkers.fxml"));
                 } catch (IOException e) {
@@ -229,7 +229,7 @@ public class DirectorClientsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorProfile.fxml"));
                 } catch (IOException e) {

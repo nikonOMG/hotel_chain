@@ -100,7 +100,7 @@ public class MainAdminHotelsController {
     void initialize() {
         titlename.setText(Data_work.name);
         fuckoff.setDisable(true);
-//        changesalary.setDisable(true);
+
 
 
 
@@ -124,7 +124,7 @@ public class MainAdminHotelsController {
                 clients.setCellValueFactory(new PropertyValueFactory<>("Clients"));
                 stars.setCellValueFactory(new PropertyValueFactory<>("Stars"));
 
-//                list.setItems(oblist);
+
             }
         }).start();
 
@@ -177,7 +177,7 @@ public class MainAdminHotelsController {
             public void handle(MouseEvent e) {
                 list.getSelectionModel().clearSelection();
             fuckoff.setDisable(true);
-//            changesalary.setDisable(true);
+
             }
         });
 
@@ -186,7 +186,7 @@ public class MainAdminHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 TextInputDialog dialog = new TextInputDialog("");
                 dialog.setTitle("password");
                 dialog.setHeaderText("Enter password for confirmation.");
@@ -259,7 +259,7 @@ public class MainAdminHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -282,7 +282,7 @@ public class MainAdminHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addNewHotel.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -348,7 +348,7 @@ public class MainAdminHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainAdminHotelInfo.fxml"));
                 } catch (IOException e) {
@@ -368,7 +368,7 @@ public class MainAdminHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainAdminWorkers.fxml"));
                 } catch (IOException e) {
@@ -388,7 +388,7 @@ public class MainAdminHotelsController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainAdminProfile.fxml"));
                 } catch (IOException e) {

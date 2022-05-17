@@ -122,7 +122,7 @@ public class AsCookPostTable implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("AsCookProgres.fxml"));
                 } catch (IOException e) {
@@ -142,7 +142,7 @@ public class AsCookPostTable implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("AsCookProfile.fxml"));
                 } catch (IOException e) {
@@ -163,7 +163,7 @@ public class AsCookPostTable implements Initializable {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

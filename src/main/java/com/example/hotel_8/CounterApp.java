@@ -25,7 +25,7 @@ public class CounterApp extends Application {
 
         Scene scene = new Scene(root, 200, 200);
 
-        // longrunning operation runs on different thread
+
         final ProgressBar bar = new ProgressBar();
         new Thread(new Runnable() {
             @Override public void run() {

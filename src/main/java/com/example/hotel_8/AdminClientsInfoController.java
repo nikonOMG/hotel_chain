@@ -111,7 +111,7 @@ public class AdminClientsInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -119,7 +119,7 @@ public class AdminClientsInfoController {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
-                    // ... user chose OK
+
                     try {
                         Data_work.changeClient(Integer.parseInt(workerlist.getValue().split(" ")[0]), name.getText(), passport.getText(), Integer.parseInt(rooms.getValue().split(" ")[0]), checkin.getValue(), checkout.getValue(), dateofbirth.getValue());
                     } catch (SQLException e) {
@@ -128,7 +128,7 @@ public class AdminClientsInfoController {
                         e.printStackTrace();
                     }
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 
@@ -139,7 +139,7 @@ public class AdminClientsInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -159,7 +159,7 @@ public class AdminClientsInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminHotel.fxml"));
                 } catch (IOException e) {
@@ -179,7 +179,7 @@ public class AdminClientsInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminWorkers.fxml"));
                 } catch (IOException e) {
@@ -201,7 +201,7 @@ public class AdminClientsInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
                 } catch (IOException e) {
@@ -223,7 +223,7 @@ public class AdminClientsInfoController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminProfile.fxml"));
                 } catch (IOException e) {

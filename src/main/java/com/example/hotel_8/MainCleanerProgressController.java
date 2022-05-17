@@ -92,7 +92,7 @@ public class MainCleanerProgressController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainCleanerProfile.fxml"));
                 } catch (IOException e) {
@@ -111,7 +111,7 @@ public class MainCleanerProgressController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("mainCleanerWorkers.fxml"));
                 } catch (IOException e) {
@@ -132,7 +132,7 @@ public class MainCleanerProgressController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

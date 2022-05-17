@@ -57,7 +57,7 @@ public class ChangeSalaryController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -65,12 +65,12 @@ public class ChangeSalaryController {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
-                    // ... user chose OK
+
                     try {
                         Data_work.changeWorkerSalary(Integer.parseInt(workers.getValue().split(" ")[0]), Integer.parseInt(salary.getText()));
 
                         Stage stage = (Stage) save.getScene().getWindow();
-                        // do what you have to do
+
 
                         stage.close();
                     } catch (SQLException e) {
@@ -79,7 +79,7 @@ public class ChangeSalaryController {
                         e.printStackTrace();
                     }
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 

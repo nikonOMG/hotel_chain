@@ -69,7 +69,7 @@ public class HRProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changePassword.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -92,7 +92,7 @@ public class HRProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -112,7 +112,7 @@ public class HRProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("HRapplications.fxml"));
                 } catch (IOException e) {
@@ -132,7 +132,7 @@ public class HRProfileController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("HRworkers.fxml"));
                 } catch (IOException e) {

@@ -71,7 +71,7 @@ public class CookProfile {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     Data_work.changeEmail(email.getText());
                     email.setText(Data_work.email);
@@ -88,7 +88,7 @@ public class CookProfile {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changePassword.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -108,7 +108,7 @@ public class CookProfile {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("keso.fxml"));
                 } catch (IOException e) {
@@ -127,7 +127,7 @@ public class CookProfile {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("povar11.fxml"));
                 } catch (IOException e) {
@@ -147,7 +147,7 @@ public class CookProfile {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

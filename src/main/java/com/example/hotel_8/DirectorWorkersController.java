@@ -111,9 +111,9 @@ public class DirectorWorkersController {
     @FXML
     void initialize() {
         titlename.setText(Data_work.name);
-//        fuckoff.setDisable(true);
+
         fuckoff.setVisible(false);
-//        changesalary.setDisable(true);
+
 
 
 
@@ -135,7 +135,7 @@ public class DirectorWorkersController {
                 post.setCellValueFactory(new PropertyValueFactory<>("post"));
                 email.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-//                list.setItems(oblist);
+
             }
         }).start();
 
@@ -172,7 +172,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("attendance.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -195,7 +195,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("forfeit.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -218,10 +218,10 @@ public class DirectorWorkersController {
         list.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 System.out.println("bb");
-//                fuckoff.setDisable(false);
+
                 fuckoff.setVisible(true);
-//                changesalary.setDisable(false);
-//                list.getSelectionModel().clearSelection();
+
+
             }else{
                 System.out.println("ff");
                 fuckoff.setVisible(false);
@@ -232,9 +232,9 @@ public class DirectorWorkersController {
         @Override
         public void handle(MouseEvent e) {
             list.getSelectionModel().clearSelection();
-//            fuckoff.setDisable(true);
+
             fuckoff.setVisible(false);
-//            changesalary.setDisable(true);
+
         }
         });
 
@@ -243,7 +243,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -283,9 +283,9 @@ public class DirectorWorkersController {
                     });
 
 
-//                    workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
+
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 
@@ -301,7 +301,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {
@@ -321,7 +321,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorClients.fxml"));
                 } catch (IOException e) {
@@ -342,7 +342,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorHotel.fxml"));
                 } catch (IOException e) {
@@ -359,32 +359,32 @@ public class DirectorWorkersController {
         });
 
 
-//        workerinfo.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//
-//            @Override
-//            public void handle(MouseEvent event) {
-////                                    SignInBut.getScene().getWindow().hide();
-//                try {
-//                    root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                scene.getStylesheets().add("style.css");
-//                stage.setScene(scene);
-//                stage.show();
-//
-//
-//            }
-//        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         AddnewWorker.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addnewWorker.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -446,7 +446,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeSalary.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -508,7 +508,7 @@ public class DirectorWorkersController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("directorProfile.fxml"));
                 } catch (IOException e) {

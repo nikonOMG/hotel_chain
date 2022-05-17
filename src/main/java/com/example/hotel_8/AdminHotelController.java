@@ -90,11 +90,11 @@ public class AdminHotelController {
         roomtext.setText(roomtext.getText() + " " + Data_work.getCountRooms());
         clientscount.setText(clientscount.getText() + " " + Data_work.getCountClients());
 
-        // Value factory.
-        SpinnerValueFactory<Integer> valueFactory = //
+
+        SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 5);
 
-        SpinnerValueFactory<Integer> valueFactory2 = //
+        SpinnerValueFactory<Integer> valueFactory2 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 999999999);
 
         try{
@@ -117,7 +117,7 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Dialog");
                 alert.setHeaderText("Look, a Confirmation Dialog");
@@ -125,7 +125,7 @@ public class AdminHotelController {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
-                    // ... user chose OK
+
                     try {
                         Data_work.changeHotel(hotelname.getText(), hoteladdress.getText(), stars.getValue(), finances.getValue());
                     } catch (SQLException e) {
@@ -134,7 +134,7 @@ public class AdminHotelController {
                         e.printStackTrace();
                     }
                 } else {
-                    // ... user chose CANCEL or closed the dialog
+
                 }
 
 
@@ -145,7 +145,7 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addNewRoom.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -181,7 +181,7 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("changeRoom.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
@@ -217,7 +217,7 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminWorkerInfo.fxml"));
                 } catch (IOException e) {
@@ -237,7 +237,7 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminWorkers.fxml"));
                 } catch (IOException e) {
@@ -280,7 +280,7 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("adminProfile.fxml"));
                 } catch (IOException e) {
@@ -302,7 +302,7 @@ public class AdminHotelController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 try {
                     root = FXMLLoader.load(getClass().getResource("log-in.fxml"));
                 } catch (IOException e) {

@@ -37,7 +37,7 @@ public class AutoCompleteBox implements EventHandler<KeyEvent> {
     private void doAutoCompleteBox() {
         this.comboBox.setEditable(true);
         this.comboBox.getEditor().focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue){//mean onfocus
+            if(newValue){
                 this.comboBox.show();
             }
         });

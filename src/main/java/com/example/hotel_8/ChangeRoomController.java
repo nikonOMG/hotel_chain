@@ -68,10 +68,10 @@ public class ChangeRoomController {
         type.setVisibleRowCount(5);
         type.setItems(FXCollections.observableArrayList(Data_work.getType()));
 
-        SpinnerValueFactory<Integer> valueFactory = //
+        SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1000, 999999999);
 
-        SpinnerValueFactory<Integer> valueFactory1 = //
+        SpinnerValueFactory<Integer> valueFactory1 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 999999999);
 
         price.setValueFactory(valueFactory);
@@ -137,14 +137,14 @@ public class ChangeRoomController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 if(!(size.getValue() == null) && !(view.getValue() == null) && !(type.getValue() == null)) {
                     try {
                         boolean add = Data_work.changeRoom(Integer.parseInt(list.getValue().split(" | ")[0]) , number.getValue(), price.getValue() ,size.getValue(), view.getValue(), type.getValue(), extrabed.isSelected(), child.isSelected());
 
                         if (add) {
                             Stage stage = (Stage) save.getScene().getWindow();
-                            // do what you have to do
+
 
                             stage.close();
                         } else {
@@ -164,14 +164,14 @@ public class ChangeRoomController {
 
             @Override
             public void handle(MouseEvent event) {
-//                                    SignInBut.getScene().getWindow().hide();
+
                 if(!(size.getValue() == null) && !(view.getValue() == null) && !(type.getValue() == null)) {
                     try {
                         boolean add = Data_work.deleteRoom(Integer.parseInt(list.getValue().split(" | ")[0]));
 
                         if (add) {
                             Stage stage = (Stage) save.getScene().getWindow();
-                            // do what you have to do
+
 
                             stage.close();
                         } else {
