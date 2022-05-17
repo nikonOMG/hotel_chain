@@ -67,7 +67,11 @@ public class AttendanceController {
     @FXML
     void initialize() {
         workerlist.setVisibleRowCount(5);
-        workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
+
+        if(Data_work.post.equals("Main Maid")){
+            workerlist.setItems(FXCollections.observableArrayList(Data_work.getMaids()));
+        }else
+            workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
 
         final ToggleGroup group = new ToggleGroup();
         here.setToggleGroup(group);

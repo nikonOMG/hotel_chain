@@ -320,6 +320,47 @@ public class Data_work extends SQLException {
         return name_hotels;
     }
 
+    public static ArrayList<String> getMaids() {
+        ArrayList<String> name_hotels = new ArrayList<>();
+        try
+        {
+            String query;
+            // create our mysql database connection
+//            String myDriver = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(myDriver);
+//            Connection conn = getConnection();
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+
+            query = "SELECT WorkerID, Fullname, Post FROM Workers Where Post = 'Maid' and Workers.HotelID = " + hotelID;
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next())
+            {
+                String idd = rs.getString("WorkerID");
+                String Name = rs.getString("Fullname");
+                name_hotels.add(idd + " " +  Name);
+
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Got an exception!! ");
+            System.err.println(e.getMessage());
+        }
+        return name_hotels;
+    }
+
+
+
     public static ArrayList<String> getWorkers(int iddd) {
         ArrayList<String> name_hotels = new ArrayList<>();
         try
@@ -2080,7 +2121,7 @@ public class Data_work extends SQLException {
         if(oldPas.equals(password) && newPas.equals(conNewPas) && !newPas.equals(oldPas)) {
             try {
                 Statement st = conn.createStatement();
-                String query = "UPDATE Workers Set Password = '" + newPas + "' WHERE Workers.Login = '" + login + "' and Workers.Password = '" + password + "'";
+                String query = "UPDATE Workers Set Password = '" + newPas + "' WHERE Workers.Login = '" + login + "' and Workers.Password = '" + password + "' and WorkerID = " + id;
                 System.out.println(query);
                 PreparedStatement preparedStmt = conn.prepareStatement(query);
                 preparedStmt.executeUpdate();
@@ -2381,6 +2422,38 @@ public class Data_work extends SQLException {
 
     }
 
+    public static void addWorkMaid(int idd , String des, Date stars, Date end) {
+
+
+        try {
+
+
+            String query = " insert into Cleaners (HotelID, WorkerID,  Description, Start, End)"
+                    + " values (?, ?, ?, ?, ?)";
+
+            // create the mysql insert preparedstatement
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt(1, hotelID);
+            preparedStmt.setInt(2, idd);
+            preparedStmt.setString(3, des);
+            preparedStmt.setDate(4, stars);
+            preparedStmt.setDate(5, end);
+
+
+            // execute the preparedstatement
+            preparedStmt.execute();
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
 
 
@@ -2635,8 +2708,30 @@ public class Data_work extends SQLException {
             }
         }
 
+    public static void deleteCleaners(String id) {
+        System.out.println(id);
+        try {
 
-        public static boolean deleteRoom(int id) {
+//                Statement stmt = conn.createStatement();
+//                stmt.execute("SET FOREIGN_KEY_CHECKS=0");
+//                stmt.close();
+
+            PreparedStatement st = conn.prepareStatement("DELETE FROM Cleaners WHERE id = ?");
+//                PreparedStatement st = conn.prepareStatement(query);
+            st.setInt(1, Integer.parseInt(id));
+            st.executeUpdate();
+
+
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
+
+    public static boolean deleteRoom(int id) {
         try {
 
 //                Statement stmt = conn.createStatement();

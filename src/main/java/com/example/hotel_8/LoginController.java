@@ -176,6 +176,33 @@ public class LoginController {
                             scene.getStylesheets().add("style.css");
                             stage.setScene(scene);
                             stage.show();}
+                        else if(job.equals("Maid")){
+                            try {
+                                System.out.println("test");
+                                root = FXMLLoader.load(getClass().getResource("cleanerProfile.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            scene = new Scene(root);
+                            scene.getStylesheets().add("style.css");
+                            stage.setScene(scene);
+                            stage.show();
+
+                        }else if(job.equals("Main Maid")){
+                            try {
+                                System.out.println("test");
+                                root = FXMLLoader.load(getClass().getResource("mainCleanerProfile.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            scene = new Scene(root);
+                            scene.getStylesheets().add("style.css");
+                            stage.setScene(scene);
+                            stage.show();
+
+                        }
                     }else{
                         idPassword.setText("");
                         wait.setVisible(true);
