@@ -202,6 +202,32 @@ public class LoginController {
                             stage.setScene(scene);
                             stage.show();
 
+                        }else if(job.equals("Cook")){
+                            try {
+                                System.out.println("test");
+                                root = FXMLLoader.load(getClass().getResource("AsCookProfile.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            scene = new Scene(root);
+                            scene.getStylesheets().add("style.css");
+                            stage.setScene(scene);
+                            stage.show();
+
+                        }else if(job.equals("Chef Cook")){
+                            try {
+                                System.out.println("test");
+                                root = FXMLLoader.load(getClass().getResource("povar11.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            scene = new Scene(root);
+                            scene.getStylesheets().add("style.css");
+                            stage.setScene(scene);
+                            stage.show();
+
                         }
                     }else{
                         idPassword.setText("");

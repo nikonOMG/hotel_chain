@@ -70,9 +70,14 @@ public class AttendanceController {
 
         if(Data_work.post.equals("Main Maid")){
             workerlist.setItems(FXCollections.observableArrayList(Data_work.getMaids()));
-        }else
+            workerlist.getSelectionModel().select(0);
+        }else if(Data_work.post.equals("Chef Cook")){
+            workerlist.setItems(FXCollections.observableArrayList(Data_work.getCooks()));
+            workerlist.getSelectionModel().select(0);
+        }else {
             workerlist.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
-
+            workerlist.getSelectionModel().select(1);
+        }
         final ToggleGroup group = new ToggleGroup();
         here.setToggleGroup(group);
         here.setSelected(true);
@@ -82,7 +87,7 @@ public class AttendanceController {
 
 
         attendance.setValue(LocalDate.now());
-        workerlist.getSelectionModel().select(1);
+
         calendarPane.getChildren().add(new FullCalendarView(YearMonth.now(), Integer.parseInt(workerlist.getValue().split(" ")[0])).getView());
 
 

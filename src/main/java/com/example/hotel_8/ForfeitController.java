@@ -56,6 +56,8 @@ public class ForfeitController {
 
         if(Data_work.post.equals("Main Maid")){
             list.setItems(FXCollections.observableArrayList(Data_work.getMaids()));
+        }else if(Data_work.post.equals("Chef Cook")){
+            list.setItems(FXCollections.observableArrayList(Data_work.getCooks()));
         }else
             list.setItems(FXCollections.observableArrayList(Data_work.getWorkers()));
         new AutoCompleteBox( list);
@@ -104,7 +106,7 @@ public class ForfeitController {
                 new IntegerStringConverter(), 100, filter);
 
         sum.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(
-                0, Data_work.finances, Integer.parseInt("100"), 100));
+                0, 1000000, Integer.parseInt("100"), 100));
         sum.setEditable(true);
         sum.getEditor().setTextFormatter(priceFormatter);
 
