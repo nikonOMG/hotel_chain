@@ -43,7 +43,7 @@
       <AnchorPane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #3cc3bd;">
          <children>
             <Pane layoutX="12.0" layoutY="272.0" prefHeight="67.0" prefWidth="226.0" style="-fx-background-color: #33A7A1; -fx-background-radius: 15;" />
-            <Button fx:id="progress" layoutX="25.0" layoutY="120.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="buttn_menu" text="Progres" textFill="WHITE">
+            <Button fx:id="progress" layoutX="25.0" layoutY="120.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="buttn_menu" text="Progress" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -80,18 +80,6 @@
                </effect>
             </Button>
             <Button fx:id="Logout" layoutX="25.0" layoutY="650.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="buttn_menu" text="Log_Out" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color red="0.843137264251709" green="0.9450980424880981" blue="0.9411764740943909" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <Button fx:id="Mealschedule" layoutX="25.0" layoutY="360.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="buttn_menu" text="Meal schedule" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>

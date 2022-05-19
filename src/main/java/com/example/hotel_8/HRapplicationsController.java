@@ -113,23 +113,11 @@ public class HRapplicationsController {
             inbox.open(Folder.READ_WRITE);
 
 
-            Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), true));
+            Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
             System.out.println("messages.length---" + messages.length);
             double percent = 1.f/ messages.length;
             for (int i = 0, n = messages.length; i < n; i++) {
                 Message message = messages[i];
-                System.out.println(i);
-
-
-
-
-
-
-
-
-
-
-
 
                 oblist.add(new Applications((int) message.getMessageNumber(), message.getFrom()[0].toString(), message.getSubject(), message.getSentDate().toString()));
                 System.out.println((i + 1) * percent);

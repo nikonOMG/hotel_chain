@@ -29,7 +29,7 @@
          </font>
       </Text>
       <DatePicker fx:id="getDateofBirth" layoutX="300.0" layoutY="280.0" prefHeight="40.0" prefWidth="320.0" styleClass="combo" />
-      <Text fill="#2eb1ab" layoutX="305.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Bitrth">
+      <Text fill="#2eb1ab" layoutX="305.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth">
          <font>
             <Font size="20.0" />
          </font>

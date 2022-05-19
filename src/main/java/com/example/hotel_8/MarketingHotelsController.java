@@ -163,14 +163,14 @@ public class MarketingHotelsController {
         yAxis.setLabel("Hotel");
 
         XYChart.Series<Number, String> dataSeries1 = new XYChart.Series<Number, String>();
-        dataSeries1.setName("Rooms");
+        dataSeries1.setName("Clients");
 
 
         XYChart.Series<Number, String> dataSeries2 = new XYChart.Series<Number, String>();
-        dataSeries2.setName("Clients");
+        dataSeries2.setName("Workers");
 
         XYChart.Series<Number, String> dataSeries3 = new XYChart.Series<Number, String>();
-        dataSeries3.setName("Workers");
+        dataSeries3.setName("Rooms");
 
         con.entrySet().stream()
                 .sorted((k1, k2) -> -k2.getKey().compareTo(k1.getKey()))
