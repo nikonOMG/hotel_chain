@@ -4,50 +4,50 @@ Run MainApplication.java
 
 # Accounts:
 
-#   Main Admin:
+Main Admin:
       Hotel: Other
       Login: Admin
       Password: 12345
-#   Marketing specialist:
+Marketing specialist:
       Hotel: Other
       Login: Dj
       Password: 12345
-#   Owner:
+Owner:
       Hotel: Other
       Login: owner
       Password: 12345
 
 
 
-#   Receptionist:
+Receptionist:
       Hotel: Land Scapa
       Login: Aidar
       Password: 12345 
-#   Director:
+Director:
       Hotel: Land Scapa
       Login: Di
       Password: 12345
-#   Admin:
+Admin:
       Hotel: Land Scapa
       Login: admin
       Password: 12345
-#   HR manager:
+HR manager:
       Hotel: Land Scapa
       Login: Amir
       Password: 12345
-#   Maid:
+Maid:
       Hotel: Land Scapa
       Login: Bef
       Password: 12345
-#   Main maid:
+Main maid:
       Hotel: Land Scapa
       Login: bef
       Password: 12345
-#   Chef:
+Chef:
       Hotel: Land Scapa
       Login: Keso
       Password: 12345
-#   Cook:
+Cook:
       Hotel: Land Scapa
       Login: miha
       Password: 12345
